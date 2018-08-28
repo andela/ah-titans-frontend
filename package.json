@@ -61,6 +61,10 @@
     "setupTestFrameworkScriptFile": "<rootDir>/tests/setup/setupEnzyme.js",
     "testPathIgnorePatterns": [
       "<rootDir>/tests/setup/"
-    ]
+    ],
+    "transform": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/fileTransformer.js",
+      "^.+\\.js$": "babel-jest"
+    }
   }
 }
