@@ -47,6 +47,7 @@
     "webpack-merge": "^4.1.4"
   },
   "dependencies": {
+    "babel-jest": "^23.4.2",
     "clean-webpack-plugin": "^0.1.19",
     "express": "^4.16.3",
     "file-loader": "^2.0.0",
