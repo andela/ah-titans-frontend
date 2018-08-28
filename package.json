@@ -6,6 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --hot --open ",
     "dev": "webpack --mode development",
+    "deploy": "webpack --config webpack.prod.js",
+    "prod": "NODE_ENV=production node server.js",
     "build": "webpack --config webpack.prod.js",
     "test": "jest",
     "test:watch": "jest --watch",
