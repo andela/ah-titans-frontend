@@ -22,16 +22,14 @@ module.exports = {
         options: { presets: ['env', ], },
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', ],
-      },
-      {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/, ],
         loader: require.resolve('url-loader'),
         options: {
           limit: 10000,
           name: 'static/media/[name].[hash:8].[ext]',
         },
+        test: /\.(scss|css)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
