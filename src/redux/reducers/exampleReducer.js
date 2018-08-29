@@ -1,4 +1,4 @@
-function exampleReducer(state = [], action = []) {
+function exampleReducer(state = [], action = {}) {
   switch (action.type) {
   default:
     return state;
