@@ -20,14 +20,6 @@ if (danger.github.pr.body.length < 10) {
   fail('This pull request needs a description.');
 }
 
-// Check for reference to JIRA issue
-const JIRA_REGEX = /(DAR-|MLSSERV-)/;
-if (!JIRA_REGEX.test(bodyAndTitle)) {
-  warn(
-    'Is this PR related to a Jira issue? If so link it via the PR title or description by adding the issue id (DAR-XXX)'
-  );
-}
-
 // Warn when there is a big PR
 const bigPRThreshold = 2000;
 if (pr.additions + pr.deletions > bigPRThreshold) {
@@ -74,24 +66,5 @@ if (changedComponents.length > 0 && !skipVisualDiff && !hasScreenShots) {
   const output = `Should there be images to represent these components:
   ${changedComponents.map(f => `- \`${f}\``).join('\n')}
   If these changes are not visual, please update your PR body to include "Skip Visual Diff".`;
-  warn(output);
-}
-
-// Check that every component touched has a corresponding story
-const correspondingStoriesForChangedComponents = uniq(
-  changedComponents.map((f) => {
-    const newPath = path.dirname(f);
-    return `${newPath}/__stories__/index.js`;
-  })
-);
-
-const missingStories = correspondingStoriesForChangedComponents.filter(
-  f => !fs.existsSync(f)
-);
-
-if (missingStories.length && !skipStories) {
-  const output = `Missing Stories:
-${missingStories.map(f => `- \`${f}\``).join('\n')}
-If these stories should not exist, please update your PR body to include "Skip Stories".`;
   warn(output);
 }
