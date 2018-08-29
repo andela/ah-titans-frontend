@@ -20,10 +20,7 @@ jobs:
           paths:
             - ./node_modules
       - run: yarn add danger
-      - run:
-          name: Run Danger on PR's
-          command: |
-            - yarn danger ci
+      - run: yarn danger ci
       - run: # run tests
           name: Run Test and Coverage
           command: |
