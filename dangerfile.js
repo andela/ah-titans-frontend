@@ -2,8 +2,6 @@ import {
   danger, fail, message, warn
   ,
 } from 'danger';
-
-const jest = require('danger-plugin-jest').default;
 // Exactly 1 reviewer is required.
 const reviewersCount = danger.github.requested_reviewers.users.length;
 if (reviewersCount === 0) {
@@ -44,6 +42,3 @@ if (danger.github.pr.deletions > danger.github.pr.additions) {
     '👏 Great job! I see more lines deleted than added. Thanks for keeping us lean!'
   );
 }
-
-// Run jest test suites
-jest();
