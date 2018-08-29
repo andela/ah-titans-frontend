@@ -1,7 +1,7 @@
 const { danger, warn, fail, } = require('danger');
 const fs = require('fs');
 const path = require('path');
-const eslint = require('danger-plugin-eslint');
+
 // Setup
 const pr = danger.github.pr;
 const bodyAndTitle = (pr.body + pr.title).toLowerCase();
@@ -66,5 +66,3 @@ if (changedComponents.length > 0 && !skipVisualDiff && !hasScreenShots) {
   If these changes are not visual, please update your PR body to include "Skip Visual Diff".`;
   warn(output);
 }
-
-eslint();
