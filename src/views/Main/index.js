@@ -2,8 +2,7 @@ import React from 'react';
 import { Switch, Route, } from 'react-router-dom';
 import Home from '../../components/Home';
 import Login from '../../components/Login';
-
-const NotFound = () => <h1>Not found</h1>;
+import NotFound from '../../views/Error_pages/page_not_found';
 
 const Main = () => (
   <main>
