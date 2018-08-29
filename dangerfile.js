@@ -1,4 +1,4 @@
-const jest = require('danger-plugin-jest').default;
+const eslint = require('danger-plugin-eslint');
 const { message, danger, warn, } = require('danger');
 
 // Output all modified files in the PR
@@ -15,5 +15,5 @@ if (danger.github.pr.additions + danger.github.pr.deletions > bigPRThreshold) {
   );
 }
 
-// Run jest test suites
-jest();
+// Run eslint
+eslint();
