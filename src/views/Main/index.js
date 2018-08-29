@@ -1,6 +1,6 @@
 import React from 'react';
 import { Switch, Route, } from 'react-router-dom';
-import Home from '../Home';
+import Home from '../../components/Home';
 import Login from '../../components/Login';
 
 // The Main component renders one of the three provided
