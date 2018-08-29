@@ -1,8 +1,7 @@
 const { danger, warn, fail, } = require('danger');
-const { uniq, } = require('lodash');
 const fs = require('fs');
 const path = require('path');
-
+const eslint = require('danger-plugin-eslint');
 // Setup
 const pr = danger.github.pr;
 const bodyAndTitle = (pr.body + pr.title).toLowerCase();
@@ -10,7 +9,6 @@ const bodyAndTitle = (pr.body + pr.title).toLowerCase();
 // Custom modifiers for people submitting PRs to be able to say "skip this"
 const skipTests = bodyAndTitle.includes('skip new tests');
 const skipVisualDiff = bodyAndTitle.includes('skip visual diff');
-const skipStories = bodyAndTitle.includes('skip stories');
 const hasScreenShots = pr.body.includes('.png')
   || pr.body.includes('.jpg')
   || pr.body.includes('.gif');
@@ -68,3 +66,5 @@ if (changedComponents.length > 0 && !skipVisualDiff && !hasScreenShots) {
   If these changes are not visual, please update your PR body to include "Skip Visual Diff".`;
   warn(output);
 }
+
+eslint();
