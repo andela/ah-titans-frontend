@@ -19,14 +19,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: Export environment variables
-          command: |
-            export DANGER_GITHUB_API_TOKEN=935ac067c3c59973dd3684dd46a2b9489c3ca444
       - run: # run tests
           name: Run Test and Coverage
           command: |
             ./cc-test-reporter before-build
             npm test -- --coverage
             ./cc-test-reporter after-build --exit-code $? || true
-            npm danger ci
