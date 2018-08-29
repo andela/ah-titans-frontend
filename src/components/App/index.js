@@ -1,8 +1,9 @@
 import React from 'react';
 import Loader from '../Loader';
+import './index.css';
 
 const App = () => (
-  <div align="center">
+  <div className="app">
     <Loader />
     <h1>Welcome to Authors Haven</h1>
   </div>
