@@ -1,6 +1,6 @@
 # Authors' Haven FrontEnd
 
-[![Build Status](https://travis-ci.org/andela/ah-titans-frontend.svg?branch=develop)](https://travis-ci.org/andela/ah-titans-frontend)[![Maintainability](https://api.codeclimate.com/v1/badges/ebbabfe8fcffc2b149ed/maintainability)](https://codeclimate.com/github/andela/ah-titans-frontend/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ebbabfe8fcffc2b149ed/test_coverage)](https://codeclimate.com/github/andela/ah-titans-frontend/test_coverage)
+[![CircleCI](https://circleci.com/gh/andela/ah-titans-frontend.svg?style=svg)](https://circleci.com/gh/andela/ah-titans-frontend) [![Maintainability](https://api.codeclimate.com/v1/badges/ebbabfe8fcffc2b149ed/maintainability)](https://codeclimate.com/github/andela/ah-titans-frontend/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/ebbabfe8fcffc2b149ed/test_coverage)](https://codeclimate.com/github/andela/ah-titans-frontend/test_coverage)
 
 ## Vision
 
