@@ -19,10 +19,8 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run:
-          name: Run Danger
-          command: |
-            - yarn danger ci
+      - run: yarn add danger
+      - run: DEBUG="*" yarn danger --dangerfile dangerfile.js --text-only
       - run: # run tests
           name: Run Test and Coverage
           command: |
