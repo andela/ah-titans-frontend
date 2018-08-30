@@ -6,14 +6,14 @@ import SignupForm from './components/SignupForm';
 
 describe('User Signup', () => {
   it('renders the signup form', () => {
-    const wrapper = shallow(<Signup />);
+    const signupWrapper = shallow(<Signup />);
 
-    expect(wrapper.find('SignupForm').length).toBe(1);
+    expect(signupWrapper.find('SignupForm').length).toBe(1);
 
   });
   it('returns a form', () => {
-    const wrapper = shallow( <SignupForm /> );
+    const signupFormWrapper = shallow( <SignupForm /> );
 
-    expect(wrapper.find('form').length).toEqual(1);
+    expect(signupFormWrapper.find('form').length).toEqual(1);
   });
 });
