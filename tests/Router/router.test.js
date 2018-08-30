@@ -3,8 +3,8 @@ import { mount, shallow, } from 'enzyme';
 import { Route, MemoryRouter, } from 'react-router';
 import App from '../../src/views/App';
 import Main from '../../src/views/Main';
-import Login from '../../src/components/Login';
-import Home from '../../src/components/Home';
+import Login from '../../src/Login';
+import Home from '../../src/Home';
 import NotFound from '../../src/views/Error_pages/page_not_found';
 
 it('renders correct routes', () => {

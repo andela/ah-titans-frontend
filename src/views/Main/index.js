@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route, } from 'react-router-dom';
-import Home from '../../components/Home';
-import Login from '../../components/Login';
-import Signup from '../../components/signup/Signup';
-import NotFound from '../../views/Error_pages/page_not_found';
+import Home from '../../Home';
+import Login from '../../Login';
+import Signup from '../../Signup/containers/Signup';
+import NotFound from '../Error_pages/page_not_found';
 
 const Main = () => (
   <main>

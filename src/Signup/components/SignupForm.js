@@ -1,18 +1,12 @@
-import React, { Component, } from 'react';
+import React from 'react';
+import { Link, } from 'react-router-dom';
 import './Signup.css';
 
 const Logo = require('../../assets/logo.png');
 
-class Signup extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    };
-  }
-
-  render() {
-    return (
+class SignupForm extends React.Component {
+    render () {
+      return (
       <div className="container flex-container">
         <div className="card">
           <div className="box" id="sign-up">
@@ -38,13 +32,13 @@ class Signup extends Component {
               <button type="submit" name="signup">Sign up for free</button>
               <div className="clear">
                 Already have an account?
-                <a href="#signin">Signin here</a>
+                <Link to="/login"> Login </Link>
               </div>
             </form>
           </div>
         </div>
       </div>
     );
-  }
+  };
 }
-export default Signup;
+export default SignupForm;
