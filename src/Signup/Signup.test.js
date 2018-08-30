@@ -11,9 +11,9 @@ describe('User Signup', () => {
     expect(wrapper.find('SignupForm').length).toBe(1);
 
   });
-  it('renders a form', () => {
+  it('returns a form', () => {
     const wrapper = shallow( <SignupForm /> );
 
-    expect(wrapper.find('form').length).toBe(1);
+    expect(wrapper.find('form').length).toEqual(1);
   });
 });
