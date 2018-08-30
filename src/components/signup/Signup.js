@@ -13,7 +13,7 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="container flex">
+      <div className="container flex-container">
         <div className="card">
           <div className="box" id="sign-up">
             <div className="logo">
@@ -21,7 +21,7 @@ class Signup extends Component {
             </div>
             <h2 className="title"> Sign up now </h2>
           </div>
-          <div className="form ">
+          <div className="form">
             <form>
               <div>
                 <input type="text" name="username" placeholder="Your username" required />
@@ -36,7 +36,7 @@ class Signup extends Component {
                 <input type="password" name="password" placeholder="Confirm your password" required />
               </div>
               <button type="submit" name="signup">Sign up for free</button>
-              <div>
+              <div className="clear">
                 Already have an account?
                 <a href="#signin">Signin here</a>
               </div>
