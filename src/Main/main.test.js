@@ -19,14 +19,16 @@ it('renders correct routes', () => {
   expect(pathMap['/login']).toBe(Login);
 });
 
-test('invalid path should redirect to 404', () => {
-  const wrapper = mount(
-    <MemoryRouter initialEntries={['/random']}>
-      <App />
-    </MemoryRouter>
-  );
-  expect(wrapper.find(Login)).toHaveLength(0);
-  expect(wrapper.find(NotFound)).toHaveLength(1);
+describe('invalid path should redirect to 404', () => {
+  it('redirects to 404', () => {
+    const wrapper = mount(
+      <MemoryRouter initialEntries={['/random']}>
+        <App />
+      </MemoryRouter>
+    );
+    expect(wrapper.find(Login)).toHaveLength(0);
+    expect(wrapper.find(NotFound)).toHaveLength(1);
+  });
 });
 
 test('valid path should not redirect to 404', () => {
