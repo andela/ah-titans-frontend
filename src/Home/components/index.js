@@ -1,5 +1,5 @@
 import React from 'react';
-import Loader from '../views/Loader';
+import Loader from '../../Loader/components';
 
 import './index.scss';
 

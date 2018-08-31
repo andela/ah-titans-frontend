@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow, } from 'enzyme';
-import Home from '../../src/Home';
+import Login from './components';
 
-describe('Home', () => {
+describe('Login', () => {
   it('renders without crashing', () => {
-    shallow(<Home />);
+    shallow(<Login />);
   });
 });

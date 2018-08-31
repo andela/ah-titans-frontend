@@ -1,11 +1,11 @@
 import React from 'react';
 import { mount, shallow, } from 'enzyme';
 import { Route, MemoryRouter, } from 'react-router';
-import App from '../../src/views/App';
-import Main from '../../src/views/Main';
-import Login from '../../src/Login';
-import Home from '../../src/Home';
-import NotFound from '../../src/views/Error_pages/page_not_found';
+import App from '../App';
+import Main from './components';
+import Login from '../Login/components';
+import Home from '../Home/components';
+import NotFound from '../Error_pages/components/page_not_found';
 
 it('renders correct routes', () => {
   const wrapper = shallow(<Main />);

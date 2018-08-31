@@ -9,9 +9,11 @@ const SignupForm = () => (
     <div className="card">
       <div className="box" id="sign-up">
         <div className="logo">
-          <img src={Logo} alt="App logo" />
+          <img src={Logo} alt="App logo" style={{ width: '200px', height: '200px', }} />
         </div>
-        <h2 className="title"> Sign up now </h2>
+        <div>
+          <h2 className="title"> Sign up now </h2>
+        </div>
       </div>
       <div className="form">
         <form>

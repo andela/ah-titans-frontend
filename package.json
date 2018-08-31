@@ -68,9 +68,9 @@
     "url-loader": "^1.1.1"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/tests/setup/setupEnzyme.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupEnzyme.js",
     "testPathIgnorePatterns": [
-      "<rootDir>/tests/setup/"
+      "<rootDir>/src/setupEnzyme.js"
     ],
     "transform": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/fileTransformer.js",
