@@ -1,75 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  Button,
+  Card,
+  Row,
+  Col,
+  Form,
+  Input,
+  Container
+} from "react-materialize";
 import "./Signup.scss";
 
 const SignupForm = () => (
-  <div className="container">
-    <div className="card-panel clear">
-      <div>
-        <h4 className="blue-text">Sign up</h4>
-      </div>
-      <div className="row">
-        <form className="col s12">
-          <div row>
-            <div className="input-field col s6">
-              <input
-                type="text"
-                name="lname"
-                id="lname"
-                className="validate"
-                required="required"
-              />
-              <label htmlfor="lname">Username:</label>
-            </div>
-            <div className="input-field col s6">
-              <input
-                type="email"
-                name="email"
-                id="email"
-                className="validate"
-                required="required"
-              />
-              <label htmlfor="email">Email:</label>
-            </div>
-            <div className="input-field col s6">
-              <input
-                type="password"
-                name="password"
-                id="password"
-                className="validate"
-                required="required"
-              />
-              <label htmlfor="password">Password:</label>
-            </div>
-            <div className="input-field col s6">
-              <input
-                type="password"
-                name="repassword"
-                id="repassword"
-                className="validate"
-                required="required"
-              />
-              <label htmlfor="repassword">Retype Password:</label>
-            </div>
-            <div className="col s6">
-              <button
-                className="btn waves-effect light-waves blue"
-                type="submit"
-                name="signup"
-              >
-                Sign up
-              </button>
-            </div>
-            <div className="col s6">
-              <p>
-                Have an Account?
-                <Link to="/login">Login</Link>
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
+  <div style={{ marginTop: "10%" }}>
+    <Row>
+      <Col s={8} offset="s2">
+        <Card textClassName="black-text" title="Sign up">
+          <Row>
+            <Input s={6}  label="Username:" />
+            <Input s={6}  type="email" label="Email:" />
+            <Input s={6}  type="password" label="Password:" />
+            <Input s={6}  type="password" label="Repeat password:" />
+            <Col s={6}>
+              <Button s={6} className="blue" waves="light">
+                SIGNUP
+              </Button>
+            </Col>
+            <Col s={6}>
+              Have an Account?
+              <Link to="/login">Login</Link>
+            </Col>
+          </Row>
+        </Card>
+      </Col>
+    </Row>
   </div>
 );
 
