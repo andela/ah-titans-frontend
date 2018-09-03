@@ -22,21 +22,12 @@ class Signup extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const { username, email, password, } = this.state;
-
-    const user = {
-      user: {
-        username,
-        email,
-        password,
-      },
-    };
-
-    this.props.createUser(user);
+    this.props.createUser({ user: this.state, });
   }
 
   render() {
-    const error = this.props.signup.error;
+    const { error, } = this.props.signup;
+
     return (
       <div>
         <SignupForm onChange={this.handleChange} onClick={this.handleSubmit} error={error} />

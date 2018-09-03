@@ -1,6 +1,9 @@
-import { CREATE_USER, CREATE_USER_ERROR, } from './types';
+import { CREATE_USER, CREATE_USER_ERROR, SIGNUP_REQUEST, } from './types';
+
+const signingUp = () => ({ type: SIGNUP_REQUEST, });
 
 const createUser = userData => (dispatch) => {
+  signingUp();
   fetch('https://ah-titans-api.herokuapp.com/api/users/', {
     method: 'POST',
     headers: {
