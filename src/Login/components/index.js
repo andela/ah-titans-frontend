@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, } from 'react-router-dom';
 import {
   Col, Card, Row, Input, Button,
@@ -17,10 +18,9 @@ const LoginForm = () => (
             <Button waves="light">login with email</Button>
           </Col>
           <Col m={6} s={12}>
-            <p style={{ color: 'black', }}> 
+            <p style={{ color: 'black', }}>
               Not a member?
-              <span> </span>
-              <Link to="/signup">Signup</Link>
+              <Link to="/signup"> Signup</Link>
             </p>
           </Col>
         </Row>
@@ -37,5 +37,8 @@ const LoginForm = () => (
   </Row>
 );
 
+LoginForm.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default LoginForm;
