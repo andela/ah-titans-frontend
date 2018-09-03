@@ -1,26 +1,25 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link, } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Button,
   Card,
   Row,
   Col,
-  Form,
   Input,
-  Container
-} from "react-materialize";
-import "./Signup.scss";
+} from 'react-materialize';
+import './Signup.scss';
 
 const SignupForm = () => (
-  <div style={{ marginTop: "10%" }}>
+  <div style={{ marginTop: '10%', }}>
     <Row>
       <Col s={8} offset="s2">
         <Card textClassName="black-text" title="Sign up">
           <Row>
-            <Input s={6}  label="Username:" />
-            <Input s={6}  type="email" label="Email:" />
-            <Input s={6}  type="password" label="Password:" />
-            <Input s={6}  type="password" label="Repeat password:" />
+            <Input s={6} label="Username:" />
+            <Input s={6} type="email" label="Email:" />
+            <Input s={6} type="password" label="Password:" />
+            <Input s={6} type="password" label="Repeat password:" />
             <Col s={6}>
               <Button s={6} className="blue" waves="light">
                 SIGNUP
@@ -36,5 +35,9 @@ const SignupForm = () => (
     </Row>
   </div>
 );
+
+SignupForm.prototype = {
+  submit: PropTypes.func.isRequired,
+};
 
 export default SignupForm;
