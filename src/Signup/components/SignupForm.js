@@ -1,18 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Signup.scss';
 
 const Logo = require('../../assets/logo.png');
 
+<<<<<<< Updated upstream
 const SignupForm = ({
   onChange, onClick, error, isFetching,
 }) => (
+=======
+const SignupForm = ({ onChange, onClick, error }) => (
+>>>>>>> Stashed changes
   <div className="container flex-container">
     <div className="card">
       <div className="box" id="sign-up">
         <div className="logo">
-          <img src={Logo} alt="App logo" style={{ width: '200px', height: '200px', }} />
+          <img
+            src={Logo}
+            alt="App logo"
+            style={{ width: '200px', height: '200px' }}
+          />
         </div>
         <div>
           <h2 className="title"> Sign up now </h2>
@@ -28,7 +36,7 @@ const SignupForm = ({
               required
               onChange={onChange}
             />
-            <div>{error.username}</div>
+            <div>{error ? error.username : ''}</div>
           </div>
           <div>
             <input
@@ -38,7 +46,7 @@ const SignupForm = ({
               required
               onChange={onChange}
             />
-            <div>{error.email}</div>
+            <div>{error ? error.email : ''}</div>
           </div>
           <div>
             <input
@@ -48,7 +56,7 @@ const SignupForm = ({
               required
               onChange={onChange}
             />
-            <div>{error.password}</div>
+            <div>{error ? error.password : ''}</div>
           </div>
           <div>
             <input
@@ -58,7 +66,7 @@ const SignupForm = ({
               required
               onChange={onChange}
             />
-            <div>{error.password}</div>
+            <div>{error ? error.password : ''}</div>
           </div>
           <button type="submit" name="signup" onClick={onClick} disabled={isFetching}>
             {isFetching ? 'Signing up...' : 'Sign up for free'}
