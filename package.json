@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "PORT=4000 webpack-dev-server --config webpack.dev.js --hot --open ",
+    "start": "webpack-dev-server --config webpack.dev.js --hot --open",
     "dev": "webpack --mode development",
     "deploy": "webpack --config webpack.prod.js",
     "build": "webpack --config webpack.prod.js",

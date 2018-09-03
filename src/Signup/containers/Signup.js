@@ -12,7 +12,7 @@ class Signup extends Component {
       username: '',
       password: '',
     };
-    this.handleChenge = this.handleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -36,9 +36,10 @@ class Signup extends Component {
   }
 
   render() {
+    const error = this.props.signup.error;
     return (
       <div>
-        <SignupForm onChange={this.handleChange} onClick={this.handleSubmit} />
+        <SignupForm onChange={this.handleChange} onClick={this.handleSubmit} error={error} />
       </div>
     );
   }
@@ -50,6 +51,7 @@ Signup.propTypes = {
 const mapStateToProps = ({ signup, }) => ({
   signup,
 });
+
 export default connect(
   mapStateToProps,
   { createUser, }
