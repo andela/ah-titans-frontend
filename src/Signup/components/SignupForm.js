@@ -5,8 +5,7 @@ import './Signup.scss';
 
 const Logo = require('../../assets/logo.png');
 
-const SignupForm = ({ onChange, onClick, }) => (
-  // const error = this.props.signup.error;
+const SignupForm = ({ onChange, onClick, error, }) => (
   <div className="container flex-container">
     <div className="card">
       <div className="box" id="sign-up">
@@ -27,6 +26,7 @@ const SignupForm = ({ onChange, onClick, }) => (
               required
               onChange={onChange}
             />
+            <div>{error.username}</div>
           </div>
           <div>
             <input
@@ -36,6 +36,7 @@ const SignupForm = ({ onChange, onClick, }) => (
               required
               onChange={onChange}
             />
+            <div>{error.email}</div>
           </div>
           <div>
             <input
@@ -45,6 +46,7 @@ const SignupForm = ({ onChange, onClick, }) => (
               required
               onChange={onChange}
             />
+            <div>{error.password}</div>
           </div>
           <div>
             <input
@@ -54,6 +56,7 @@ const SignupForm = ({ onChange, onClick, }) => (
               required
               onChange={onChange}
             />
+            <div>{error.password}</div>
           </div>
           <button type="submit" name="signup" onClick={onClick}>
             Sign up for free
