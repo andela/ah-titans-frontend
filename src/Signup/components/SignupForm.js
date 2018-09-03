@@ -1,10 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, } from 'react-router-dom';
 import './Signup.scss';
 
 const Logo = require('../../assets/logo.png');
 
-const SignupForm = () => (
+const SignupForm = ({ onChange, onClick, }) => (
+  // const error = this.props.signup.error;
   <div className="container flex-container">
     <div className="card">
       <div className="box" id="sign-up">
@@ -18,18 +20,44 @@ const SignupForm = () => (
       <div className="form">
         <form>
           <div>
-            <input type="text" name="username" placeholder="Your username" required />
+            <input
+              type="text"
+              name="username"
+              placeholder="Your username"
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
-            <input type="email" name="email" placeholder="Your email" required />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
-            <input type="password" name="password" placeholder="Create your password" required />
+            <input
+              type="password"
+              name="password"
+              placeholder="Create your password"
+              required
+              onChange={onChange}
+            />
           </div>
           <div>
-            <input type="password" name="password" placeholder="Confirm your password" required />
+            <input
+              type="password"
+              name="password"
+              placeholder="Confirm your password"
+              required
+              onChange={onChange}
+            />
           </div>
-          <button type="submit" name="signup">Sign up for free</button>
+          <button type="submit" name="signup" onClick={onClick}>
+            Sign up for free
+          </button>
           <div className="clear">
             Already have an account?
             <Link to="/login"> Login </Link>
@@ -39,5 +67,10 @@ const SignupForm = () => (
     </div>
   </div>
 );
+
+SignupForm.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+};
 
 export default SignupForm;
