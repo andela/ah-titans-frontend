@@ -16,3 +16,10 @@ describe('Signup input fields', () => {
     expect(signupFormWrapper.find('Input').length).toEqual(4);
   });
 });
+
+describe('Signup button', () => {
+  it('renders a signup button', () => {
+    const signupFormWrapper = shallow(<SignupForm />);
+    expect(signupFormWrapper.find('Button').length).toEqual(1);
+  });
+});
