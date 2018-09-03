@@ -26,11 +26,16 @@ class Signup extends Component {
   }
 
   render() {
-    const { error, } = this.props.signup;
+    const { error, isFetching, } = this.props.signup;
 
     return (
       <div>
-        <SignupForm onChange={this.handleChange} onClick={this.handleSubmit} error={error} />
+        <SignupForm
+          onChange={this.handleChange}
+          onClick={this.handleSubmit}
+          error={error}
+          isFetching={isFetching}
+        />
       </div>
     );
   }
