@@ -5,7 +5,9 @@ import './Signup.scss';
 
 const Logo = require('../../assets/logo.png');
 
-const SignupForm = ({ onChange, onClick, error, }) => (
+const SignupForm = ({
+  onChange, onClick, error, isFetching,
+}) => (
   <div className="container flex-container">
     <div className="card">
       <div className="box" id="sign-up">
@@ -58,8 +60,8 @@ const SignupForm = ({ onChange, onClick, error, }) => (
             />
             <div>{error.password}</div>
           </div>
-          <button type="submit" name="signup" onClick={onClick}>
-            Sign up for free
+          <button type="submit" name="signup" onClick={onClick} disabled={isFetching}>
+            {isFetching ? 'Signing up...' : 'Sign up for free'}
           </button>
           <div className="clear">
             Already have an account?
