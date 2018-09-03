@@ -1,38 +1,71 @@
-import React from 'react';
-import { Link, } from 'react-router-dom';
-import './Signup.scss';
-
-const Logo = require('../../assets/logo.png');
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Signup.scss";
 
 const SignupForm = () => (
-  <div className="container flex-container">
-    <div className="card">
-      <div className="box" id="sign-up">
-        <div className="logo">
-          <img src={Logo} alt="App logo" style={{ width: '200px', height: '200px', }} />
-        </div>
-        <div>
-          <h2 className="title"> Sign up now </h2>
-        </div>
+  <div className="container">
+    <div className="card-panel clear">
+      <div>
+        <h4 className="blue-text">Sign up</h4>
       </div>
-      <div className="form">
-        <form>
-          <div>
-            <input type="text" name="username" placeholder="Your username" required />
-          </div>
-          <div>
-            <input type="email" name="email" placeholder="Your email" required />
-          </div>
-          <div>
-            <input type="password" name="password" placeholder="Create your password" required />
-          </div>
-          <div>
-            <input type="password" name="password" placeholder="Confirm your password" required />
-          </div>
-          <button type="submit" name="signup">Sign up for free</button>
-          <div className="clear">
-            Already have an account?
-            <Link to="/login"> Login </Link>
+      <div className="row">
+        <form className="col s12">
+          <div row>
+            <div className="input-field col s6">
+              <input
+                type="text"
+                name="lname"
+                id="lname"
+                className="validate"
+                required="required"
+              />
+              <label htmlfor="lname">Username:</label>
+            </div>
+            <div className="input-field col s6">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                className="validate"
+                required="required"
+              />
+              <label htmlfor="email">Email:</label>
+            </div>
+            <div className="input-field col s6">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                className="validate"
+                required="required"
+              />
+              <label htmlfor="password">Password:</label>
+            </div>
+            <div className="input-field col s6">
+              <input
+                type="password"
+                name="repassword"
+                id="repassword"
+                className="validate"
+                required="required"
+              />
+              <label htmlfor="repassword">Retype Password:</label>
+            </div>
+            <div className="col s6">
+              <button
+                className="btn waves-effect light-waves blue"
+                type="submit"
+                name="signup"
+              >
+                Sign up
+              </button>
+            </div>
+            <div className="col s6">
+              <p>
+                Have an Account?
+                <Link to="/login">Login</Link>
+              </p>
+            </div>
           </div>
         </form>
       </div>
