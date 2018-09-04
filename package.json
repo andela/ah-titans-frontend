@@ -81,8 +81,7 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupEnzyme.js",
     "testPathIgnorePatterns": [
-      "<rootDir>/src/setupEnzyme.js",
-      "!./src/reducers/exampleReducer.js"
+      "<rootDir>/src/setupEnzyme.js"
     ],
     "transform": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/fileTransformer.js",
@@ -92,7 +91,7 @@
     "automock": false,
     "setupFiles": [
       "./src/setupEnzyme.js"
-    ]
+    ],
     "coverageCollector": "jest-babel-istanbul"
   }
 }
