@@ -79,7 +79,8 @@
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupEnzyme.js",
     "testPathIgnorePatterns": [
-      "<rootDir>/src/setupEnzyme.js"
+      "<rootDir>/src/setupEnzyme.js",
+      "!./src/reducers/exampleReducer.js"
     ],
     "transform": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/fileTransformer.js",

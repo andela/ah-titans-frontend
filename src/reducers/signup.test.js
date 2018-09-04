@@ -6,19 +6,16 @@ describe('Signup has errors if required fields missing', () => {
 });
 
 describe('signup reducer', () => {
-  const requestData = {
+  const user = {
     email: 'johnmusiu@gmail.com',
     username: 'john',
     password: 'johntests',
   };
 
   const initialState = {
-    item: { requestData },
+    item: { user },
     error: {},
     isFetching: false,
-  };
-  const startAction = {
-    type: types.CREATE_USER,
   };
 
   it('should return the initial state', () => {
@@ -33,6 +30,29 @@ describe('signup reducer', () => {
     expect(reducer(initialState, startAction)).toEqual({
       ...initialState,
       isFetching: true,
+    });
+  });
+
+  it('should return an error', () => {
+    const startAction = {
+      type: types.CREATE_USER_ERROR,
+      payload: { errors: { username: 'some error' } },
+    };
+
+    expect(reducer(initialState, startAction)).toEqual({
+      ...initialState,
+      error: { username: 'some error' },
+    });
+  });
+
+  it('should return a user object', () => {
+    const startAction = {
+      type: types.CREATE_USER,
+      payload: { user: { user } },
+    };
+
+    expect(reducer(initialState, startAction)).toEqual({
+      ...initialState,
     });
   });
 });
