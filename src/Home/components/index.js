@@ -1,7 +1,7 @@
 import React from 'react';
+import SnackBar from 'react-material-snackbar';
 import { connect, } from 'react-redux';
 import Loader from '../../Loader/components';
-
 import './index.scss';
 
 const Home = (props) => {
@@ -9,9 +9,14 @@ const Home = (props) => {
   return (
     <div className="app">
       <Loader />
-      {new_user
-        ? 'You have successfully signed up to Authors Haven!! Please check your email to verify your account'
-        : ''}
+      {new_user ? (
+        <SnackBar show timer={6000} className="home">
+          You have successfully signed up to Authors Haven!! Please check your email to verify your
+          account
+        </SnackBar>
+      ) : (
+        ''
+      )}
       <h1>Welcome to Authors Haven!</h1>
     </div>
   );
