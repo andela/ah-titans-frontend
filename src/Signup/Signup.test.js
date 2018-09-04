@@ -9,11 +9,6 @@ describe('User Signup', () => {
   it('renders the signup succefully', () => {
     shallow(<Signup store={store} onChange={() => ''} onClick={() => ''} />);
   });
-  it('returns a form', () => {
-    shallow(
-      <SignupForm store={store} onChange={() => ''} onClick={() => ''} />,
-    );
-  });
 });
 
 describe('Signup from', () => {
