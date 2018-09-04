@@ -1,33 +1,27 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import { Button, Card, Row, Col, Input } from 'react-materialize';
+import { Link, } from 'react-router-dom';
+import {
+  Button, Card, Row, Col, Input,
+} from 'react-materialize';
 import './Signup.scss';
 
-const SignupForm = ({ onChange, onClick, error, isFetching }) => (
-  <div style={{ marginTop: '10%' }}>
+const SignupForm = ({
+  onChange, onClick, error, isFetching, successMessage, items,
+}) => (
+  <div style={{ marginTop: '10%', }}>
     <Row>
       <Col s={8} offset="s2">
         <Card textClassName="black-text" title="Sign up">
+          <div className="success">{items ? successMessage : ''}</div>
           <Row>
             <Row>
               <Col s={6}>
-                <Input
-                  s={12}
-                  label="Username:"
-                  onChange={onChange}
-                  name="username"
-                />
+                <Input s={12} label="Username:" onChange={onChange} name="username" />
                 <div className="error">{error ? error.username : ''}</div>
               </Col>
               <Col s={6}>
-                <Input
-                  s={12}
-                  type="email"
-                  label="Email:"
-                  onChange={onChange}
-                  name="email"
-                />
+                <Input s={12} type="email" label="Email:" onChange={onChange} name="email" />
                 <div className="error">{error ? error.email : ''}</div>
               </Col>
             </Row>
@@ -54,13 +48,7 @@ const SignupForm = ({ onChange, onClick, error, isFetching }) => (
               </Col>
             </Row>
             <Col s={6}>
-              <Button
-                s={6}
-                className="blue"
-                waves="light"
-                onClick={onClick}
-                disabled={isFetching}
-              >
+              <Button s={6} className="blue" waves="light" onClick={onClick} disabled={isFetching}>
                 {isFetching ? 'SIGNING UP...' : 'SIGNUP'}
               </Button>
             </Col>
