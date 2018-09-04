@@ -7,12 +7,13 @@ import {
 import './Signup.scss';
 
 const SignupForm = ({
-  onChange, onClick, error, isFetching,
+  onChange, onClick, error, isFetching, successMessage, items,
 }) => (
   <div style={{ marginTop: '10%', }}>
     <Row>
       <Col s={8} offset="s2">
         <Card textClassName="black-text" title="Sign up">
+          <div className="success">{items ? successMessage : ''}</div>
           <Row>
             <Row>
               <Col s={6}>
