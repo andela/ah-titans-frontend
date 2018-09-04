@@ -1,6 +1,6 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
-import { Link, } from 'react-router-dom';
+import { withRouter, } from 'react-router-dom';
 import { connect, } from 'react-redux';
 import createUser from '../../actions/signup';
 import SignupForm from '../components/SignupForm';
@@ -24,7 +24,12 @@ class Signup extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createUser({ user: this.state, });
-    <Link to="/login" />;
+    if (this.props.signup.error === {}) {
+      if (Object.keys(this.props.signup.error).length === 0) {
+        this.props.history.push('/login');
+      }
+      this.props.history.push('/login');
+    }
   }
 
   render() {
