@@ -18,5 +18,8 @@ module.exports = {
   globals: {
     fetch: false,
     localStorage: false,
+    describe: false,
+    it: false,
+    expect: false,
   },
 };
