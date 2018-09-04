@@ -5,8 +5,11 @@ import Signup from './containers/Signup';
 import SignupForm from './components/SignupForm';
 
 describe('User Signup', () => {
-  it('renders the signup form succefully', () => {
+  it('renders the signup succefully', () => {
     shallow(<Signup />);
+  });
+  it('returns a form', () => {
+    shallow(<SignupForm />);
   });
 });
 
