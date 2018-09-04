@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Signup from './containers/Signup';
 import SignupForm from './components/SignupForm';
@@ -8,17 +8,23 @@ import * as types from '../actions/types';
 import store from '../store';
 
 describe('User Signup', () => {
-  it('renders the signup form succefully', () => {
+  it('renders the signup succefully', () => {
     shallow(<Signup store={store} onChange={() => ''} onClick={() => ''} />);
+  });
+  it('returns a form', () => {
+    shallow(
+      <SignupForm store={store} onChange={() => ''} onClick={() => ''} />,
+    );
   });
 });
 
-describe('Signup form', () => {
-  it('returns a form', () => {
+describe('Signup from', () => {
+  it('renders input fields and a button ', () => {
     const signupFormWrapper = shallow(
-      <SignupForm store={store} onChange={() => ''} onClick={() => ''} />
+      <SignupForm store={store} onChange={() => ''} onClick={() => ''} />,
     );
-    expect(signupFormWrapper.find('form').length).toEqual(1);
+    expect(signupFormWrapper.find('Input').length).toEqual(4);
+    expect(signupFormWrapper.find('Button').length).toEqual(1);
   });
 });
 
