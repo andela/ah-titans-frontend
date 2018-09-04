@@ -7,7 +7,7 @@ describe('Creation of new article', () => {
   it('should render the create article component', () => {
     shallow(<NewArticle />);
   });
-  it('renders input necessary fields', () => {
+  it('renders necessary input fields', () => {
     const wrapper = shallow(<NewArticle />);
     expect(wrapper.find('Input').length).toEqual(3);
   });
