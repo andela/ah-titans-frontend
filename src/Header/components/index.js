@@ -1,21 +1,25 @@
 import React from 'react';
 import { Link, } from 'react-router-dom';
-import './index.scss';
-
+import {
+  Navbar, Col,
+} from 'react-materialize';
+import Logo from '../../assets/logo.png';
 // The Header creates links that can be used to navigate
 // between routes.
 const Header = () => (
-  <header>
-    <nav>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <div className="nav-right">
+  <Navbar style={{ backgroundColor: '#3498db', }}>
+    <Col s={8} offset="m2">
+      <Col s={8}><img height="70" width="80" src={Logo} alt="Loading ..." /></Col>
+      <Col s={4}>
+        <ul>
+          <li><Link to="/">Home</Link></li>
           <li><Link to="/login">Login</Link></li>
           <li><Link to="/signup">Signup</Link></li>
-        </div>
-      </ul>
-    </nav>
-  </header>
+        </ul>
+      </Col>
+    </Col>
+
+  </Navbar>
 );
 
 export default Header;
