@@ -5,15 +5,18 @@ import Signup from './containers/Signup';
 import SignupForm from './components/SignupForm';
 
 describe('User Signup', () => {
-  it('renders the signup form succefully', () => {
+  it('renders the signup succefully', () => {
     shallow(<Signup />);
-
+  });
+  it('returns a form', () => {
+    shallow(<SignupForm />);
   });
 });
 
-describe('Signup form', () => {
-  it('returns a form', () => {
+describe('Signup from', () => {
+  it('renders input fields and a button ', () => {
     const signupFormWrapper = shallow(<SignupForm />);
-    expect(signupFormWrapper.find('form').length).toEqual(1);
+    expect(signupFormWrapper.find('Input').length).toEqual(4);
+    expect(signupFormWrapper.find('Button').length).toEqual(1);
   });
 });
