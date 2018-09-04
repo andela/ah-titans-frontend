@@ -27,19 +27,35 @@ describe('Signup has errors if required fields missing', () => {
 });
 
 describe('signup reducer', () => {
+  const requestData = {
+    email: 'johnmusiu@gmail.com',
+    username: 'john',
+    password: 'johntests',
+  };
+
   const initialState = {
-    item: {},
+    item: { requestData },
     error: {},
+    isFetching: false,
+  };
+  const startAction = {
+    type: types.CREATE_USER,
   };
 
   it('should return the initial state', () => {
     expect(reducer(initialState, {})).toEqual(initialState);
   });
 
-  it('should signup a user', () => {
+  it('should set isFetching state to true', () => {
     const startAction = {
-      type: types.CREATE_USER,
+      type: types.SIGNUP_REQUEST,
     };
-    expect(reducer(initialState, startAction)).toEqual({});
+
+    expect(reducer(initialState, startAction)).toEqual({
+      ...initialState,
+      isFetching: true,
+    });
   });
+
+  // it('should raise an error');
 });
