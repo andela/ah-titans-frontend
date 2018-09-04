@@ -13,7 +13,6 @@ const SignupForm = ({
     <Row>
       <Col s={8} offset="s2">
         <Card textClassName="black-text" title="Sign up">
-          <div className="success">{items ? successMessage : ''}</div>
           <Row>
             <Row>
               <Col s={6}>

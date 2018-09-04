@@ -1,6 +1,5 @@
 import React, { Component, } from 'react';
 import PropTypes from 'prop-types';
-import { withRouter, } from 'react-router-dom';
 import { connect, } from 'react-redux';
 import createUser from '../../actions/signup';
 import SignupForm from '../components/SignupForm';
@@ -24,12 +23,11 @@ class Signup extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.signup.user ? this.props.history.push('/login') : <div>lol</div>;
-
-    this.props.createUser({ user: this.state, });
+    this.props.createUser({ user: this.state, }, this.props.history);
   }
 
   render() {
-    const { error, isFetching, item, } = this.props.signup;
+    const { error, isFetching, } = this.props.signup;
     const items = Object.keys(this.props.signup.item).length;
     const successMessage = 'You have successfully signed up to Authors Haven!! Please check your email to verify your account';
 
