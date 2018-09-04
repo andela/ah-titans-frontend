@@ -1,9 +1,10 @@
 import React from 'react';
-import { shallow, } from 'enzyme';
-import Login from './components';
+import { shallow } from 'enzyme';
+import LoginForm from './components';
+import store from '../store';
 
 describe('Login', () => {
   it('renders without crashing', () => {
-    shallow(<Login />);
+    shallow(<LoginForm store={store} onChange={() => ''} onClick={() => ''} />);
   });
 });
