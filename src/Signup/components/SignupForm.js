@@ -36,8 +36,6 @@ const SignupForm = () => (
   </div>
 );
 
-SignupForm.prototype = {
-  submit: PropTypes.func.isRequired,
-};
+SignupForm.propTypes = {};
 
 export default SignupForm;
