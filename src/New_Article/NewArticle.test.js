@@ -11,7 +11,7 @@ describe('Creation of new article', () => {
     const wrapper = shallow(<NewArticle />);
     expect(wrapper.find('Input').length).toEqual(3);
   });
-  it('reners buttons', () => {
+  it('renders buttons', () => {
     expect(shallow(<NewArticle />).find('Button').length).toEqual(2);
   });
 });
