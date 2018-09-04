@@ -8,8 +8,8 @@ describe('Creation of new article', () => {
     shallow(<NewArticle />);
   });
   it('renders necessary input fields', () => {
-    const wrapper = shallow(<NewArticle />);
-    expect(wrapper.find('Input').length).toEqual(3);
+    const NewArticleWrapper = shallow(<NewArticle />);
+    expect(NewArticleWrapper.find('Input').length).toEqual(3);
   });
   it('renders buttons', () => {
     expect(shallow(<NewArticle />).find('Button').length).toEqual(2);
