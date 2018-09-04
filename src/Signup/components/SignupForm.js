@@ -6,19 +6,49 @@ import {
 } from 'react-materialize';
 import './Signup.scss';
 
-const SignupForm = ({ onChange, onClick, }) => (
+const SignupForm = ({
+  onChange, onClick, error, isFetching,
+}) => (
   <div style={{ marginTop: '10%', }}>
     <Row>
       <Col s={8} offset="s2">
         <Card textClassName="black-text" title="Sign up">
           <Row>
-            <Input s={6} label="Username:" onChange={onChange} />
-            <Input s={6} type="email" label="Email:" onChange={onChange} />
-            <Input s={6} type="password" label="Password:" onChange={onChange} />
-            <Input s={6} type="password" label="Repeat password:" onChange={onChange} />
+            <Row>
+              <Col s={6}>
+                <Input s={12} label="Username:" onChange={onChange} name="username" />
+                <div className="error">{error.username}</div>
+              </Col>
+              <Col s={6}>
+                <Input s={12} type="email" label="Email:" onChange={onChange} name="email" />
+                <div className="error">{error.email}</div>
+              </Col>
+            </Row>
+            <Row>
+              <Col s={6}>
+                <Input
+                  s={12}
+                  type="password"
+                  label="Password:"
+                  onChange={onChange}
+                  name="password"
+                />
+                <div className="error">{error.password}</div>
+              </Col>
+              <Col s={6}>
+                <Input
+                  s={12}
+                  type="password"
+                  label="Repeat password:"
+                  onChange={onChange}
+                  name="password"
+                />
+                <div className="error">{error.password}</div>
+              </Col>
+            </Row>
             <Col s={6}>
-              <Button s={6} className="blue" waves="light" onClick={onClick}>
-                SIGNUP
+              <Button s={6} className="blue" waves="light" onClick={onClick} disabled={isFetching}>
+                {isFetching ? 'SIGNING UP...' : 'SIGNUP'}
               </Button>
             </Col>
             <Col s={6}>
