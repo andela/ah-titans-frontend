@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link, } from 'react-router-dom';
 import {
   Navbar, Col,
@@ -21,5 +22,7 @@ const Header = () => (
 
   </Navbar>
 );
+
+Header.propTypes = {};
 
 export default Header;
