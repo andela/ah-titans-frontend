@@ -12,17 +12,31 @@ export const createUserErrorActionCreator = error => ({
   payload: error,
 });
 
-const createUser = userData => (dispatch) => {
+const handleResponse = response => response.text().then((text) => {
+  const data = text && JSON.parse(text);
+  if (!response.ok) {
+    return Promise.reject(data);
+  }
+  return data;
+});
+
+const signup = data => fetch('https://ah-titans-api.herokuapp.com/api/users/', {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/json',
+  },
+  body: JSON.stringify(data),
+}).then(handleResponse);
+
+const createUser = (userData, history) => (dispatch) => {
   dispatch(signingUp());
-  fetch('https://ah-titans-api.herokuapp.com/api/users/', {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(userData),
-  })
-    .then(res => res.json())
-    .then(data => dispatch(createUserActionCreator(data)))
+  signup(userData)
+    .then((data) => {
+      dispatch(createUserActionCreator(data));
+      console.log(data);
+      localStorage.setItem('user', data);
+      history.push('/');
+    })
     .catch(error => dispatch(createUserErrorActionCreator(error)));
 };
 

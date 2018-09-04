@@ -10,20 +10,13 @@ const signupReducer = (state = prevState, action) => {
   case SIGNUP_REQUEST:
     return { ...state, isFetching: true, };
   case CREATE_USER:
-    if (action.payload.errors) {
-      return {
-        ...state,
-        isFetching: false,
-        error: action.payload.errors,
-      };
-    }
     return {
       ...state,
       isFetching: false,
       item: action.payload.user,
     };
   case CREATE_USER_ERROR:
-    return { ...state, error: action.payload.error, isFetching: false, };
+    return { ...state, error: action.payload.errors, isFetching: false, };
 
   default:
     return state;
