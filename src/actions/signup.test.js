@@ -11,7 +11,7 @@ import createUser, {
   createUserErrorActionCreator,
 } from './signup';
 
-import * as types from '../actions/types';
+import * as types from './types';
 
 describe('create actions', () => {
   it('should create an action signingUp', () => {
@@ -40,6 +40,7 @@ describe('create actions', () => {
       email: '',
       password: '',
     };
+
     const expectedAction = {
       type: types.CREATE_USER_ERROR,
       payload: error,
@@ -57,32 +58,16 @@ describe('create user', () => {
         password: 'johntests',
       },
     };
-    fetchMock
-      .getOnce('https://ah-titans-api.herokuapp.com/api/users/', {
-        user,
-        headers: { 'content-type': 'application/json' },
-      })
-      .catch(err => console.log(err));
 
-    const expectedActions = [
-      {
-        type: types.CREATE_USER,
-        payload: { user: { username: 'john', token: 'a-token' } },
+    fetch.mockResponseOnce(JSON.stringify(user));
+    fetch('https://ah-jn-api.herokuapp.com/api/users/', {
+      method: 'POST',
+      body: JSON.stringify({ user: { username: 'Musiu' } }),
+      headers: {
+        'Content-Type': 'application/json',
       },
-      {
-        type: types.CREATE_USER_ERROR,
-        payload: { error: { username: 'some error' } },
-      },
-    ];
-    const store = mockStore({
-      item: {},
-      error: {},
-      isFetching: false,
-    });
-
-    return store.dispatch(createUser(user)).then(() => {
-      // return of async actions
-      expect(store.getActions()).toEqual(expectedActions);
+    }).then(res => {
+      expect(res.body).toEqual(JSON.parse(user));
     });
   });
 });
