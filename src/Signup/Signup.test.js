@@ -10,16 +10,10 @@ describe('User Signup', () => {
   });
 });
 
-describe('Signup input fields', () => {
-  it('renders input fields', () => {
+describe('Signup from', () => {
+  it('renders input fields and a button ', () => {
     const signupFormWrapper = shallow(<SignupForm />);
     expect(signupFormWrapper.find('Input').length).toEqual(4);
-  });
-});
-
-describe('Signup button', () => {
-  it('renders a signup button', () => {
-    const signupFormWrapper = shallow(<SignupForm />);
     expect(signupFormWrapper.find('Button').length).toEqual(1);
   });
 });
