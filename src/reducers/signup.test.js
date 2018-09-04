@@ -35,6 +35,4 @@ describe('signup reducer', () => {
       isFetching: true,
     });
   });
-
-  // it('should raise an error');
 });
