@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { shallow, } from 'enzyme';
 
 import Signup from './containers/Signup';
 import SignupForm from './components/SignupForm';
@@ -16,7 +16,7 @@ describe('User Signup', () => {
 describe('Signup form', () => {
   it('returns a form', () => {
     const signupFormWrapper = shallow(
-      <SignupForm store={store} onChange={() => ''} onClick={() => ''} />,
+      <SignupForm store={store} onChange={() => ''} onClick={() => ''} />
     );
     expect(signupFormWrapper.find('form').length).toEqual(1);
   });
