@@ -19,7 +19,6 @@ const Header = () => (
         </ul>
       </Col>
     </Col>
-
   </Navbar>
 );
 
