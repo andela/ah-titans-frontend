@@ -5,7 +5,7 @@ import Login from '../../Login/containers';
 import Signup from '../../Signup/containers/Signup';
 import NewArticle from '../../New_Article/components/NewArticle';
 import NotFound from '../../Error_pages/components/page_not_found';
-import ResetPass from '../../ResetPass';
+import ResetPassword from '../../ResetPass';
 
 const Main = () => (
   <main>
