@@ -4,7 +4,14 @@ import createUser, {
   createUserErrorActionCreator,
 } from './signup';
 
-import * as types from './types';
+import { CREATE_USER, CREATE_USER_ERROR, SIGNUP_REQUEST } from './types';
+
+const expectedAction = (type, data) => {
+  return {
+    type: type,
+    payload: data,
+  };
+};
 
 describe('create actions', () => {
   const data = {
@@ -15,25 +22,21 @@ describe('create actions', () => {
 
   it('should create an action signingUp', () => {
     const expectedAction = {
-      type: types.SIGNUP_REQUEST,
+      type: SIGNUP_REQUEST,
     };
     expect(signingUp()).toEqual(expectedAction);
   });
 
   it('should create an action create user', () => {
-    const expectedAction = {
-      type: types.CREATE_USER,
-      payload: data,
-    };
-    expect(createUserActionCreator(data)).toEqual(expectedAction);
+    expect(createUserActionCreator(data)).toEqual(
+      expectedAction(CREATE_USER, data),
+    );
   });
 
   it('should create an action create user error', () => {
-    const expectedAction = {
-      type: types.CREATE_USER_ERROR,
-      payload: data,
-    };
-    expect(createUserErrorActionCreator(data)).toEqual(expectedAction);
+    expect(createUserErrorActionCreator(data)).toEqual(
+      expectedAction(CREATE_USER_ERROR, data),
+    );
   });
 });
 
