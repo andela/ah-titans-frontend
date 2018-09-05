@@ -33,7 +33,6 @@ const createUser = (userData, history) => (dispatch) => {
   signup(userData)
     .then((data) => {
       dispatch(createUserActionCreator(data));
-      console.log(data);
       localStorage.setItem('user', data);
       history.push('/');
     })

@@ -17,7 +17,6 @@ const signupReducer = (state = prevState, action) => {
     };
   case CREATE_USER_ERROR:
     return { ...state, error: action.payload.errors, isFetching: false, };
-
   default:
     return state;
   }
