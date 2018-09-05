@@ -3,10 +3,10 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     // enable additional rules
-    indent: ['error', 2],
-    'linebreak-style': ['error', 'unix'],
-    quotes: ['error', 'single'],
-    semi: ['error', 'always'],
+    "indent": ["error", 2],
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "semi": ["error", "always"],
 
     // override default options for rules from base configurations
     'comma-dangle': ['error', 'always'],
@@ -26,4 +26,7 @@ module.exports = {
     "fetch": true,
     "localStorage": true
   },
+  "globals": {
+    "fetch": true
+  }
 };
