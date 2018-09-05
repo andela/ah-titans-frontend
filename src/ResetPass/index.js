@@ -1,6 +1,14 @@
 import React from 'react';
-import ResetPassForm from './components';
+import ResetPassword from './containers';
 
-const ResetPass = () => <ResetPassForm />;
+class ResetPass extends React.Component {
+  submit = data => {
+    console.log(data);
+  }
+
+  render() {
+    return <ResetPassword submit={this.submit} />;
+  }
+}
 
 export default ResetPass;
