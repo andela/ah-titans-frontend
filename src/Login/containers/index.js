@@ -38,15 +38,26 @@ class Login extends React.Component {
 
   render() {
     const { login, } = this.props;
-    console.log(login);
+    const { errors, isFetching, } = login;
+    console.log(errors);
     return (
-      <LoginForm onChange={this.handleChange} onClick={this.handleSubmit} errors={login.errors} />
+      <LoginForm
+        onChange={this.handleChange}
+        onClick={this.handleSubmit}
+        errors={errors}
+        isFetching={isFetching}
+      />
     );
   }
 }
 
 Login.propTypes = {
   loginUser: PropTypes.func.isRequired,
+  login: PropTypes.shape({
+    user: PropTypes.object,
+    errors: PropTypes.object,
+    isFetching: PropTypes.bool,
+  }).isRequired,
 };
 
 const mapStateToProps = ({ login, }) => ({

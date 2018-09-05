@@ -6,7 +6,9 @@ import {
 } from 'react-materialize';
 import './index.scss';
 
-const LoginForm = ({ onClick, onChange, errors, }) => (
+const LoginForm = ({
+  onClick, onChange, errors, isFetching,
+}) => (
   <Row style={{ marginTop: '5%', }}>
     <Col m={6} s={12} offset="m3">
       <Card textClassName="blacktext" title="Login">
@@ -19,7 +21,9 @@ const LoginForm = ({ onClick, onChange, errors, }) => (
         </Row>
         <Row>
           <Col m={6} s={12}>
-            <Button waves="light" onClick={onClick}>login with email</Button>
+            <Button waves="light" onClick={onClick} disabled={isFetching} style={{ width: '80%', }}>
+              {isFetching ? 'Processing ...' : 'Login with email'}
+            </Button>
           </Col>
           <Col m={6} s={12}>
             <p style={{ color: 'black', }}>
@@ -44,6 +48,12 @@ const LoginForm = ({ onClick, onChange, errors, }) => (
 LoginForm.propTypes = {
   onClick: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
+  errors: PropTypes.shape({
+    error: PropTypes.array,
+    email: PropTypes.array,
+    password: PropTypes.array,
+  }).isRequired,
+  isFetching: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;
