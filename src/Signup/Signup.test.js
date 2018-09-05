@@ -5,12 +5,6 @@ import Signup from './containers/Signup';
 import SignupForm from './components/SignupForm';
 import store from '../store';
 
-describe('User Signup', () => {
-  it('renders the signup succefully', () => {
-    shallow(<Signup store={store} onChange={() => ''} onClick={() => ''} />);
-  });
-});
-
 describe('Signup from', () => {
   it('renders input fields and a button ', () => {
     const signupFormWrapper = shallow(
