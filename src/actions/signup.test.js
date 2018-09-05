@@ -1,4 +1,4 @@
-import {
+import createUser, {
   createUserActionCreator,
   signingUp,
   createUserErrorActionCreator,
@@ -7,6 +7,12 @@ import {
 import * as types from './types';
 
 describe('create actions', () => {
+  const data = {
+    username: '',
+    email: '',
+    password: '',
+  };
+
   it('should create an action signingUp', () => {
     const expectedAction = {
       type: types.SIGNUP_REQUEST,
@@ -15,11 +21,6 @@ describe('create actions', () => {
   });
 
   it('should create an action create user', () => {
-    const data = {
-      username: '',
-      email: '',
-      password: '',
-    };
     const expectedAction = {
       type: types.CREATE_USER,
       payload: data,
@@ -28,17 +29,11 @@ describe('create actions', () => {
   });
 
   it('should create an action create user error', () => {
-    const error = {
-      username: '',
-      email: '',
-      password: '',
-    };
-
     const expectedAction = {
       type: types.CREATE_USER_ERROR,
-      payload: error,
+      payload: data,
     };
-    expect(createUserErrorActionCreator(error)).toEqual(expectedAction);
+    expect(createUserErrorActionCreator(data)).toEqual(expectedAction);
   });
 });
 

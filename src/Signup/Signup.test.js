@@ -1,7 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
-import Signup from './containers/Signup';
 import SignupForm from './components/SignupForm';
 import store from '../store';
 
