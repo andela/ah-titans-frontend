@@ -21,7 +21,7 @@ const LoginForm = ({
         </Row>
         <Row>
           <Col m={6} s={12}>
-            <Button waves="light" onClick={onClick} disabled={isFetching} style={{ width: '80%', }}>
+            <Button waves="light" className="emailLoginBtn" onClick={onClick} disabled={isFetching}>
               {isFetching ? 'Processing ...' : 'Login with email'}
             </Button>
           </Col>

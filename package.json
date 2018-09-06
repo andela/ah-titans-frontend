@@ -80,6 +80,7 @@
     "url-loader": "^1.1.1"
   },
   "jest": {
+    "automock": false,
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupEnzyme.js",
     "testPathIgnorePatterns": [
       "<rootDir>/src/setupEnzyme.js"
