@@ -23,6 +23,7 @@ module.exports = {
     expect: false,
   },
   "globals": {
-    "fetch": true
+    "fetch": true,
+    "localStorage": true
   },
 };

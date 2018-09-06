@@ -33,7 +33,7 @@ class Login extends React.Component {
       },
     };
 
-    this.props.loginUser(user);
+    this.props.loginUser(user, this.props.history);
   }
 
   render() {
