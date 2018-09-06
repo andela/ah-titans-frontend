@@ -1,7 +1,7 @@
 import * as types from '../../actions/types';
 import reducer from '../loginReducer';
 
-describe('Signup has errors if required fields missing', () => {
+describe(' Login returns errors for invalid input', () => {
   it('returns errors', () => {});
 });
 
@@ -27,6 +27,18 @@ describe('login reducer', () => {
     expect(reducer(initialState, startAction)).toEqual({
       ...initialState,
       isFetching: true,
+    });
+  });
+
+  it('should return an error', () => {
+    const startAction = {
+      type: types.LOGIN_ERROR,
+      payload: { errors: { email: 'some error', }, },
+    };
+
+    expect(reducer(initialState, startAction)).toEqual({
+      ...initialState,
+      errors: { email: 'some error', },
     });
   });
 });

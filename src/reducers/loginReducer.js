@@ -18,13 +18,11 @@ export default function loginReducer(state = initialState, action) {
       ...state,
       isFetching: false,
       user: action.payload.user,
-      errors: {},
     };
   case LOGIN_ERROR:
     return {
       ...state,
       isFetching: false,
-      user: {},
       errors: action.payload.errors,
     };
 

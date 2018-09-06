@@ -14,14 +14,31 @@ const LoginForm = ({
       <Card textClassName="blacktext" title="Login">
         <Row>
           <div className="error">{errors.error}</div>
-          <Input type="email" label="Email" name="email" onChange={onChange} s={12} />
+          <Input
+            type="email"
+            label="Email"
+            name="email"
+            onChange={onChange}
+            s={12}
+          />
           <div className="error">{errors.email}</div>
-          <Input type="password" label="password" name="password" onChange={onChange} s={12} />
+          <Input
+            type="password"
+            label="password"
+            name="password"
+            onChange={onChange}
+            s={12}
+          />
           <div className="error">{errors.password}</div>
         </Row>
         <Row>
           <Col m={6} s={12}>
-            <Button waves="light" className="emailLoginBtn" onClick={onClick} disabled={isFetching}>
+            <Button
+              waves="light"
+              className="emailLoginBtn"
+              onClick={onClick}
+              disabled={isFetching}
+            >
               {isFetching ? 'Processing ...' : 'Login with email'}
             </Button>
           </Col>
@@ -34,10 +51,20 @@ const LoginForm = ({
         </Row>
         <Row>
           <Col m={6} s={12}>
-            <Button waves="light" style={{ backgroundColor: 'red', }}>Login with google account</Button>
+            <Button
+              waves="light"
+              style={{ backgroundColor: 'red', }}
+            >
+            Login with google account
+            </Button>
           </Col>
           <Col m={6} s={12}>
-            <Button waves="light" style={{ backgroundColor: '#1aa3ff', }}>Login with facebook account</Button>
+            <Button
+              waves="light"
+              style={{ backgroundColor: '#1aa3ff', }}
+            >
+            Login with facebook account
+            </Button>
           </Col>
         </Row>
       </Card>

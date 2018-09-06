@@ -39,7 +39,6 @@ class Login extends React.Component {
   render() {
     const { login, } = this.props;
     const { errors, isFetching, } = login;
-    console.log(errors);
     return (
       <LoginForm
         onChange={this.handleChange}
