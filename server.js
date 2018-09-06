@@ -2,4 +2,4 @@ const express = require('express');
 
 const app = express();
 app.use(express.static(`${__dirname}/dist`));
-app.listen(4000);
+app.listen(process.env.PORT || 0.0.0.0:4000);
