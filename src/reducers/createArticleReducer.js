@@ -5,6 +5,8 @@ const initialState = {
 };
 
 export default function createArticleReducer(state = initialState, action) {
+  console.log(action.payload);
+
   switch (action.type) {
   case NEW_ARTICLE:
     return {
