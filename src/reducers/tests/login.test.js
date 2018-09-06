@@ -29,7 +29,18 @@ describe('login reducer', () => {
       isFetching: true,
     });
   });
+  it('should login a user', () => {
+    const startAction = {
+      type: types.LOGIN_SUCCESS,
+      payload: { user: { email: 'manu@gmail.com', }, },
+    };
 
+    expect(reducer(initialState, startAction)).toEqual({
+      ...initialState,
+      isFetching: false,
+      user: { email: 'manu@gmail.com', },
+    });
+  });
   it('should return an error', () => {
     const startAction = {
       type: types.LOGIN_ERROR,
