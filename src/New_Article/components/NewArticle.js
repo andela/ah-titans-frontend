@@ -21,7 +21,7 @@ const NewArticle = ({
             <Input s={12} type="textarea" label="Body:" onChange={onChange} />
             <Col s={2}>
               <Button className="blue" onClick={onClick} waves="light">
-                SAVE
+                  SAVE
               </Button>
             </Col>
             {/* <Col s={2}>

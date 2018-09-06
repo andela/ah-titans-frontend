@@ -8,6 +8,6 @@ export default combineReducers({
   exampleReducer,
   signup: signupReducer,
   login: loginReducer,
-  createArticleReducer,
+  Article: createArticleReducer,
 
 });
