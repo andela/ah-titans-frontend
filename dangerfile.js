@@ -39,7 +39,7 @@ modifiedFiles.forEach((file) => {
 const correspondingTestsForModifiedFiles = modifiedFiles.map((f) => {
   const newPath = path.dirname(f);
   const name = path.basename(f);
-  return `${newPath}/__tests__/${name}`;
+  return `${newPath}/${name}`;
 });
 
 const testFilesThatDontExist = correspondingTestsForModifiedFiles
