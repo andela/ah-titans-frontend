@@ -6,8 +6,6 @@ import './index.scss';
 
 const Home = (props) => {
   const { new_user, } = props.home;
-  const { loginSuccess, } = props.login;
-  const username = localStorage.getItem('username');
 
   return (
     <div className="app">
@@ -21,19 +19,6 @@ const Home = (props) => {
         ''
       )}
 
-      {
-        loginSuccess ? (
-          <SnackBar show timer={6000}>
-            Welcome
-            {' '}
-            {username}
-            {' '}
-            have logged in successfully.
-          </SnackBar>
-        ) : (
-          ''
-        )
-      }
       <h1>Welcome to Authors Haven!</h1>
     </div>
   );
