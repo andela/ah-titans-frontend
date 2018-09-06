@@ -4,6 +4,7 @@ const initialState = {
   user: {},
   errors: {},
   isFetching: false,
+  loginSuccess: false,
 };
 
 export default function loginReducer(state = initialState, action) {
@@ -18,6 +19,7 @@ export default function loginReducer(state = initialState, action) {
       ...state,
       isFetching: false,
       user: action.payload.user,
+      loginSuccess: true,
     };
   case LOGIN_ERROR:
     return {

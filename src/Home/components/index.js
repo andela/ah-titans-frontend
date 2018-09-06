@@ -6,6 +6,9 @@ import './index.scss';
 
 const Home = (props) => {
   const { new_user, } = props.home;
+  const { loginSuccess, } = props.login;
+  const username = localStorage.getItem('username');
+
   return (
     <div className="app">
       <Loader />
@@ -17,6 +20,20 @@ const Home = (props) => {
       ) : (
         ''
       )}
+
+      {
+        loginSuccess ? (
+          <SnackBar show timer={6000}>
+            Welcome
+            {' '}
+            {username}
+            {' '}
+            have logged in successfully.
+          </SnackBar>
+        ) : (
+          ''
+        )
+      }
       <h1>Welcome to Authors Haven!</h1>
     </div>
   );
@@ -24,5 +41,6 @@ const Home = (props) => {
 
 const mapStatetoProps = state => ({
   home: state.exampleReducer,
+  login: state.login,
 });
 export default connect(mapStatetoProps)(Home);

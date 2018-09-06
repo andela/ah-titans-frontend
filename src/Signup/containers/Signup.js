@@ -22,7 +22,7 @@ class Signup extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup.user ? this.props.history.push('/login') : <div>lol</div>;
+    this.props.signup.user ? this.props.history.push('/login') : <div>Success</div>;
     this.props.createUser({ user: this.state, }, this.props.history);
   }
 
