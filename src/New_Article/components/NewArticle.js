@@ -8,25 +8,27 @@ import {
 } from 'react-materialize';
 import PropTypes from 'prop-types';
 
-const NewArticle = () => (
+const NewArticle = ({
+  onClick, onChange,
+}) => (
   <div style={{ marginTop: '5%', }}>
     <Row>
       <Col s={8} offset="s2">
         <Card className="black-text" title="Create Article">
           <Row>
-            <Input s={12} label="Title:" />
-            <Input s={12} label="Description:" />
-            <Input s={12} type="textarea" label="Body:" />
+            <Input s={12} label="Title:" onChange={onChange} />
+            <Input s={12} label="Description:" onChange={onChange} />
+            <Input s={12} type="textarea" label="Body:" onChange={onChange} />
             <Col s={2}>
-              <Button className="blue" waves="light">
-                SAVE
+              <Button className="blue" onClick={onClick} waves="light">
+                  SAVE
               </Button>
             </Col>
-            <Col s={2}>
+            {/* <Col s={2}>
               <Button className="red" waves="light">
-                  RESET
+                RESET
               </Button>
-            </Col>
+            </Col> */}
           </Row>
         </Card>
       </Col>
@@ -34,6 +36,10 @@ const NewArticle = () => (
   </div>
 );
 
-NewArticle.propTypes = {};
+NewArticle.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired,
+
+};
 
 export default NewArticle;

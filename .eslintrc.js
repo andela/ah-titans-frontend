@@ -2,7 +2,7 @@ module.exports = {
   extends: 'airbnb',
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-      // enable additional rules
+    // enable additional rules
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
@@ -15,4 +15,7 @@ module.exports = {
     // disable rules from base configurations
     "no-console": "off",
   },
+  "globals": {
+    "fetch": true
+  }
 };
