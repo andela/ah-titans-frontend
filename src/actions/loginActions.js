@@ -21,7 +21,7 @@ const handleResponse = response => response.json().then((data) => {
   return data;
 });
 
-const login = data => fetch('http://ah-titans-api.herokuapp.com/api/users/login/', {
+const login = data => fetch('https://ah-titans-api.herokuapp.com/api/users/login/', {
   method: 'POST',
   headers: {
     'content-type': 'application/json',
