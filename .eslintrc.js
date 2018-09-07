@@ -22,4 +22,8 @@ module.exports = {
     it: false,
     expect: false,
   },
+  "globals": {
+    "fetch": true,
+    "localStorage": true
+  },
 };

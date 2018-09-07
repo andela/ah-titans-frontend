@@ -6,6 +6,7 @@ import './index.scss';
 
 const Home = (props) => {
   const { new_user, } = props.home;
+
   return (
     <div className="app">
       <Loader />
@@ -17,6 +18,7 @@ const Home = (props) => {
       ) : (
         ''
       )}
+
       <h1>Welcome to Authors Haven!</h1>
     </div>
   );
@@ -24,5 +26,6 @@ const Home = (props) => {
 
 const mapStatetoProps = state => ({
   home: state.exampleReducer,
+  login: state.login,
 });
 export default connect(mapStatetoProps)(Home);

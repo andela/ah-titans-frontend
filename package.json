@@ -29,6 +29,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "css-loader": "^1.0.0",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.3.0",
@@ -60,6 +61,7 @@
     "express": "^4.16.3",
     "fetch-mock": "^6.5.2",
     "file-loader": "^2.0.0",
+    "history": "^4.7.2",
     "html-webpack-plugin": "^3.2.0",
     "lodash": "^4.17.10",
     "prop-types": "^15.6.2",
@@ -79,6 +81,7 @@
     "url-loader": "^1.1.1"
   },
   "jest": {
+    "automock": false,
     "setupTestFrameworkScriptFile": "<rootDir>/src/setupEnzyme.js",
     "testPathIgnorePatterns": [
       "<rootDir>/src/setupEnzyme.js"
@@ -88,7 +91,6 @@
       "\\.(css|scss)$": "<rootDir>/fileTransformer.js",
       "^.+\\.js$": "babel-jest"
     },
-    "automock": false,
     "setupFiles": [
       "./src/setupEnzyme.js"
     ],
