@@ -4,7 +4,7 @@ import { Route, MemoryRouter, } from 'react-router';
 import App from '../App';
 import Main from './components';
 import Login from '../Login/components';
-import Home from '../Home/components';
+import Home from '../Home/containers';
 import NotFound from '../Error_pages/components/page_not_found';
 
 it('renders correct routes', () => {
@@ -22,7 +22,7 @@ it('renders correct routes', () => {
 describe('invalid path should redirect to 404', () => {
   it('redirects to 404', () => {
     const wrapper = mount(
-      <MemoryRouter initialEntries={['/random']}>
+      <MemoryRouter initialEntries={['/random', ]}>
         <App />
       </MemoryRouter>
     );
@@ -33,7 +33,7 @@ describe('invalid path should redirect to 404', () => {
 
 test('valid path should not redirect to 404', () => {
   const wrapper = mount(
-    <MemoryRouter initialEntries={['/login']}>
+    <MemoryRouter initialEntries={['/login', ]}>
       <App />
     </MemoryRouter>
   );
