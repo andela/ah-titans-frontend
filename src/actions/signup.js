@@ -1,7 +1,7 @@
-import { CREATE_USER, CREATE_USER_ERROR, SIGNUP_REQUEST, } from './types';
+import { CREATE_USER, CREATE_USER_ERROR, SIGNUP_REQUEST } from './types';
 import call from '../utils/service';
 
-export const signingUp = () => ({ type: SIGNUP_REQUEST, });
+export const signingUp = () => ({ type: SIGNUP_REQUEST });
 
 export const createUserActionCreator = data => ({
   type: CREATE_USER,
@@ -13,10 +13,10 @@ export const createUserErrorActionCreator = error => ({
   payload: error,
 });
 
-const createUser = (userData, history) => (dispatch) => {
+const createUser = (userData, history) => dispatch => {
   dispatch(signingUp());
-  call({ endpoint: '/users/', method: 'POST', data: userData, })
-    .then((data) => {
+  call({ endpoint: '/users/', method: 'POST', data: userData })
+    .then(data => {
       dispatch(createUserActionCreator(data));
       localStorage.setItem('user', data);
       history.push('/');
