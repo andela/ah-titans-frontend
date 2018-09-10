@@ -5,13 +5,13 @@
 .icons {
   margin: 10px;
   border: 0px solid grey;
-  // background: grey;
 }
 .writtenby {
   font-size: 12px;
 }
 .about {
   font-size: 16px;
+  font-style: bold;
 }
 .home {
   color: green;
@@ -24,6 +24,18 @@
 .pagination {
   text-align: center;
 }
-.taglist {
-  font-size: 18px;
+.follow {
+  border: 0.5px solid white;
+  border-radius: 5px;
+  color: green;
+  margin-left: 5px;
+  margin-right: 175px;
+  padding: 1px 5px 1px 5px;
+}
+.readmore {
+  color: green;
+}
+.green {
+  float: right;
+  margin-right: 15px;
 }
