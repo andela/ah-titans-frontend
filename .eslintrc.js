@@ -2,6 +2,7 @@ module.exports = {
   extends: 'airbnb',
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    
     // enable additional rules
     'max-len': ['error', 200],
     'react/forbid-prop-types': ['error', {'forbid': []}],
