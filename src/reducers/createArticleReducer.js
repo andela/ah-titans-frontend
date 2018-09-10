@@ -27,7 +27,7 @@ export default function createArticleReducer(state = initialState, action) {
     return {
       ...state,
       isFetching: false,
-      errors: action.payload.errors,
+      errors: action.payload.article.errors,
     };
 
   default:

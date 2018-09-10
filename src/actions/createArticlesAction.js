@@ -41,7 +41,7 @@ const createArticle = (articleData, history) => (dispatch) => {
   dispatch(createArticleRequest());
   create(articleData)
     .then((data) => {
-      // localStorage.getItem('token', data.user.token);
+
       dispatch(
         createArticleActionCreator(data)
       );
@@ -56,20 +56,3 @@ createArticle.propTypes = {
 };
 
 export default createArticle;
-
-// const createArticles = articleData => (dispatch) => {
-//   fetch('https://ah-titans-api.herokuapp.com/api/articles/', {
-//     method: 'POST',
-//     headers: {
-//       'content-type': 'application/json',
-
-//     },
-//     body: JSON.stringify(articleData),
-//   }).then(res => res.json())
-//     .then(data => dispatch(
-//       createArticleActionCreator(data)
-//     ))
-//     .catch(error => console.log(error));
-// };
-
-// export default createArticles;

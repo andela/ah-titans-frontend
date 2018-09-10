@@ -27,15 +27,10 @@ const NewArticle = ({
             <Col s={2}>
               <Button className="blue" onClick={onClick} waves="light" disabled={isFetching}>
                 {
-                  isFetching ? 'Saving ...' : 'SAVE'
+                  isFetching ? 'Publishing...' : 'PUBLISH'
                 }
               </Button>
             </Col>
-            {/* <Col s={2}>
-              <Button className="red" waves="light">
-                RESET
-              </Button>
-            </Col> */}
           </Row>
         </Card>
       </Col>
