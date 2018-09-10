@@ -5,7 +5,7 @@ import Login from '../../Login/containers';
 import Signup from '../../Signup/containers/Signup';
 import Article from '../../New_Article/containers/index';
 import NotFound from '../../Error_pages/components/page_not_found';
-import ResetPassword from '../../ResetPass';
+import ResetPass from '../../ResetPass';
 
 const token = localStorage.getItem('token');
 const Main = () => (

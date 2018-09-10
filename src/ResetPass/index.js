@@ -1,6 +1,8 @@
 import React from 'react';
 import ResetPassword from './containers';
-import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {reset} from '../actions/passReset';
 
 class ResetPass extends React.Component {
   submit = data => this.props.reset(data).then(() => this.props.history.push('/'));
@@ -12,11 +14,8 @@ class ResetPass extends React.Component {
 
 ResetPass.propTypes = {
   history: PropTypes.shape({
-    push: PropTypes.func.isRequired,
+    push: PropTypes.func.isRequired
   }).isRequired,
-  reset: PropTypes.func.isRequired,
-};
-export default connect(
-  null,
-  { reset },
-)(ResetPass);
+  reset: PropTypes.func.isRequired
+}
+export default connect(null, {reset})(ResetPass);
