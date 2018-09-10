@@ -3,10 +3,21 @@ module.exports = {
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
     // enable additional rules
-    indent: ['error', 2],
+    'max-len': ['error', 200],
+    'react/forbid-prop-types': ['error', {'forbid': []}],
+    'jsx-ally/href-no-hash': 'off',
+    'jsx-ally/label-has-for': 'off',
+    'import/prefer-default-export': 'off',
+    'arrow-body-style': 'off',
+    'react/require-default-props': 'off',
+    'react/jsx-boolean-value': 'off',
+    'react/prefer-stateless-function': 'off',
     'linebreak-style': ['error', 'unix'],
+    "prefer-destructuring": ["error", {"object": true, "array": false}],
+
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
+    indent: ['error', 2],
 
     // override default options for rules from base configurations
     'comma-dangle': ['error', 'always'],
@@ -16,14 +27,10 @@ module.exports = {
     'no-console': 'off',
   },
   globals: {
-    fetch: false,
-    localStorage: false,
-    describe: false,
-    it: false,
-    expect: false,
-  },
-  "globals": {
-    "fetch": true,
-    "localStorage": true
+    fetch: true,
+    localStorage: true,
+    describe: true,
+    it: true,
+    expect: true,
   },
 };
