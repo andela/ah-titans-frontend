@@ -1,15 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import { Link, } from 'react-router-dom';
-import {
-  Card,
-  Col,
-  Row,
-  Icon,
-  Button,
-  Pagination,
-  Input,
-} from 'react-materialize';
+import { Card, Col, Row, Icon, Button, Pagination } from 'react-materialize';
 import './index.scss';
 import CreateArticleButton from './btnCreateArticle';
 
@@ -36,24 +28,15 @@ const ArticlesForm = () => (
         title="How to train your dragon"
         actions={[
           <Icon className="icons">share</Icon>,
-          <Icon className="icons">bookmark</Icon>,
           <a href="#">READ MORE</a>,
         ]}
       >
-        <h6>Tag List: dragon training</h6>
-        <Icon className="icons">star</Icon>
-        <Icon className="icons">star</Icon>
-        <Icon className="icons">star</Icon>
-        <Icon className="icons">star</Icon>
-        <Icon className="icons">star</Icon>
-        <span>5</span>
-        <p>
-          {' '}
-          <Icon className="icons">favorite</Icon>
-        </p>
+        <p className="taglist">Tag List: dragon training</p>
+        <br />
         <p>
           <i className="about">Wanna know how not to get devoured?</i>
         </p>
+        <br />
         <p>
           {' '}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
