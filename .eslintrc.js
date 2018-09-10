@@ -16,17 +16,10 @@ module.exports = {
     'no-console': 'off',
   },
   globals: {
-    fetch: false,
-    localStorage: false,
-    describe: false,
-    it: false,
-    expect: false,
+    fetch: true,
+    localStorage: true,
+    describe: true,
+    it: true,
+    expect: true,
   },
-  "globals": {
-    "fetch": true,
-    "localStorage": true
-  },
-  "globals": {
-    "fetch": true
-  }
 };
