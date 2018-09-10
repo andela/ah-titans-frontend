@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 // import { Link, } from 'react-router-dom';
 import {
-  Card, Col, Row, Icon, Button, Pagination,
+  Card, Col, Row, Icon, Button, Pagination, Chip,
 } from 'react-materialize';
 import './index.scss';
 
@@ -22,14 +22,22 @@ const ArticlesForm = () => (
         </div>
       </Col>
     </Row>
-    <Col m={6} s={12}>
+    <Col s={5}>
       <Card
         className="grey lighten-4"
         textClassName="black-text"
         title="How to train your dragon"
-        actions={[<Icon className="icons">share</Icon>, <a href="#">READ MORE</a>, ]}
+        actions={[
+          <a href="#" style={{ color: 'green', }}>
+            <Icon className="icons">share</Icon>
+          </a>,
+          <a href="#" style={{ marginLeft: '250px', color: 'green', }}>
+            READ MORE
+          </a>,
+        ]}
       >
-        <p className="taglist">Tag List: dragon training</p>
+        <Chip>dragon</Chip>
+        <br />
         <br />
         <p>
           <i className="about">Wanna know how not to get devoured?</i>
@@ -40,8 +48,15 @@ const ArticlesForm = () => (
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
           ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud...
         </p>
-        <hr />
-        <div className="writtenby">By James Pink Follow 01/08/2018 08:12am</div>
+        <br />
+        <div className="writtenby">
+          By: James Pink
+          {' '}
+          <a href="url" className="follow">
+            Follow
+          </a>
+          01/08/2018 08:12am
+        </div>
       </Card>
     </Col>
     <Col s={12}>
@@ -49,7 +64,9 @@ const ArticlesForm = () => (
         <Pagination items={10} activePage={2} maxButtons={8} />
       </Row>
     </Col>
-    <Button floating large className="green" waves="light" icon="add" />
+    <Col s={12}>
+      <Button floating large className="green" waves="light" icon="add" />
+    </Col>
   </Row>
 );
 
