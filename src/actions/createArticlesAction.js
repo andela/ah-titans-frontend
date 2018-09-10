@@ -26,10 +26,12 @@ const handleResponse = response => response.json().then((data) => {
   return data;
 });
 
+const token = localStorage.getItem('token');
 const create = data => fetch('https://ah-titans-api.herokuapp.com/api/articles/', {
   method: 'POST',
   headers: {
     'content-type': 'application/json',
+    'Authorization': 'Token ' + token,
   },
   body: JSON.stringify(data),
 })
@@ -45,7 +47,7 @@ const createArticle = (articleData, history) => (dispatch) => {
       );
       history.push('/');
     })
-    .catch(error => console.log(error)); //dispatch(createArticleError(error)));
+    .catch(error => dispatch(createArticleError(error)));
 };
 
 createArticle.propTypes = {

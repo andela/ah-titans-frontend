@@ -40,8 +40,8 @@ class Article extends React.Component {
 
   render() {
     const { article, } = this.props;
-    console.log(article);
     const { errors, isFetching, } = article;
+    console.log(errors);
 
     return (
       <NewArticle
