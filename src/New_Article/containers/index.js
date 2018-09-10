@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect, } from 'react-redux';
 import PropTypes from 'prop-types';
-import createArticles from '../../actions/createArticlesAction';
+import createArticle from '../../actions/createArticlesAction';
 import NewArticle from '../components/NewArticle';
 
-class Articles extends React.Component {
+class Article extends React.Component {
   constructor(props) {
     super(props);
 
@@ -28,37 +28,43 @@ class Articles extends React.Component {
     const { title, description, body, } = this.state;
 
     const article = {
-      user: {
+      article: {
         title,
         description,
         body,
       },
     };
 
-    this.props.createArticles(article);
+    this.props.createArticle(article, this.props.history);
   }
 
   render() {
-    const { Article, } = this.props;
+    const { article, } = this.props;
+    console.log(article);
+    const { errors, isFetching, } = article;
 
     return (
       <NewArticle
         onChange={this.handleChange}
         onClick={this.handleSubmit}
+        errors={errors}
+        isFetching={isFetching}
       />
     );
   }
 }
 
-Articles.propTypes = {
-  createArticles: PropTypes.func.isRequired,
-  Article: PropTypes.shape({
+Article.propTypes = {
+  createArticle: PropTypes.func.isRequired,
+  article: PropTypes.shape({
     article: PropTypes.object,
+    errors: PropTypes.object,
+    isFetching: PropTypes.bool,
   }).isRequired,
 };
 
-const mapStateToProps = ({ Article, }) => ({
-  Article,
+const mapStateToProps = ({ article, }) => ({
+  article,
 });
 
-export default connect(mapStateToProps, { createArticles, })(Articles);
+export default connect(mapStateToProps, { createArticle, })(Article);
