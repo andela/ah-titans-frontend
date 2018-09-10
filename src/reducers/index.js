@@ -4,6 +4,6 @@ import createArticleReducer from './createArticleReducer';
 
 export default combineReducers({
   exampleReducer,
-  Article: createArticleReducer,
+  article: createArticleReducer,
 
 });
