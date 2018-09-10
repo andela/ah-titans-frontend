@@ -41,7 +41,6 @@ const createArticle = (articleData, history) => (dispatch) => {
   dispatch(createArticleRequest());
   create(articleData)
     .then((data) => {
-
       dispatch(
         createArticleActionCreator(data)
       );
