@@ -1,7 +1,6 @@
 import React from 'react';
 import SnackBar from 'react-material-snackbar';
 import { connect, } from 'react-redux';
-// import Loader from '../../Loader/components';
 import '../components/index.scss';
 import ArticlesForm from '../components';
 

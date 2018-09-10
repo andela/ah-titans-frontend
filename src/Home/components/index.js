@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 // import { Link, } from 'react-router-dom';
 import {
-  Card, Col, Row, Icon, Button, Pagination, Input,
+  Card, Col, Row, Icon, Button, Pagination,
 } from 'react-materialize';
 import './index.scss';
 
@@ -27,26 +27,14 @@ const ArticlesForm = () => (
         className="grey lighten-4"
         textClassName="black-text"
         title="How to train your dragon"
-        actions={[
-          <Icon className="icons">share</Icon>,
-          <Icon className="icons">bookmark</Icon>,
-          <a href="#">READ MORE</a>,
-        ]}
+        actions={[<Icon className="icons">share</Icon>, <a href="#">READ MORE</a>, ]}
       >
-        <h6>Tag List: dragon training</h6>
-        <Icon className="icons">star</Icon>
-        <Icon className="icons">star</Icon>
-        <Icon className="icons">star</Icon>
-        <Icon className="icons">star</Icon>
-        <Icon className="icons">star</Icon>
-        <span>5</span>
-        <p>
-          {' '}
-          <Icon className="icons">favorite</Icon>
-        </p>
+        <p className="taglist">Tag List: dragon training</p>
+        <br />
         <p>
           <i className="about">Wanna know how not to get devoured?</i>
         </p>
+        <br />
         <p>
           {' '}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
