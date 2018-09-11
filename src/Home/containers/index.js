@@ -23,6 +23,7 @@ class Home extends Component {
         ) : (
           ''
         )}
+
         <ArticlesForm articles={articles} />
       </div>
     );
