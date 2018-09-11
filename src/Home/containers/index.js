@@ -3,6 +3,7 @@ import SnackBar from 'react-material-snackbar';
 import { connect } from 'react-redux';
 import '../components/index.scss';
 import ArticlesForm from '../components';
+import SearchComponent from '../components/search';
 import Loader from '../../Loader/components/index';
 import getArticles from '../../actions/viewArticles';
 
@@ -17,6 +18,7 @@ class Home extends Component {
     console.log(success ? this.props.articles.items.results[0].slug : '');
     // console.log(this.props.articles.items.results);
     const art = this.props.articles.items.results;
+    const arter = [];
     // art.map((article) => {
     //   console.log(article);
     // });
@@ -26,6 +28,10 @@ class Home extends Component {
           <h1>{article.slug}</h1>
         </div>;
       });
+
+      art.map(article =>
+        arter.push(<ArticlesForm article={article} success={success} />),
+      );
     }
 
     return (
@@ -38,10 +44,10 @@ class Home extends Component {
         ) : (
           ''
         )}
-        {/* ifEmpty(){
-          {articles.length===0? 'No articles to display': <ArticlesForm articles={articles} />}
-        } */}
-        {isFetching ? <Loader /> : <ArticlesForm articles={articles} />}
+
+        {isFetching && <Loader />}
+        <SearchComponent />
+        {arter}
       </div>
     );
   }
