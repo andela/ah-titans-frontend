@@ -25,8 +25,10 @@ class Home extends Component {
         ) : (
           ''
         )}
-        {isFetching ? <Loader /> : ''}
-        <ArticlesForm articles={articles} />
+        {/* ifEmpty(){
+          {articles.length===0? 'No articles to display': <ArticlesForm articles={articles} />}
+        } */}
+        {isFetching ? <Loader /> : <ArticlesForm articles={articles} />}
       </div>
     );
   }
