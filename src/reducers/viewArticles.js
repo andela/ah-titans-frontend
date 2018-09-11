@@ -18,7 +18,7 @@ const viewArticles = (state = prevState, action) => {
       return {
         ...state,
         isFetching: false,
-        item: action.payload.articles,
+        items: action.payload.articles,
       };
     case VIEW_ARTICLES_ERROR:
       return { ...state, error: action.payload.errors, isFetching: false };
