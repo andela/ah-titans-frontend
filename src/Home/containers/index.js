@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, } from 'react';
 import SnackBar from 'react-material-snackbar';
-import { connect } from 'react-redux';
+import { connect, } from 'react-redux';
 import '../components/index.scss';
 import ArticlesForm from '../components';
 import Loader from '../../Loader/components/index';
@@ -12,15 +12,28 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.articles.items.results);
-    const { new_user } = this.props.home;
-    const { articles, isFetching } = this.props.articles;
+    const { new_user, } = this.props.home;
+    const { articles, isFetching, success, } = this.props.articles;
+    console.log(success ? this.props.articles.items.results[0].slug : '');
+    // console.log(this.props.articles.items.results);
+    const art = this.props.articles.items.results;
+    // art.map((article) => {
+    //   console.log(article);
+    // });
+    if (success === true) {
+      art.map((article) => {
+        <div key={article.id}>
+          <h1>{article.slug}</h1>
+        </div>;
+      });
+    }
+
     return (
       <div className="app">
         {new_user ? (
           <SnackBar show timer={6000} className="home">
-            You have successfully signed up to Authors Haven!! Please check your
-            email to verify your account
+            You have successfully signed up to Authors Haven!! Please check your email to verify
+            your account
           </SnackBar>
         ) : (
           ''
@@ -40,5 +53,5 @@ const mapStatetoProps = state => ({
 });
 export default connect(
   mapStatetoProps,
-  { getArticles },
+  { getArticles, }
 )(Home);
