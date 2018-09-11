@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 // import { Link, } from 'react-router-dom';
 import {
-  Card, Col, Row, Icon, Button, Pagination, Input, Chip,
+  Card, Col, Row, Icon, Button, Chip,
 } from 'react-materialize';
 import './index.scss';
 import Tag from 'react-materialize/lib/Tag';
@@ -27,8 +27,7 @@ const ArticlesForm = () => (
           </div>
         </Col>
       </Row>
-
-      <Col m={6} s={12} className="articles">
+      <Col s={6}>
         <Card
           className="grey lighten-4"
           textClassName="black-text"
@@ -50,7 +49,6 @@ const ArticlesForm = () => (
             </a>,
           ]}
         >
-          <i>Tags: </i>
           <Chip>dragon training</Chip>
           <p className="ratings">
             <i className="material-icons icon-orange">star</i>
@@ -63,15 +61,24 @@ const ArticlesForm = () => (
           <p>
             <i className="about">Wanna know how not to get devoured?</i>
           </p>
+          <br />
           <p>
             {' '}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud...
           </p>
-          <hr />
-          <div className="writtenby">By James Pink 01/08/2018 08:12am</div>
+          <br />
+          <div className="writtenby">
+            By: James Pink
+            {' '}
+            <a href="url" className="follow">
+              Follow
+            </a>
+            01/08/2018 08:12am
+          </div>
         </Card>
       </Col>
+
       <Button floating large className="green add-article" waves="light" icon="add" />
     </Col>
   </Row>
