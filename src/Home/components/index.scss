@@ -30,7 +30,25 @@
 .readmore {
   color: green;
 }
-.green {
-  float: right;
-  margin-right: 15px;
+.add-article {
+  position: fixed;
+  bottom: 2%;
+  right: 1%;
+  width: 300px;
+}
+​ .btn {
+  margin-right: 5px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+
+  & .btn {
+    margin-right: 20px;
+  }
+
+  & .input-field {
+    width: 100%;
+  }
 }
