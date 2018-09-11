@@ -1,42 +1,40 @@
-import { FETCHING_ARTICLES, VIEW_ARTICLES_ERROR, VIEW_ALL_ARTICLES, } from './types';
+import { VIEW_ARTICLES, VIEW_ARTICLES_ERROR, GETTING_ARTICLES } from './types';
 
-export const fetchingArticles = () => ({ type: FETCHING_ARTICLES, });
-
-export const createUserActionCreator = data => ({
-  type: VIEW_ALL_ARTICLES,
-  payload: data,
+export const gettingArticlesActionCreator = () => ({
+  type: GETTING_ARTICLES,
 });
 
-export const createUserErrorActionCreator = error => ({
+export const getArticlesActionCreator = articles => ({
+  type: VIEW_ARTICLES,
+  payload: articles,
+});
+
+export const getArticlesErrorActionCreator = error => ({
   type: VIEW_ARTICLES_ERROR,
   payload: error,
 });
 
-const handleResponse = response => response.text().then((text) => {
-  const data = text && JSON.parse(text);
-  if (!response.ok) {
-    return Promise.reject(data);
-  }
-  return data;
-});
+const fetchArticles = () =>
+  fetch('https://ah-titans-api.herokuapp.com/api/articles/').then(
+    handleResponse,
+  );
 
-const signup = data => fetch('https://ah-titans-api.herokuapp.com/api/articles/', {
-  method: 'GET',
-  headers: {
-    'content-type': 'application/json',
-  },
-  body: JSON.stringify(data),
-}).then(handleResponse);
+const handleResponse = response =>
+  response.text().then(text => {
+    const data = text && JSON.parse(text);
+    if (!response.ok) {
+      return Promise.reject(data);
+    }
+    return data;
+  });
 
-const createUser = (userData, history) => (dispatch) => {
-  dispatch(fetchingArticles());
-  signup(userData)
-    .then((data) => {
-      dispatch(createUserActionCreator(data));
-      localStorage.setItem('user', data);
-      history.push('/');
+const getArticles = () => dispatch => {
+  dispatch(gettingArticlesActionCreator());
+  fetchArticles()
+    .then(articles => {
+      dispatch(getArticlesActionCreator(articles));
     })
-    .catch(error => dispatch(createUserErrorActionCreator(error)));
+    .catch(error => dispatch(getArticlesErrorActionCreator(error)));
 };
 
-export default createUser;
+export default getArticles;

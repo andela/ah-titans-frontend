@@ -1,6 +1,6 @@
-import React, { Component, } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect, } from 'react-redux';
+import { connect } from 'react-redux';
 import createUser from '../../actions/signup';
 import SignupForm from '../components/SignupForm';
 
@@ -17,19 +17,24 @@ class Signup extends Component {
   }
 
   handleChange(e) {
-    this.setState({ [e.target.name]: e.target.value, });
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.signup.user ? this.props.history.push('/login') : <div>Success</div>;
-    this.props.createUser({ user: this.state, }, this.props.history);
+    this.props.signup.user ? (
+      this.props.history.push('/login')
+    ) : (
+      <div>Success</div>
+    );
+    this.props.createUser({ user: this.state }, this.props.history);
   }
 
   render() {
-    const { error, isFetching, } = this.props.signup;
+    const { error, isFetching } = this.props.signup;
     const items = Object.keys(this.props.signup.item).length;
-    const successMessage = 'You have successfully signed up to Authors Haven!! Please check your email to verify your account';
+    const successMessage =
+      'You have successfully signed up to Authors Haven!! Please check your email to verify your account';
 
     return (
       <div>
@@ -49,11 +54,11 @@ Signup.propTypes = {
   createUser: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ signup, }) => ({
+const mapStateToProps = ({ signup }) => ({
   signup,
 });
 
 export default connect(
   mapStateToProps,
-  { createUser, }
+  { createUser },
 )(Signup);
