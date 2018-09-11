@@ -33,7 +33,7 @@ const SignupForm = ({
                   onChange={onChange}
                   name="password"
                 />
-                <div className="error">{error ? error.password : ''}</div>
+                <div className="error">{error ? error.password || error.error : ''}</div>
               </Col>
               <Col s={6}>
                 <Input
@@ -43,7 +43,7 @@ const SignupForm = ({
                   onChange={onChange}
                   name="password"
                 />
-                <div className="error">{error ? error.password : ''}</div>
+                <div className="error">{error ? error.password || error.error : ''}</div>
               </Col>
             </Row>
             <Col s={6}>
