@@ -7,7 +7,10 @@ const InlineError = ({ text, }) => (
 
 
 InlineError.propTypes = {
-  text: PropTypes.string.isRequired,
+  text: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.array,
+  ]).isRequired,
 };
 
 export default InlineError;

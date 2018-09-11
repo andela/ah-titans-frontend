@@ -6,6 +6,7 @@ import Signup from '../../Signup/containers/Signup';
 import NewArticle from '../../New_Article/components/NewArticle';
 import NotFound from '../../Error_pages/components/page_not_found';
 import ResetPass from '../../ResetPass';
+import NewPass from '../../NewPass';
 
 const Main = () => (
   <main>
@@ -15,6 +16,7 @@ const Main = () => (
       <Route exact path="/signup" component={Signup} />
       <Route exact path="/article" component={NewArticle} />
       <Route exact path="/resetpass" component={ResetPass} />
+      <Route path="/api/reset/:uidb64/:token" component={NewPass} />
       <Route component={NotFound} />
     </Switch>
   </main>
