@@ -17,13 +17,12 @@ const NewArticle = ({
       <Col s={8} offset="s2">
         <Card className="black-text" title="Create Article">
           <Row>
-            <div className="error">{errors.error}</div>
             <Input s={12} label="Title:" onChange={onChange} name="title" />
-            <div className="error">{errors.title}</div>
+            <div className="error">{errors ? errors.title : ''}</div>
             <Input s={12} label="Description:" onChange={onChange} name="description" />
-            <div className="error">{errors.description}</div>
+            <div className="error">{errors ? errors.description : ''}</div>
             <Input s={12} type="textarea" label="Body:" onChange={onChange} name="body" />
-            <div className="error">{errors.body}</div>
+            <div className="error">{errors ? errors.body : ''}</div>
             <Col s={2}>
               <Button className="blue" onClick={onClick} waves="light" disabled={isFetching}>
                 {

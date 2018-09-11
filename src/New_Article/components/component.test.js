@@ -1,7 +1,9 @@
 import React from 'react';
-import { shallow, } from 'enzyme';
+import {
+  shallow,
+} from 'enzyme';
 
-import NewArticle from './components/NewArticle';
+import NewArticle from './NewArticle';
 
 describe('Creation of new article', () => {
   it('should render the create article component', () => {
@@ -12,6 +14,6 @@ describe('Creation of new article', () => {
     expect(NewArticleWrapper.find('Input').length).toEqual(3);
   });
   it('renders buttons', () => {
-    expect(shallow(<NewArticle />).find('Button').length).toEqual(2);
+    expect(shallow(<NewArticle />).find('Button').length).toEqual(1);
   });
 });
