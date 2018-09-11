@@ -1,8 +1,9 @@
-import React, { Component, } from 'react';
+import React, { Component } from 'react';
 import SnackBar from 'react-material-snackbar';
-import { connect, } from 'react-redux';
+import { connect } from 'react-redux';
 import '../components/index.scss';
 import ArticlesForm from '../components';
+import SearchComponent from '../components/search';
 import Loader from '../../Loader/components/index';
 import getArticles from '../../actions/viewArticles';
 
@@ -12,36 +13,41 @@ class Home extends Component {
   }
 
   render() {
-    const { new_user, } = this.props.home;
-    const { articles, isFetching, success, } = this.props.articles;
+    const { new_user } = this.props.home;
+    const { articles, isFetching, success } = this.props.articles;
     console.log(success ? this.props.articles.items.results[0].slug : '');
     // console.log(this.props.articles.items.results);
     const art = this.props.articles.items.results;
+    const arter = [];
     // art.map((article) => {
     //   console.log(article);
     // });
     if (success === true) {
-      art.map((article) => {
+      art.map(article => {
         <div key={article.id}>
           <h1>{article.slug}</h1>
         </div>;
       });
+
+      art.map(article =>
+        arter.push(<ArticlesForm article={article} success={success} />),
+      );
     }
 
     return (
       <div className="app">
         {new_user ? (
           <SnackBar show timer={6000} className="home">
-            You have successfully signed up to Authors Haven!! Please check your email to verify
-            your account
+            You have successfully signed up to Authors Haven!! Please check your
+            email to verify your account
           </SnackBar>
         ) : (
           ''
         )}
-        {/* ifEmpty(){
-          {articles.length===0? 'No articles to display': <ArticlesForm articles={articles} />}
-        } */}
-        {isFetching ? <Loader /> : <ArticlesForm articles={articles} />}
+
+        {isFetching && <Loader />}
+        <SearchComponent />
+        {arter}
       </div>
     );
   }
@@ -53,5 +59,5 @@ const mapStatetoProps = state => ({
 });
 export default connect(
   mapStatetoProps,
-  { getArticles, }
+  { getArticles },
 )(Home);
