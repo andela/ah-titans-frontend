@@ -2,7 +2,7 @@ module.exports = {
   extends: 'airbnb',
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
-    
+
     // enable additional rules
     'max-len': ['error', 200],
     'react/forbid-prop-types': ['error', {'forbid': []}],
@@ -21,7 +21,6 @@ module.exports = {
     indent: ['error', 2],
 
     // override default options for rules from base configurations
-    'comma-dangle': ['error', 'always'],
     'no-cond-assign': ['error', 'always'],
 
     // disable rules from base configurations
