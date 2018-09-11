@@ -1,4 +1,5 @@
-import call from './service';
+import call, { logout, } from './service';
+
 
 describe('call API fetch method', () => {
   beforeEach(() => {
@@ -6,21 +7,21 @@ describe('call API fetch method', () => {
   });
 
   it('Should post to an endpoint. ', () => {
-    fetch.mockResponseOnce(JSON.stringify({ data: 'This is a comment' }));
+    fetch.mockResponseOnce(JSON.stringify({ data: 'manu@gmail.com', }));
     call({
       method: 'POST',
       endpoint: '/articles/comments/',
       data: {
-        title: 'Article',
-        body: 'This is a comment',
+        email: 'manu@gmail.com',
+        password: 'erayle15@@',
       },
     }).then((res) => {
-      expect(res.data).toEqual('This is a comment');
+      expect(res.data).toEqual('manu@gmail.com');
     });
   });
 
   it('Should fetch from an endpoint. ', () => {
-    fetch.mockResponseOnce(JSON.stringify({ data: 'I am the phenomenal' }));
+    fetch.mockResponseOnce(JSON.stringify({ data: 'I am the phenomenal', }));
     call({
       method: 'GET',
       endpoint: '/articles/',
@@ -39,8 +40,19 @@ describe('call API fetch method', () => {
     });
   });
 
+  it('Should logout user if status code is 404. ', () => {
+    fetch.mockReject(new Error('Trial custom error message'));
+    call({
+      method: 'POST',
+      endpoint: '/articles/',
+      authenticated: false,
+    }).catch((res) => {
+      expect(res.message).toEqual('Trial custom error message');
+    });
+  });
+
   it('Should fetch from an endpoint with authentication. ', () => {
-    fetch.mockResponseOnce(JSON.stringify({ data: 'I am the phenomenal' }));
+    fetch.mockResponseOnce(JSON.stringify({ data: 'I am the phenomenal', }));
     call({
       method: 'GET',
       endpoint: '/articles/',

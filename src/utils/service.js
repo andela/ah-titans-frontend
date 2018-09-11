@@ -1,7 +1,7 @@
 import config from '../config';
 import authHeader from './auth_header';
 
-function logout() {
+export function logout() {
   // remove token from local storage to log user out
   localStorage.removeItem('token');
 }
