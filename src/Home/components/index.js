@@ -63,7 +63,7 @@ const ArticlesForm = () => (
             <i className="material-icons icon-orange">star</i>
             <i className="material-icons icon-orange">star</i>
             <i className="material-icons icon-orange">star_half</i>
-            <div className="stat">4.6</div>
+            4.6
           </p>
           <p>
             <i className="about">Wanna know how not to get devoured?</i>
@@ -116,7 +116,7 @@ const ArticlesForm = () => (
             <i className="material-icons icon-orange">star</i>
             <i className="material-icons icon-orange">star</i>
             <i className="material-icons icon-orange">star_half</i>
-            <div className="stat">4.6</div>
+            4.6
           </p>
           <p>
             <i className="about">Wanna know how not to get devoured?</i>
