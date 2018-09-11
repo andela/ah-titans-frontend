@@ -6,8 +6,7 @@ function logout() {
   localStorage.removeItem('token');
 }
 
-const handleResponse = response => response.text().then((text) => {
-  const data = text && JSON.parse(text);
+const handleResponse = response => response.json().then((data) => {
   if (!response.ok) {
     if (response.status === 401) {
       // auto logout if 401 response returned from api

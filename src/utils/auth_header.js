@@ -9,7 +9,7 @@ const authHeader = (authenticated) => {
   }
   const { user, } = JSON.parse(data);
   if (user && user.token) {
-    return { Authorization: `Bearer ${user.token}`, };
+    return { Authorization: `Token ${user.token}`, };
   }
   return {};
 };
