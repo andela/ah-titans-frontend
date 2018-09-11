@@ -4,6 +4,8 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
 
     // enable additional rules
+    "indent": [2, "tab"],
+    "no-tabs": 0,
     'max-len': ['error', 200],
     'react/forbid-prop-types': ['error', {'forbid': []}],
     'jsx-ally/href-no-hash': 'off',
@@ -18,7 +20,6 @@ module.exports = {
 
     quotes: ['error', 'single'],
     semi: ['error', 'always'],
-    indent: ['error', 2],
 
     // override default options for rules from base configurations
     'no-cond-assign': ['error', 'always'],
