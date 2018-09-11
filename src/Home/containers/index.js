@@ -1,18 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SnackBar from 'react-material-snackbar';
 import { connect } from 'react-redux';
 import '../components/index.scss';
 import ArticlesForm from '../components';
-
-import React, { Component } from 'react';
 import getArticles from '../../actions/viewArticles';
 
 class Home extends Component {
   componentDidMount() {
-    this.props.dispatch(getArticles);
+    this.props.getArticles();
   }
   render() {
-    const { new_user, articles } = props.home;
+    console.log(this.props.articles);
+    const { new_user } = this.props.home;
+    const { articles } = this.props.articles;
     return (
       <div className="app">
         {new_user ? (
@@ -31,5 +31,9 @@ class Home extends Component {
 
 const mapStatetoProps = state => ({
   home: state.exampleReducer,
+  articles: state.viewArticles,
 });
-export default connect(mapStatetoProps)(Home);
+export default connect(
+  mapStatetoProps,
+  { getArticles },
+)(Home);
