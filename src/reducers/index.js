@@ -1,4 +1,4 @@
-import { combineReducers, } from 'redux';
+import { combineReducers } from 'redux';
 import exampleReducer from './exampleReducer';
 import signupReducer from './signup';
 import loginReducer from './loginReducer';
@@ -9,5 +9,4 @@ export default combineReducers({
   signup: signupReducer,
   login: loginReducer,
   article: createArticleReducer,
-
 });
