@@ -2,7 +2,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 // import { Link, } from 'react-router-dom';
 import {
-  Card, Col, Row, Icon, Button, Chip,
+  Card, Col, Row, Icon, Button, Chip, Dropdown, NavItem,
 } from 'react-materialize';
 import './index.scss';
 import Tag from 'react-materialize/lib/Tag';
@@ -13,7 +13,11 @@ const ArticlesForm = () => (
       <Row>
         <Col s={12} m={10}>
           <div className="search-bar">
-            <Button>Filter By</Button>
+            <Dropdown trigger={<Button>Filter By</Button>}>
+              <NavItem>Tags</NavItem>
+              <NavItem>Author</NavItem>
+              <NavItem>Title</NavItem>
+            </Dropdown>
             <div className="input-field">
               <input id="search" type="search" required />
               <label htmlFor="search">
