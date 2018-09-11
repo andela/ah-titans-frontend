@@ -13,10 +13,8 @@ class Home extends Component {
 
   render() {
     console.log(this.props.articles.items.results);
-
     const { new_user } = this.props.home;
     const { articles, isFetching } = this.props.articles;
-
     return (
       <div className="app">
         {new_user ? (
