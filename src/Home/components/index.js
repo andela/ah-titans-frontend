@@ -12,7 +12,6 @@ import {
   NavItem,
 } from 'react-materialize';
 import './index.scss';
-import Tag from 'react-materialize/lib/Tag';
 
 const ArticlesForm = () => (
   <Row className="home">
@@ -24,7 +23,7 @@ const ArticlesForm = () => (
               trigger={
                 <Button>
                   Filter By
-                  <i className="material-icons">filter_list</i>
+                  <i className="material-icons right">filter_list</i>
                 </Button>
               }
             >

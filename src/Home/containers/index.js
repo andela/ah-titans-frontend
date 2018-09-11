@@ -12,10 +12,21 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.props.articles.items.results);
-
     const { new_user } = this.props.home;
-    const { articles, isFetching } = this.props.articles;
+    const { articles, isFetching, success } = this.props.articles;
+    console.log(success ? this.props.articles.items.results[0].slug : '');
+    // console.log(this.props.articles.items.results);
+    const art = this.props.articles.items.results;
+    // art.map((article) => {
+    //   console.log(article);
+    // });
+    if (success === true) {
+      art.map(article => {
+        <div key={article.id}>
+          <h1>{article.slug}</h1>
+        </div>;
+      });
+    }
 
     return (
       <div className="app">
