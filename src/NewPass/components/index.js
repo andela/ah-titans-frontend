@@ -1,37 +1,48 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Link, } from 'react-router-dom';
 import {
   Row, Col, Input, Card, Button,
 } from 'react-materialize';
-import InlineError from './InlineError';
+import InlineError from '../../ResetPass/components/InlineError';
 
-
-const ResetPasswordForm = ({
+const NewPassForm = ({
   onSubmit, errors, data, onChange, onValidate, loading,
 }) => (
   <Row style={{ marginTop: '5%', }}>
     <form onSubmit={onSubmit} noValidate>
       <Col m={4} s={12} offset="m4">
-        <Card textClassName="blacktext" title="Reset Password">
+        <Card textClassName="blacktext" title="New Password">
+
           <Row>
             <Input
-              type="email"
-              label="Email"
+              type="password"
+              label="New Password"
               s={12}
-              name="email"
-              id="email"
-              value={data}
+              name="new_password"
+              id="new_password"
+              value={data.password}
               onChange={onChange}
               onKeyUp={onValidate}
             />
-            {errors.email && <InlineError text={errors.email} />}
+            {errors.new_password && <InlineError text={errors.new_password} />}
+          </Row>
+          <Row>
+            <Input
+              type="password"
+              label="Confirm Password"
+              s={12}
+              name="cpassword"
+              id="cpassword"
+              value={data.cpassword}
+              onChange={onChange}
+              onKeyUp={onValidate}
+            />
+            {errors.cpassword && <InlineError text={errors.cpassword} />}
           </Row>
           <Row>
             <Col m={8} s={12}>
               <Button
                 waves="light"
-                disabled={loading}
               >
                 {loading ? 'Processing ...' : 'Reset Password'}
               </Button>
@@ -47,16 +58,4 @@ const ResetPasswordForm = ({
 );
 
 
-ResetPasswordForm.propTypes = {
-  loading: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  onValidate: PropTypes.func.isRequired,
-  data: PropTypes.string.isRequired,
-  errors: PropTypes.shape({
-    email: PropTypes.string,
-  }).isRequired,
-};
-
-
-export default ResetPasswordForm;
+export default NewPassForm;

@@ -1,6 +1,5 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
-import { Link, } from 'react-router-dom';
 import Validator from 'validator';
 import {
   Col, Card, Row, Input, Button,
@@ -11,7 +10,7 @@ class ResetPassword extends React.Component {
   state = {
     data: {
       email: ''
-    },
+    }, 
     loading: false,
     errors: {}
   };
@@ -23,7 +22,15 @@ class ResetPassword extends React.Component {
     const errors = this.validate(this.state.data);
     this.setState({errors});
     if (Object.keys(errors).length === 0) {
-      this.props.submit(this.state.data);
+      this.setState({ loading: true });
+      this.props.submit(this.state.data)
+        .catch(err => this.setState({ 
+          errors: {
+            email: err.response.data.user.msg
+          }, 
+          loading: false
+        })
+      );
     }
   };
 
@@ -43,19 +50,16 @@ class ResetPassword extends React.Component {
     return errors;
   }
 
-
-
   render() {
-
     return (
-  
-        <ResetPasswordForm 
-            onChange={this.onChange} 
-            onSubmit={this.onSubmit} 
-            onValidate={this.onValidate} 
-            data={this.state.data.email} 
-            errors={this.state.errors}
-        />
+      <ResetPasswordForm 
+        onChange={this.onChange} 
+        onSubmit={this.onSubmit} 
+        onValidate={this.onValidate} 
+        data={this.state.data.email} 
+        errors={this.state.errors}
+        loading={this.state.loading}
+      />
     );
   }
 }

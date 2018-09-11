@@ -6,6 +6,7 @@ import Signup from '../../Signup/containers/Signup';
 import Article from '../../New_Article/containers/index';
 import NotFound from '../../Error_pages/components/page_not_found';
 import ResetPass from '../../ResetPass';
+import NewPass from '../../NewPass';
 
 const token = localStorage.getItem('token');
 const Main = () => (
@@ -27,6 +28,17 @@ const Main = () => (
 			<Route component={NotFound} />
 		</Switch>
 	</main>
+  <main>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route exact path="/login" component={Login} />
+      <Route exact path="/signup" component={Signup} />
+      <Route exact path="/article" component={NewArticle} />
+      <Route exact path="/resetpass" component={ResetPass} />
+      <Route path="/api/reset/:uidb64/:token" component={NewPass} />
+      <Route component={NotFound} />
+    </Switch>
+  </main>
 );
 
 export default Main;
