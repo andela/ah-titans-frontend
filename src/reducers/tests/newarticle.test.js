@@ -1,7 +1,7 @@
 import * as types from '../../actions/types';
 import reducer from '../createArticleReducer';
 
-describe(' Login returns errors for invalid input', () => {
+describe(' create article returns errors for invalid input', () => {
   it('returns errors', () => { });
 });
 
