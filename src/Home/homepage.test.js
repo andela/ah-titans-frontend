@@ -18,3 +18,11 @@ describe('Home', () => {
     expect(homeWrapper.find(CreateArticleButton)).toHaveLength(0);
   });
 });
+
+// // describe('Articles form', () => {
+// //   const articlesFormWrapper = shallow(<ArticlesForm store={store} error={{}} success key={{}} />);
+
+//   it('renders error fields ', () => {
+//     expect(articlesFormWrapper.find('.error').length).toEqual(1);
+//   });
+// });
