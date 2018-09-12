@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../index.scss';
 
 const InlineError = ({ text, }) => (
-  <span style={{ color: 'red', }}>{text}</span>
+  <span className="error">{text}</span>
 );
 
 
