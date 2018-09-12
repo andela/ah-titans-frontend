@@ -1,5 +1,122 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<ArticlesForm /> render() renders the articles component 1`] = `
+<div
+  className="col s12 m6"
+>
+  <Card
+    actions={
+      Array [
+        <button
+          className="btn waves-effect waves-light blue-grey"
+        >
+          <i
+            className="material-icons"
+          >
+            share
+          </i>
+        </button>,
+        <button
+          className="btn waves-effect waves-light blue-grey"
+        >
+          <i
+            className="material-icons"
+          >
+            thumb_up
+          </i>
+          <span />
+        </button>,
+        <button
+          className="btn waves-effect waves-light blue-grey"
+        >
+          <i
+            className="material-icons"
+          >
+            thumb_down
+          </i>
+          <span />
+        </button>,
+        <a
+          className="right blue-grey-text"
+          href="article link goes here"
+        >
+          Read more...
+        </a>,
+      ]
+    }
+    className="grey lighten-4 article"
+    textClassName="black-text"
+  >
+    <p
+      className="ratings"
+    >
+      <Icon
+        blue={true}
+      >
+        star
+      </Icon>
+      <i
+        className="material-icons"
+      >
+        star
+      </i>
+      <i
+        className="material-icons icon-orange"
+      >
+        star
+      </i>
+      <i
+        className="material-icons icon-orange"
+      >
+        star
+      </i>
+      <i
+        className="material-icons icon-orange"
+      >
+        star_half
+      </i>
+      <i
+        style={
+          Object {
+            "alignContent": "center",
+            "position": "inline",
+          }
+        }
+      >
+        (4.6)
+      </i>
+      <i
+        className="material-icons icon-blue right"
+      >
+        favorite_border
+      </i>
+    </p>
+    <p />
+    <p
+      className="about"
+    />
+    <br />
+    <p />
+    <hr
+      className="light-grey"
+    />
+    <p
+      className="writtenby"
+    >
+      By:
+       
+      <a
+        className="follow"
+        href="url"
+      >
+        Follow
+      </a>
+      Sep 12th 2018, 8:44:44 pm
+    </p>
+  </Card>
+</div>
+`;
+
 exports[`<ArticlesForm /> render() renders the component 1`] = `
 <div
   className="col s12 m6"

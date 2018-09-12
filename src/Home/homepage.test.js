@@ -12,6 +12,20 @@ describe('Home', () => {
   });
 });
 
+describe('Home', () => {
+  const article = {
+    article: {
+      slug: '',
+      tagList: ['any', ],
+      body: 'this is a test body',
+      created_at: '',
+    },
+  };
+  it('renders without crashing', () => {
+    shallow(<Home store={store} article={article} />);
+  });
+});
+
 describe('<SearchComponent />', () => {
   describe('render()', () => {
     test('renders the component', () => {
@@ -23,22 +37,13 @@ describe('<SearchComponent />', () => {
   });
 });
 
-// describe('<ArticlesForm />', () => {
-//   describe('render()', () => {
-//     const article = { article: { slug: '', tagList: ['any', ], body: 'this is a test body', created_at: '', }, };
-//     test('renders the component', () => {
-//       const wrapper = shallow(<ArticlesForm article={article} />);
-//       const component = wrapper.dive();
-
-//       expect(toJson(component)).toMatchSnapshot();
-//     });
-//   });
-// });
-
 describe('Articles form', () => {
   const article = {
     article: {
-      slug: '', tagList: ['any', ], body: 'this is a test body', created_at: '',
+      slug: '',
+      tagList: ['any', ],
+      body: 'this is a test body',
+      created_at: '',
     },
   };
   const articlesFormWrapper = shallow(<ArticlesForm article={article} />);
