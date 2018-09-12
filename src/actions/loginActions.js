@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST, } from './types';
+import call from '../utils/service';
 
 export const loginRequest = () => ({ type: LOGIN_REQUEST, });
 
@@ -13,26 +14,9 @@ export const loginUserError = data => ({
   payload: data,
 });
 
-
-const handleResponse = response => response.json().then((data) => {
-  if (!response.ok) {
-    return Promise.reject(data);
-  }
-  return data;
-});
-
-const login = data => fetch('https://ah-titans-api.herokuapp.com/api/users/login/', {
-  method: 'POST',
-  headers: {
-    'content-type': 'application/json',
-  },
-  body: JSON.stringify(data),
-})
-  .then(res => handleResponse(res));
-
 const loginUser = (userData, history) => (dispatch) => {
   dispatch(loginRequest());
-  login(userData)
+  call({ endpoint: '/users/login/', method: 'POST', data: userData, })
     .then((data) => {
       localStorage.setItem('token', data.user.token);
       localStorage.setItem('username', data.user.username);
