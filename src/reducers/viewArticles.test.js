@@ -27,24 +27,28 @@ describe('viewArticles reducer', () => {
 
   it('should return an error', () => {
     const startAction = {
-      type: types.CREATE_USER_ERROR,
+      type: types.VIEW_ARTICLES_ERROR,
       payload: { errors: {}, },
     };
 
     expect(reducer(initialState, startAction)).toEqual({
       ...initialState,
       error: {},
+      isFetching: false,
+      success: false,
     });
   });
 
   it('should return an article object', () => {
     const startAction = {
       type: types.VIEW_ARTICLES,
-      payload: { article: { items, }, },
+      payload: { articles: {}, },
     };
 
     expect(reducer(initialState, startAction)).toEqual({
       ...initialState,
+      success: true,
+      isFetching: false,
     });
   });
 });

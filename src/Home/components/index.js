@@ -1,9 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import { Card, Col, Row, Chip, Icon } from 'react-materialize';
+import {
+  Card, Col, Row, Chip, Icon,
+} from 'react-materialize';
 import './index.scss';
 
-const ArticlesForm = ({ article }) => (
+const ArticlesForm = ({ article, }) => (
   <Row className="home">
     <Col s={12} m={5}>
       <Card
@@ -23,17 +25,12 @@ const ArticlesForm = ({ article }) => (
             <i className="material-icons">thumb_down</i>
             <span>{article.dislikes_count}</span>
           </button>,
-          <a
-            className="right blue-grey-text"
-            href="http://www.tutorialspoint.com"
-          >
+          <a className="right blue-grey-text" href="http://www.tutorialspoint.com">
             Read more...
           </a>,
         ]}
       >
-        {article.tagList.map(tag => {
-          return <Chip>{tag}</Chip>;
-        })}
+        {article.tagList.map(tag => <Chip>{tag}</Chip>)}
 
         <p className="ratings">
           <Icon blue>star</Icon>
@@ -41,7 +38,7 @@ const ArticlesForm = ({ article }) => (
           <i className="material-icons icon-orange">star</i>
           <i className="material-icons icon-orange">star</i>
           <i className="material-icons icon-orange">star_half</i>
-          <i style={{ alignContent: 'center', position: 'inline' }}>(4.6)</i>
+          <i style={{ alignContent: 'center', position: 'inline', }}>(4.6)</i>
           <i className="material-icons icon-blue right">
             {article.favorited ? 'favorite' : 'favorite_border'}
           </i>
@@ -50,10 +47,16 @@ const ArticlesForm = ({ article }) => (
         <p />
         <p className="about">{article.description}</p>
         <br />
-        <p> {article.body}</p>
+        <p>
+          {' '}
+          {article.body}
+        </p>
         <br />
         <div className="writtenby left">
-          By: {article.author.username}{' '}
+          By:
+          {' '}
+          {article.author.username}
+          {' '}
           <a href="url" className="follow">
             Follow
           </a>
