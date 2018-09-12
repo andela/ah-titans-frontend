@@ -1,9 +1,11 @@
 import React from 'react';
 import moment from 'moment';
-import { Card, Col, Chip, Icon } from 'react-materialize';
+import {
+  Card, Col, Chip, Icon,
+} from 'react-materialize';
 import './index.scss';
 
-const ArticlesForm = ({ article }) => (
+const ArticlesForm = ({ article, }) => (
   <Col s={12} m={6}>
     <Card
       key={article.slug}
@@ -27,9 +29,7 @@ const ArticlesForm = ({ article }) => (
         </a>,
       ]}
     >
-      {article.tagList.map(tag => {
-        return <Chip>{tag}</Chip>;
-      })}
+      {article.tagList && article.tagList.map(tag => <Chip>{tag}</Chip>)}
 
       <p className="ratings">
         <Icon blue>star</Icon>
@@ -37,7 +37,7 @@ const ArticlesForm = ({ article }) => (
         <i className="material-icons icon-orange">star</i>
         <i className="material-icons icon-orange">star</i>
         <i className="material-icons icon-orange">star_half</i>
-        <i style={{ alignContent: 'center', position: 'inline' }}>(4.6)</i>
+        <i style={{ alignContent: 'center', position: 'inline', }}>(4.6)</i>
         <i className="material-icons icon-blue right">
           {article.favorited ? 'favorite' : 'favorite_border'}
         </i>
@@ -47,12 +47,14 @@ const ArticlesForm = ({ article }) => (
       <p className="about">{article.description}</p>
       <br />
       <p>
-        {article.body.substring(0, 150)}
-        {article.body.length > 150 ? '...' : ''}
+        {article.body && article.body.substring(0, 150)}
+        {article.body && article.body.length > 150 ? '...' : ''}
       </p>
       <hr className="light-grey" />
       <p className="writtenby">
-        By: {article.author.username}
+        By:
+        {' '}
+        {article.author && article.author.username}
         <a href="url" className="follow">
           Follow
         </a>
