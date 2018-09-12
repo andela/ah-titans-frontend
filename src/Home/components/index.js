@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { Card, Col, Row, Chip, Icon } from 'react-materialize';
+import { Card, Col, Chip, Icon } from 'react-materialize';
 import './index.scss';
 
 const ArticlesForm = ({ article }) => (
