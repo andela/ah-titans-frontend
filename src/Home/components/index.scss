@@ -17,6 +17,7 @@
 .home {
   color: green;
   margin-left: 50px;
+  margin: 0 4% 0 4%;
 }
 .searchbar {
   margin-top: -20px;
@@ -65,4 +66,13 @@
   & .input-field {
     width: 100%;
   }
+}
+
+.article {
+  height: 350px;
+  align-items: baseline;
+}
+
+.card-action {
+  align-content: flex-end;
 }

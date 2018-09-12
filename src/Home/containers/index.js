@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import SnackBar from 'react-material-snackbar';
 import { connect } from 'react-redux';
+import { Row } from 'react-materialize';
+
 import '../components/index.scss';
 import ArticlesForm from '../components';
 import SearchComponent from '../components/search';
@@ -20,13 +22,7 @@ class Home extends Component {
 
     if (success === true) {
       articles.map(article_ =>
-        article.push(
-          <ArticlesForm
-            article={article_}
-            success={success}
-            key={article.slug}
-          />,
-        ),
+        article.push(<ArticlesForm article={article_} key={article.slug} />),
       );
     }
 
@@ -43,7 +39,7 @@ class Home extends Component {
 
         {isFetching && <Loader />}
         <SearchComponent />
-        {article}
+        <Row class="home"> {article}</Row>
       </div>
     );
   }
