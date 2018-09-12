@@ -1,5 +1,5 @@
 import * as types from '../actions/types';
-import reducer from '../reducers/signup';
+import reducer from './signup';
 
 describe('Signup has errors if required fields missing', () => {
   it('returns errors', () => {});
@@ -13,7 +13,7 @@ describe('signup reducer', () => {
   };
 
   const initialState = {
-    item: { user },
+    item: { user, },
     error: {},
     isFetching: false,
   };
