@@ -58,6 +58,7 @@
     "danger": "^3.8.8",
     "danger-plugin-eslint": "^0.1.0",
     "danger-plugin-jest": "^1.1.0",
+    "dotenv-webpack": "^1.5.7",
     "express": "^4.16.3",
     "fetch-mock": "^6.5.2",
     "file-loader": "^2.0.0",
