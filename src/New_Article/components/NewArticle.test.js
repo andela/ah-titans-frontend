@@ -13,7 +13,6 @@ describe('Creation of new article', () => {
 
   const wrapper = shallow(<NewArticle {...props} />);
 
-
   it('renders necessary input fields', () => {
     expect(wrapper.find('Input').length).toEqual(3);
   });
