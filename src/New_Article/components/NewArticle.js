@@ -17,7 +17,7 @@ const NewArticle = ({
       <Col s={8} offset="s2">
         <Card className="black-text" title="Create Article">
           <Row>
-            <Input s={12} label="Title:" onChange={onChange} name="title" />
+            <Input s={12} label="Title:" onChange={onChange} name="title" id="title" />
             <div className="error">{errors ? errors.title : ''}</div>
             <Input s={12} label="Description:" onChange={onChange} name="description" />
             <div className="error">{errors ? errors.description : ''}</div>
