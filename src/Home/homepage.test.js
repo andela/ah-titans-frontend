@@ -23,6 +23,20 @@ describe('Home', () => {
   });
 });
 
+describe('Home', () => {
+  const article = {
+    article: {
+      slug: '',
+      tagList: ['any'],
+      body: 'this is a test body',
+      created_at: '',
+    },
+  };
+  it('renders without crashing', () => {
+    shallow(<Home store={store} article={article} />);
+  });
+});
+
 describe('<SearchComponent />', () => {
   describe('render()', () => {
     test('renders the component', () => {
