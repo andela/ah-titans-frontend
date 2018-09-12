@@ -14,23 +14,19 @@ class Home extends Component {
 
   render() {
     const { new_user } = this.props.home;
-    const { articles, isFetching, success } = this.props.articles;
-    console.log(success ? this.props.articles.items.results[0].slug : '');
-    // console.log(this.props.articles.items.results);
-    const art = this.props.articles.items.results;
-    const arter = [];
-    // art.map((article) => {
-    //   console.log(article);
-    // });
-    if (success === true) {
-      art.map(article => {
-        <div key={article.id}>
-          <h1>{article.slug}</h1>
-        </div>;
-      });
+    const { isFetching, success } = this.props.articles;
+    const articles = this.props.articles.items.results;
+    const article = [];
 
-      art.map(article =>
-        arter.push(<ArticlesForm article={article} success={success} />),
+    if (success === true) {
+      articles.map(article_ =>
+        article.push(
+          <ArticlesForm
+            article={article_}
+            success={success}
+            key={article.slug}
+          />,
+        ),
       );
     }
 
@@ -47,7 +43,7 @@ class Home extends Component {
 
         {isFetching && <Loader />}
         <SearchComponent />
-        {arter}
+        {article}
       </div>
     );
   }
