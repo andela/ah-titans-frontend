@@ -51,7 +51,26 @@ describe('<ArticlesForm />', () => {
 // // describe('Articles form', () => {
 // //   const articlesFormWrapper = shallow(<ArticlesForm store={store} error={{}} success key={{}} />);
 
-//   it('renders error fields ', () => {
-//     expect(articlesFormWrapper.find('.error').length).toEqual(1);
+//       expect(toJson(component)).toMatchSnapshot();
+//     });
 //   });
 // });
+
+describe('Articles form', () => {
+  const article = {
+    article: {
+      slug: '',
+      tagList: ['any'],
+      body: 'this is a test body',
+      created_at: '',
+    },
+  };
+  const articlesFormWrapper = shallow(<ArticlesForm article={article} />);
+
+  it('renders errors ', () => {
+    expect(articlesFormWrapper.find('.error').length).toEqual(0);
+  });
+  it('renders articles ', () => {
+    expect(articlesFormWrapper.find('.article').length).toEqual(1);
+  });
+});
