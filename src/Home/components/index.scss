@@ -13,17 +13,6 @@
 .home {
   margin: 0 4% 0 4%;
 }
-.searchbar {
-  margin-top: -20px;
-  margin-left: -20px;
-}
-.add-article {
-  position: fixed;
-  bottom: 2%;
-  right: 1%;
-  width: 300px;
-}
-
 .btn {
   margin-right: 5px;
 }
@@ -61,12 +50,10 @@
     width: 100%;
   }
 }
-
 .article {
   height: 350px;
   align-items: baseline;
 }
-
 .card-action {
   align-content: flex-end;
 }
