@@ -42,7 +42,7 @@ describe('Articles form', () => {
   const article = {
     article: {
       slug: '',
-      tagList: ['any', ],
+      tagList: ['any', 'another' ],
       body: 'this is a test body',
       created_at: '',
     },
@@ -54,5 +54,8 @@ describe('Articles form', () => {
   });
   it('renders articles ', () => {
     expect(articlesFormWrapper.find('.article').length).toEqual(1);
+  });
+  it('returns 2 tags', () => {
+    expect(articlesFormWrapper.find('.chip').length).toEqual(2);
   });
 });
