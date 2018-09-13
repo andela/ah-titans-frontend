@@ -4,8 +4,11 @@ module.exports = {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
 
     // enable additional rules
-    "indent": [2, "tab"],
+    "indent": [2, "tab", { "SwitchCase": 1, "VariableDeclarator": 1 }],
     "no-tabs": 0,
+    "react/prop-types": 0,
+    "react/jsx-indent": [2, "tab"],
+    "react/jsx-indent-props": [2, "tab"],
     'max-len': ['error', 200],
     'react/forbid-prop-types': ['error', {'forbid': []}],
     'jsx-ally/href-no-hash': 'off',
