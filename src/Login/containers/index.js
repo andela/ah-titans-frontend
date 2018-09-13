@@ -75,7 +75,7 @@ class Login extends React.Component {
 		const { login } = this.props;
 		const { errors, isFetching } = login;
 		return (
-  <LoginForm
+			<LoginForm
 				onChange={this.handleChange}
 				onClick={this.handleSubmit}
 				errors={errors}
@@ -83,7 +83,7 @@ class Login extends React.Component {
 				onFailure={this.onFailure}
 				onSuccess={this.googleResponse}
 				facebookResponse={this.facebookResponse}
-      />
+			/>
 		);
 	}
 }
