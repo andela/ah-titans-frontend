@@ -9,6 +9,7 @@ import LoginForm from '.';
 import store from '../../store';
 
 
+
 describe('<LoginForm />', () => {
 	const wrapper = shallow(
 		<LoginForm
