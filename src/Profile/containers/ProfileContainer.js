@@ -20,6 +20,13 @@ class Profile extends React.Component {
 
 	componentDidMount() {
 		this.props.getProfile();
+		const {user} = this.props.profile;
+	
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const {bio, interests, username} = nextProps.profile.user
+		this.setState({ username, bio, interests })
 	}
 
 	handleChange(e) {
@@ -41,9 +48,9 @@ class Profile extends React.Component {
 	}
 
 	render() {
-		const { username, bio, interests } = this.props.profile.user;	
-		console.log(this.props.profile.user);
-		
+		// const {user} = this.props.profile;
+		console.log(this.state);
+		const { username, bio, interests } = this.state;			
 		return (
 			<ProfilePage
 				username={username}

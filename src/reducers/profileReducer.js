@@ -8,6 +8,7 @@ export default function (state = initialState, action) {
 	switch (action.type) {
 	case GET_PROFILE:
 		return {
+			...state,
 			user: action.payload.user,
 		};
 	default:
