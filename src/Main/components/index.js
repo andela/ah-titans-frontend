@@ -16,7 +16,7 @@ const Main = () => (
       {
         token ? (
           <Route exact path="/article" component={Article} />
-        ): ( <Redirect to = "/login" /> )
+        ): ('')
       };
       <Route component={NotFound} />
     </Switch>
