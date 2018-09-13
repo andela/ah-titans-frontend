@@ -69,7 +69,7 @@ class Login extends React.Component {
 			errors, isFetching, isFetchingFacebook, isFetchingGoogle,
 		} = login;
 		return (
-			<LoginForm
+  <LoginForm
 				onChange={this.handleChange}
 				onClick={this.handleSubmit}
 				errors={errors}
@@ -94,9 +94,6 @@ Login.propTypes = {
 		isFetching: PropTypes.bool,
 		isFetchingGoogle: PropTypes.bool,
 		isFetchingFacebook: PropTypes.bool,
-	}).isRequired,
-	history: PropTypes.shape({
-		push: PropTypes.func.isRequired,
 	}).isRequired,
 };
 
