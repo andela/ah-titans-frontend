@@ -3,9 +3,11 @@ import SnackBar from 'react-material-snackbar';
 import { connect, } from 'react-redux';
 import Loader from '../../Loader/components';
 import './index.scss';
+import CreateArticleButton from './btnCreateArticle';
 
 const Home = (props) => {
   const { new_user, } = props.home;
+  const token = localStorage.getItem('token');
 
   return (
     <div className="app">
@@ -20,6 +22,9 @@ const Home = (props) => {
       )}
 
       <h1>Welcome to Authors Haven!</h1>
+      {token ? (
+        <CreateArticleButton />
+      ) : ('')}
     </div>
   );
 };
