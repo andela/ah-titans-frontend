@@ -21,24 +21,11 @@ const Main = () => (
 				) : ('')
 			}
 ;
-
-
-						<Route exact path="/article" component={NewArticle} />
-			<Route exact path="/resetpass" component={ResetPass} />
+						<Route exact path="/resetpass" component={ResetPass} />
+			<Route path="/api/reset/:uidb64/:token" component={NewPass} />
 			<Route component={NotFound} />
 		</Switch>
 	</main>
-  <main>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/signup" component={Signup} />
-      <Route exact path="/article" component={NewArticle} />
-      <Route exact path="/resetpass" component={ResetPass} />
-      <Route path="/api/reset/:uidb64/:token" component={NewPass} />
-      <Route component={NotFound} />
-    </Switch>
-  </main>
 );
 
 export default Main;
