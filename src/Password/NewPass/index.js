@@ -3,7 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import NewPassword from './containers';
 import { connect } from 'react-redux';
-import { newpass } from '../actions/newPass';
+import { newpass } from '../../actions/newPass';
 
 class NewPass extends React.Component {
 	state = {}
@@ -25,6 +25,6 @@ NewPass.propTypes = {
     push: PropTypes.func.isRequired
   }).isRequired,
 }
-
+ 
 export default connect(null, {newpass})(NewPass);
  

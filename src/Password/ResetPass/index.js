@@ -2,7 +2,7 @@ import React from 'react';
 import ResetPassword from './containers';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {reset} from '../actions/passReset';
+import {reset} from '../../actions/passReset';
 import swal from 'sweetalert';
 import './index.scss';
 

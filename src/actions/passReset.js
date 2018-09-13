@@ -1,9 +1,9 @@
-import { USER_RESET_PASS, } from './types';
-import api from '../api';
+import { USER_RESET_PASS } from './types';
+import api from './api';
 
 export const userResetPass = user => ({
-  type: USER_RESET_PASS,
-  user,
+	type: USER_RESET_PASS,
+	user,
 });
 
 
