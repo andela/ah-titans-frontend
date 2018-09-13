@@ -69,7 +69,7 @@ class Login extends React.Component {
 			errors, isFetching, isFetchingFacebook, isFetchingGoogle,
 		} = login;
 		return (
-  <LoginForm
+			<LoginForm
 				onChange={this.handleChange}
 				onClick={this.handleSubmit}
 				errors={errors}
