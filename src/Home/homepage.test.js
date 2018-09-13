@@ -1,14 +1,15 @@
 import React from 'react';
 import { shallow, } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Home from './containers/index';
+import {Home}  from './containers/index';
+import ArticlesPage from './containers/index';
 import store from '../store';
 import ArticlesForm from './components/index';
 import SearchComponent from './components/search';
 
 describe('Home', () => {
   it('renders without crashing', () => {
-    shallow(<Home store={store} />);
+    shallow(<ArticlesPage store={store} new_user />);
   });
 });
 
