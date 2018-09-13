@@ -2,74 +2,136 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { MemoryRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import store from '../store';
-import CreateArticleButton from './components/btnCreateArticle';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import Home from './containers/index';
-import { Home } from './containers/index';
-import ArticlesPage from './containers/index';
 import store from '../store';
+import CreateArticleButton from './components/btnCreateArticle';
+import Home from './containers/index';
+// import { Home } from './containers/index';
+import ArticlesPage from './containers/index';
+// import store from '../store';
 import ArticlesForm from './components/index';
 import SearchComponent from './components/search';
 
 describe('Home', () => {
-  const article = {
-    article: {
-      slug: '',
-      tagList: ['any'],
-      body: 'this is a test body',
-      created_at: '',
-    },
-  };
-  it('renders without crashing', () => {
-    shallow(<ArticlesPage store={store} new_user />);
-  });
+	const article = {
+		article: {
+			slug:
+				'',
+			tagList: [
+				'any',
+			],
+			body:
+				'this is a test body',
+			created_at:
+				'',
+		},
+	};
+	it('renders without crashing', () => {
+		shallow(
+			<ArticlesPage
+				store={
+					store
+				}
+				new_user
+			/>,
+		);
+	});
 });
 
 describe('Home', () => {
-  const article = {
-    article: {
-      slug: '',
-      tagList: ['any'],
-      body: 'this is a test body',
-      created_at: '',
-    },
-  };
-  it('renders without crashing', () => {
-    shallow(<Home store={store} article={article} />);
-  });
+	const article = {
+		article: {
+			slug:
+				'',
+			tagList: [
+				'any',
+			],
+			body:
+				'this is a test body',
+			created_at:
+				'',
+		},
+	};
+	it('renders without crashing', () => {
+		shallow(
+			<Home
+				store={
+					store
+				}
+				article={
+					article
+				}
+			/>,
+		);
+	});
 });
 
 describe('<SearchComponent />', () => {
-  describe('render()', () => {
-    test('renders the component', () => {
-      const wrapper = shallow(<SearchComponent />);
-      const component = wrapper.dive();
+	describe('render()', () => {
+		test('renders the component', () => {
+			const wrapper = shallow(
+				<SearchComponent />,
+			);
+			const component = wrapper.dive();
 
-      expect(toJson(component)).toMatchSnapshot();
-    });
-  });
+			expect(
+				toJson(
+					component,
+				),
+			).toMatchSnapshot();
+		});
+	});
 });
 
 describe('Articles form', () => {
-  const article = {
-    article: {
-      slug: '',
-      tagList: ['any', 'another'],
-      body: 'this is a test body',
-      created_at: '',
-    },
-  };
-  const articlesFormWrapper = shallow(<ArticlesForm article={article} />);
+	const article = {
+		article: {
+			slug:
+				'',
+			tagList: [],
+			body:
+				'this is a test body',
+			created_at:
+				'',
+		},
+	};
+	const articlesFormWrapper = shallow(
+		<ArticlesForm
+			article={
+				article
+			}
+		/>,
+	);
 
-  it('renders errors ', () => {
-    expect(articlesFormWrapper.find('.error').length).toEqual(0);
-  });
-  it('renders articles ', () => {
-    expect(articlesFormWrapper.find('.article').length).toEqual(1);
-  });
-  it('returns 2 tags', () => {
-    expect(articlesFormWrapper.find('.chip').length).toEqual(2);
-  });
+	it('renders errors ', () => {
+		expect(
+			articlesFormWrapper.find(
+				'.error',
+			)
+				.length,
+		).toEqual(
+			0,
+		);
+	});
+	it('renders articles ', () => {
+		expect(
+			articlesFormWrapper.find(
+				'.article',
+			)
+				.length,
+		).toEqual(
+			1,
+		);
+	});
+	it('returns 2 tags', () => {
+		expect(
+			articlesFormWrapper.find(
+				'.chip',
+			)
+				.length,
+		).toEqual(
+			0,
+		);
+	});
 });
