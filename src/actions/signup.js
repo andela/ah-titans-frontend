@@ -3,9 +3,9 @@ import call from '../utils/service';
 
 export const signingUp = () => ({ type: SIGNUP_REQUEST });
 
-export const createUserActionCreator = data => ({
+export const createUserActionCreator = user => ({
   type: CREATE_USER,
-  payload: data,
+  payload: user,
 });
 
 export const createUserErrorActionCreator = error => ({
