@@ -1,19 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link, } from 'react-router-dom';
-import {
-  Col, Card, Row, Input, Button,
-} from 'react-materialize';
+import { Link } from 'react-router-dom';
+import { Col, Card, Row, Input, Button } from 'react-materialize';
 import './index.scss';
 
-const LoginForm = ({
-  onClick, onChange, errors, isFetching,
-}) => (
-  <Row style={{ marginTop: '5%', }}>
+const LoginForm = ({ onClick, onChange, errors, isFetching }) => (
+  <Row style={{ marginTop: '5%' }}>
     <Col m={6} s={12} offset="m3">
       <Card textClassName="blacktext" title="Login">
         <Row>
-          <div className="error">{errors.error}</div>
+          <div className="error">{errors && errors.error}</div>
           <Input
             type="email"
             label="Email"
@@ -21,7 +17,7 @@ const LoginForm = ({
             onChange={onChange}
             s={12}
           />
-          <div className="error">{errors.email}</div>
+          <div className="error">{errors && errors.email}</div>
           <Input
             type="password"
             label="password"
@@ -29,7 +25,7 @@ const LoginForm = ({
             onChange={onChange}
             s={12}
           />
-          <div className="error">{errors.password}</div>
+          <div className="error">{errors && errors.password}</div>
         </Row>
         <Row>
           <Col m={6} s={12}>
@@ -43,7 +39,7 @@ const LoginForm = ({
             </Button>
           </Col>
           <Col m={6} s={12}>
-            <p style={{ color: 'black', }}>
+            <p style={{ color: 'black' }}>
               Not a member?
               <Link to="/signup"> Signup</Link>
             </p>
@@ -51,19 +47,13 @@ const LoginForm = ({
         </Row>
         <Row>
           <Col m={6} s={12}>
-            <Button
-              waves="light"
-              style={{ backgroundColor: 'red', }}
-            >
-            Login with google account
+            <Button waves="light" style={{ backgroundColor: 'red' }}>
+              Login with google account
             </Button>
           </Col>
           <Col m={6} s={12}>
-            <Button
-              waves="light"
-              style={{ backgroundColor: '#1aa3ff', }}
-            >
-            Login with facebook account
+            <Button waves="light" style={{ backgroundColor: '#1aa3ff' }}>
+              Login with facebook account
             </Button>
           </Col>
         </Row>
