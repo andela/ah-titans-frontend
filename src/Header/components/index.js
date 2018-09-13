@@ -7,9 +7,10 @@ import {
 import Logo from '../../assets/logo.png';
 // The Header creates links that can be used to navigate
 // between routes.
+const token = localStorage.getItem('token');
 const Header = () => (
   <Navbar style={{ backgroundColor: '#3498db', }}>
-    <Col s={8} offset="m2">
+    <Col s={8} offset="s2">
       <Col s={8}><img height="70" width="80" src={Logo} alt="Loading ..." /></Col>
       <Col s={4}>
         <ul>
