@@ -1,15 +1,9 @@
 import React from 'react';
-import { mount } from 'enzyme';
-import { MemoryRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import store from '../store';
-import CreateArticleButton from './components/btnCreateArticle';
 import Home from './containers/index';
-// import { Home } from './containers/index';
 import ArticlesPage from './containers/index';
-// import store from '../store';
 import ArticlesForm from './components/index';
 import SearchComponent from './components/search';
 
@@ -33,7 +27,9 @@ describe('Home', () => {
 				store={
 					store
 				}
-				new_user
+				article={
+					article
+				}
 			/>,
 		);
 	});
