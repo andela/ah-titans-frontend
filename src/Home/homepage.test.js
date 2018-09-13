@@ -7,19 +7,15 @@ import CreateArticleButton from './components/btnCreateArticle';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
 import Home from './containers/index';
+import { Home } from './containers/index';
+import ArticlesPage from './containers/index';
+import store from '../store';
 import ArticlesForm from './components/index';
 import SearchComponent from './components/search';
 
 describe('Home', () => {
-  const homeWrapper = mount(
-    <MemoryRouter initialEntries={['/']}>
-      <Provider store={store}>
-        <Home />
-      </Provider>
-    </MemoryRouter>,
-  );
-  it('does not renders button when user is not logged in', () => {
-    expect(homeWrapper.find(CreateArticleButton)).toHaveLength(0);
+  it('renders without crashing', () => {
+    shallow(<ArticlesPage store={store} new_user />);
   });
 });
 

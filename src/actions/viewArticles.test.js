@@ -87,7 +87,6 @@ describe('select getting articles action', () => {
         type: 'GETTING_ARTICLES',
       },
     ];
-
     store.dispatch(gettingArticlesActionCreator());
     expect(store.getActions()).toEqual(expectedActions2);
   });
