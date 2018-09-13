@@ -35,6 +35,7 @@ describe('fetch articles', () => {
   fetch.mockResponseOnce(JSON.stringify());
   fetch('https://ah-jn-api.herokuapp.com/api/articles', {
     method: 'GET',
+    body: JSON.stringify({ articles: {}, }),
     headers: {
       'Content-Type': 'application/json',
     },
