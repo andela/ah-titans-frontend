@@ -1,15 +1,17 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import NewPassword from './containers';
 import { connect } from 'react-redux';
 import { newpass } from '../../actions/newPass';
+import call from '../../utils/service';
 
 class NewPass extends React.Component {
 	state = {}
   componentDidMount() {
-    axios.get(`http://ah-titans-api.herokuapp.com/api/reset/${this.props.match.params.uidb64}/${this.props.match.params.token}/`)
-			.then(res => this.setState(res.data));
+    call({
+			endpoint: `/reset/${this.props.match.params.uidb64}/${this.props.match.params.token}/`,
+			method: 'GET'
+		}).then(res => this.setState(res));
 	}
 	
 	submit = data => this.props.newpass(data).then((res) => swal("Success", `${res.reset} Click OK to login`, "success" ).then(() => this.props.history.push('/login')));

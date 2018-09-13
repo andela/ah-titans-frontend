@@ -20,17 +20,22 @@ class NewPassword extends React.Component {
     const errors = this.validate(this.state.data);
     this.setState({errors});
     if (Object.keys(errors).length === 0) {
-      this.setState({ loading: true});
-      this.props.submit({
-        reset_token: this.props.reset_token,
-        new_password: this.state.data.new_password
-      }).catch(err => this.setState({
-        errors: {
-          new_password: err.response.data.error
-        },
-        loading: false
-      }))
-    }
+			this.setState({ loading: true });
+			this.props
+				.submit({
+					reset_token: this.props.reset_token,
+					new_password: this.state.data.new_password
+				})
+				.catch(err => err.json())
+				.then(data =>
+					this.setState({
+						errors: {
+							new_password: data.error
+						},
+						loading: false
+					})
+				);
+		}
   };
 
   onValidate = () => {

@@ -22,16 +22,19 @@ class ResetPassword extends React.Component {
     const errors = this.validate(this.state.data);
     this.setState({errors});
     if (Object.keys(errors).length === 0) {
-      this.setState({ loading: true });
-      this.props.submit(this.state.data)
-        .catch(err => this.setState({ 
-          errors: {
-            email: err.response.data.user.msg
-          }, 
-          loading: false
-        })
-      );
-    }
+			this.setState({ loading: true });
+			this.props
+				.submit(this.state.data)
+				.catch(err => err.json())
+				.then(data =>
+					this.setState({
+						errors: {
+							email: data.user.msg
+						},
+						loading: false
+					})
+				);
+		}
   };
 
   onValidate = () => {
