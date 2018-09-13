@@ -5,24 +5,31 @@ import Login from '../../Login/containers';
 import Signup from '../../Signup/containers/Signup';
 import Article from '../../New_Article/containers/index';
 import ArticleView from '../../ViewArticle/containers';
+import Profile from '../../Profile/containers/ProfileContainer';
 import NotFound from '../../Error_pages/components/page_not_found';
 
 const Main = () => (
-  <main>
-    <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/login" component={Login} />
-      <Route exact path="/signup" component={Signup} />
-      {
-        localStorage.getItem('token') ? < Route exact path = "/article"
-        component = {
-          Article
-        }
-        /> : ''};
-      <Route exact path="/article/:slug" component={ArticleView} />
-      <Route component={NotFound} />
-    </Switch>
-  </main>
+	<main>
+		<Switch>
+			<Route exact path="/" component={Home} />
+			<Route exact path="/login" component={Login} />
+			<Route exact path="/signup" component={Signup} />
+			{
+				localStorage.getItem('token') ? (
+					<Route
+						exact
+						path="/article"
+						component={
+							Article
+						}
+					/>
+				) : ''
+			}
+			<Route exact path="/article/:slug" component={ArticleView} />
+			<Route exact path="/profile" component={Profile} />
+			<Route component={NotFound} />
+		</Switch>
+	</main>
 );
 
 export default Main;
