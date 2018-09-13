@@ -98,6 +98,10 @@
     "setupFiles": [
       "./src/setupEnzyme.js"
     ],
-    "coverageCollector": "jest-babel-istanbul"
+    "coverageCollector": "jest-babel-istanbul",
+    "coverageReporters": [
+      "json",
+      "html"
+    ]
   }
 }

@@ -27,6 +27,6 @@ NewPass.propTypes = {
     push: PropTypes.func.isRequired
   }).isRequired,
 }
- 
+  
 export default connect(null, {newpass})(NewPass);
  
