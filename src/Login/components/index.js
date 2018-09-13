@@ -51,43 +51,46 @@ const LoginForm = ({
 					<Col m={6} s={12}>
 						<p style={{ color: 'black' }}>
               Not a member?
-  
-							<Link to="/signup"> Signup</Link>
+							
+					<Link to="/signup">
+              			Signup
+							</Link>
 						</p>
 					</Col>
 				</Row>
-        Or login with:
-				<Row>
-        <div className="text-center row" style={{ marginLeft: '12.8em', marginRight: '19.6em' }}>
-					{/* <Col m={6} s={12}> */}
-						{/* <Row style={{ marginTop: '5%' }}> */}
-							<FacebookLogin
-								appId={fbAppId}
-								fields="name,email,picture"
-								callback={facebookResponse}
-                onSuccess={facebookResponse}
-                cssClass="btn btn-primary col"
-                style={{ width: '10em' }}
+        	Or login with:
 
-                // cssClass="waves-effect  btn-flat btn--default m-b--100 btn--block"
-          icon="fa fa-facebook fa-2x"
-          textButton=""
-                />
-							<GoogleLogin
-								clientId={googleClientId}
-								onSuccess={onSuccess}
-								onFailure={onFailure}
-          type=""
-          tag="div"
-          className="col"
-							>
-								<button className="btn btn-danger" type="button" style={{width: '1em'}}>
-									<i className="fa fa-google fa-2x" />
-								</button>
-							</GoogleLogin>
-             </div> 
-					{/* </Col> */}
-				</Row>
+
+				
+					<Row>
+					<div
+						className="text-center row"
+						style={{ marginLeft: '12.8em', marginRight: '19.6em' }}
+					>
+					<FacebookLogin
+						appId={fbAppId}
+						fields="name,email,picture"
+						callback={facebookResponse}
+						onSuccess={facebookResponse}
+						cssClass="btn btn-primary col"
+						style={{ width: '10em' }}
+						icon="fa fa-facebook fa-2x"
+						textButton=""
+					/>
+					<GoogleLogin
+						clientId={googleClientId}
+						onSuccess={onSuccess}
+						onFailure={onFailure}
+						type=""
+						tag="div"
+						className="col"
+						>
+						<button className="btn btn-danger" type="button" style={{ width: '1em' }}>
+						<i className="fa fa-google fa-2x" />
+  						</button>
+						</GoogleLogin>
+					</div>
+					</Row>
 			</Card>
 		</Col>
 	</Row>
