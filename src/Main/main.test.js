@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import App from '../App';
 import store from '../store';
 import Main from './components';
-import Login from '../Login/components';
+import Login from '../Login/containers';
 import Home from '../Home/containers';
 import NotFound from '../Error_pages/components/page_not_found';
 
