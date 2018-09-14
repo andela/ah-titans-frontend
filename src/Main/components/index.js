@@ -20,10 +20,9 @@ const Main = () => (
 					<Route exact path="/article" component={Article} />
 				) : ('')
 			}
-;
-
-						<Route exact path="/resetpass" component={ResetPass} />
-			<Route path="/api/reset/:uidb64/:token" component={NewPass} />
+;			
+<Route exact path="/resetpass" component={ResetPass} />
+			<Route path="/api/reset/:uidb64/:token/" component={NewPass} />
 			<Route component={NotFound} />
 		</Switch>
 	</main>
