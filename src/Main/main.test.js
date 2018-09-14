@@ -11,6 +11,7 @@ import NotFound from '../Error_pages/components/page_not_found';
 import Signup from '../Signup/containers/Signup';
 
 
+
 it('renders correct routes', () => {
 	const wrapper = shallow(<Main />);
 	const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
