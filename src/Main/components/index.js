@@ -1,6 +1,6 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
-import Home from '../../Home/components';
+import { Switch, Route } from 'react-router-dom';
+import Home from '../../Home/containers';
 import Login from '../../Login/containers';
 import Signup from '../../Signup/containers/Signup';
 import Article from '../../New_Article/containers/index';
@@ -13,11 +13,7 @@ const Main = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
-      {
-        token ? (
-          <Route exact path="/article" component={Article} />
-        ): ('')
-      };
+      {token ? <Route exact path="/article" component={Article} /> : ''};
       <Route component={NotFound} />
     </Switch>
   </main>

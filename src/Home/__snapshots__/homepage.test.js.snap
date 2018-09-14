@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SearchComponent /> render() renders the component 1`] = `
+<div
+  className="row home"
+>
+  <Col
+    m={10}
+    s={12}
+  >
+    <div
+      className="search-bar"
+    >
+      <Dropdown
+        trigger={
+          <Button
+            node="button"
+          >
+            Filter By
+            <i
+              className="material-icons right"
+            >
+              filter_list
+            </i>
+          </Button>
+        }
+      >
+        <NavItem>
+          Tags
+        </NavItem>
+        <NavItem>
+          Author
+        </NavItem>
+        <NavItem>
+          Title
+        </NavItem>
+      </Dropdown>
+      <div
+        className="input-field"
+      >
+        <input
+          id="search"
+          required={true}
+          type="search"
+        />
+        <label
+          htmlFor="search"
+        >
+          <Icon>
+            search
+          </Icon>
+        </label>
+        <Icon>
+          close
+        </Icon>
+      </div>
+    </div>
+  </Col>
+</div>
+`;

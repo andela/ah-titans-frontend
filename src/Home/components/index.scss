@@ -1,7 +1,61 @@
 .app {
   color: #3498db;
-  text-align: center;
+}
+.icons {
+  margin: 10px;
+  border: 0px solid grey;
+}
+.writtenby {
+  font-size: 12px;
+}
+.about {
+  font-size: 1.2em;
+  font-style: bold;
+  font-style: italic;
 }
 .home {
+  margin: 0 4% 0 4%;
+}
+.btn {
+  margin-right: 5px;
+}
+.follow {
+  border: 0.5px solid white;
+  border-radius: 5px;
   color: green;
+  margin-left: 5px;
+  margin-right: 175px;
+  padding: 1px 5px 1px 5px;
+}
+.readmore {
+  color: green;
+  margin-left: 50px;
+  margin: 0 4% 0 4%;
+}
+.add-article {
+  position: fixed;
+  bottom: 2%;
+  right: 1%;
+  width: 300px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+
+  & .btn {
+    margin-right: 20px;
+    width: 200px;
+  }
+
+  & .input-field {
+    width: 100%;
+  }
+}
+.article {
+  height: 350px;
+  align-items: baseline;
+}
+.card-action {
+  align-content: flex-end;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow, } from 'enzyme';
 import SignupForm from './components/SignupForm';
 import store from '../store';
 
@@ -9,14 +9,14 @@ describe('Signup form', () => {
       store={store}
       onChange={() => ''}
       onClick={() => ''}
-      error={{ username: '' }}
-      isFetching={true}
-    />,
+      error={{ username: '', }}
+      isFetching
+    />
   );
 
   it('renders input fields and a button ', () => {
     const signupFormWrapper = shallow(
-      <SignupForm store={store} onChange={() => ''} onClick={() => ''} />,
+      <SignupForm store={store} onChange={() => ''} onClick={() => ''} />
     );
     expect(signupFormWrapper.find('Input').length).toEqual(4);
     expect(signupFormWrapper.find('Button').length).toEqual(1);
@@ -33,9 +33,7 @@ describe('Signup form', () => {
 
   it('calls onClick event on click of a board square', () => {
     const onClick = jest.fn();
-    const wrapper = shallow(
-      <SignupForm store={store} onChange={() => ''} onClick={onClick} />,
-    );
+    const wrapper = shallow(<SignupForm store={store} onChange={() => ''} onClick={onClick} />);
     wrapper.find('.blue').simulate('click');
     expect(onClick).toHaveBeenCalled();
   });

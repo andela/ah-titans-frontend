@@ -1,36 +1,72 @@
 import React from 'react';
-import SnackBar from 'react-material-snackbar';
-import { connect, } from 'react-redux';
-import Loader from '../../Loader/components';
+import moment from 'moment';
+import { Link, } from 'react-router-dom';
+import {
+  Card, Col, Chip, Icon,
+} from 'react-materialize';
 import './index.scss';
-import CreateArticleButton from './btnCreateArticle';
 
-const Home = (props) => {
-  const { new_user, } = props.home;
-  const token = localStorage.getItem('token');
+const ArticlesForm = ({ article, }) => (
+  <Col s={12} m={6}>
+    <Link to="/article/slug">
+      <Card
+        key={article.slug}
+        className="grey lighten-4 article"
+        textClassName="black-text"
+        title={article.title}
+        actions={[
+          <button className="btn waves-effect waves-light blue-grey">
+            <i className="material-icons">share</i>
+          </button>,
+          <button className="btn waves-effect waves-light blue-grey">
+            <i className="material-icons">thumb_up</i>
+            <span>{article.likes_count}</span>
+          </button>,
+          <button className="btn waves-effect waves-light blue-grey">
+            <i className="material-icons">thumb_down</i>
+            <span>{article.dislikes_count}</span>
+          </button>,
+          <a className="right blue-grey-text" href="article link goes here">
+            Read more...
+          </a>,
+        ]}
+      >
+        {article.tagList && article.tagList.map(tag => <Chip>{tag}</Chip>)}
 
-  return (
-    <div className="app">
-      <Loader />
-      {new_user ? (
-        <SnackBar show timer={6000} className="home">
-          You have successfully signed up to Authors Haven!! Please check your email to verify your
-          account
-        </SnackBar>
-      ) : (
-        ''
-      )}
+        <p className="ratings">
+          <Icon blue>star</Icon>
+          <i className="material-icons">star</i>
+          <i className="material-icons icon-orange">star</i>
+          <i className="material-icons icon-orange">star</i>
+          <i className="material-icons icon-orange">star_half</i>
+          <i style={{ alignContent: 'center', position: 'inline', }}>(4.6)</i>
+          <i className="material-icons icon-blue right">
+            {article.favorited ? 'favorite' : 'favorite_border'}
+          </i>
+        </p>
 
-      <h1>Welcome to Authors Haven!</h1>
-      {token ? (
-        <CreateArticleButton />
-      ) : ('')}
-    </div>
-  );
-};
+        <p />
+        <p className="about">{article.description}</p>
+        <br />
+        <p>
+          {article.body && article.body.substring(0, 150)}
+          {article.body && article.body.length > 150 ? '...' : ''}
+        </p>
+        <hr className="light-grey" />
+        <p className="writtenby">
+          By:
+          {' '}
+          {article.author && article.author.username}
+          <a href="url" className="follow">
+            Follow
+          </a>
+          {moment(article.created_at).format('MMM Do YYYY, h:mm:ss a')}
+        </p>
+      </Card>
+    </Link>
+  </Col>
+);
 
-const mapStatetoProps = state => ({
-  home: state.exampleReducer,
-  login: state.login,
-});
-export default connect(mapStatetoProps)(Home);
+ArticlesForm.propTypes = {};
+
+export default ArticlesForm;
