@@ -1,51 +1,38 @@
-import { shallow } from 'enzyme';
-import React from 'react';
-import Login from '.';
-import store from '../../store';
+describe('testing api', () => {
+	beforeEach(() => {
+		fetch.resetMocks();
+	});
 
-import LoginForm from '../components';
-
-describe('<Login />', () => {
-	const wrapper = shallow(
-		<LoginForm
-			store={store}
-			onClick={() => ''}
-			onChange={() => ''}
-			errors={{ error: [], email: [], password: [] }}
-			isFetching
-			history={{ push() {} }}
-			googleResponse={() => ''}
-			onFailure={() => ''}
-		/>,
-		beforeEach(() => {
-			fetch.resetMocks();
-		}),
-	);
-	it('Test google', () => {
+	it('test login by google and return user', () => {
 		const accessToken = 'sihdfodhfionsdhioufhinoshd';
-		fetch.mockResponseOnce(JSON.stringify({ user: {} }));
+		fetch.mockResponseOnce(JSON.stringify({ data: 'sjdhinofshdoinjfhsdfs' }));
+
 		fetch('https://ah-jn-api.herokuapp.com/api/users/auth/google-oauth2', {
 			method: 'POST',
 			body: JSON.stringify({ accessToken }),
 			headers: {
 				'Content-Type': 'application/json',
 			},
-		}).then((res) => {
-			expect(res.body).toEqual(JSON.parse(accessToken));
-		});
+		})
+			.then((res) => {
+				expect(res.data).toEqual('user');
+			});
 	});
+	it('call login by facebook and return user', () => {
+		const accessToken = 'sihdfodhfionsdhioufhinoshd';
+		fetch.mockResponseOnce(JSON.stringify({ data: 'sjdhinofshdoinjfhsdfs' }));
 
-	it('Test facebook login', () => {
-		const accessToken = 'sihdfodhfionsdhioufhghjggvyvinoshd';
-		fetch.mockResponseOnce(JSON.stringify({ user: {} }));
 		fetch('https://ah-jn-api.herokuapp.com/api/users/auth/facebook', {
 			method: 'POST',
 			body: JSON.stringify({ accessToken }),
 			headers: {
 				'Content-Type': 'application/json',
 			},
-		}).then((res) => {
-			expect(res.body).toEqual(JSON.parse(accessToken));
-		});
+		})
+			.then((res) => {
+				expect(res.data).toEqual('12345');
+			});
+
+		expect(fetch.mock.calls.length).toEqual(1);
 	});
 });
