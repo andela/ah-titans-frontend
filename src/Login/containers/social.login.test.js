@@ -31,12 +31,13 @@ describe('<Login />', () => {
 				'Content-Type': 'application/json',
 			},
 		}).then((res) => {
+			console.log(res);
 			expect(res.body).toEqual(JSON.parse(accessToken));
 		});
 	});
 
 	it('Test facebook login', () => {
-		const accessToken = 'sihdfodhfionsdhioufhinoshd';
+		const accessToken = 'sihdfodhfionsdhioufhghjggvyvinoshd';
 		fetch.mockResponseOnce(JSON.stringify({ user: {} }));
 		fetch('https://ah-jn-api.herokuapp.com/api/users/auth/facebook', {
 			method: 'POST',
@@ -45,6 +46,7 @@ describe('<Login />', () => {
 				'Content-Type': 'application/json',
 			},
 		}).then((res) => {
+			console.log(res.body.user);
 			expect(res.body).toEqual(JSON.parse(accessToken));
 		});
 	});

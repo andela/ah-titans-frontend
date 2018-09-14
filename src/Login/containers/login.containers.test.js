@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import { MemoryRouter, } from 'react-router-dom';
 import { Provider, } from 'react-redux';
 import Login from '.';
@@ -7,7 +7,7 @@ import store from '../../store';
 
 
 describe('<Login />', () => {
-  const loginWrapper = mount(
+  const loginWrapper = shallow(
     <MemoryRouter initialEntries={['/login',]}>
       <Provider store={store}>
         <Login />
