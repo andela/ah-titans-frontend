@@ -49,9 +49,4 @@ const createArticle = (articleData, history) => (dispatch) => {
     .catch(error => dispatch(createArticleError(error)));
 };
 
-createArticle.propTypes = {
-  createArticleActionCreator: PropTypes.func.isRequired,
-  createArticleError: PropTypes.func.isRequired,
-};
-
 export default createArticle;
