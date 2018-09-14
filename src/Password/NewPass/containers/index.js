@@ -33,7 +33,7 @@ class NewPassword extends React.Component {
 							new_password: data.error
 						},
 						loading: false
-					})
+					}) 
 				);
 		}
   };

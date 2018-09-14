@@ -11,70 +11,70 @@ const LoginForm = ({
 }) => (
 	<Row style={{ marginTop: '5%' }}>
 		<Col m={6} s={12} offset="m3">
-		<Card textClassName="blacktext" title="Login">
+			<Card textClassName="blacktext" title="Login">
 				<Row>
-		<div className="error">{errors.error}</div>
-		<Input
+					<div className="error">{errors.error}</div>
+					<Input
 						type="email"
 						label="Email"
 						name="email"
 						onChange={onChange}
 						s={12}
 					/>
-		<div className="error">{errors.email}</div>
-		<Input
+					<div className="error">{errors.email}</div>
+					<Input
 						type="password"
 						label="password"
-		name="password"
-		onChange={onChange}
-		s={12}
-	/>
-		<div className="error">{errors.password}</div>
-	</Row>
+						name="password"
+						onChange={onChange}
+						s={12}
+					/>
+					<div className="error">{errors.password}</div>
+				</Row>
 				<Row>
 					<Col m={6} s={12}>
 						<Button
-		waves="light"
-		className="emailLoginBtn"
-		onClick={onClick}
-		disabled={isFetching}
-	>
-		{isFetching ? 'Processing ...' : 'Login with email'}
- </Button>
- </Col>
-		<Col m={6} s={12}>
+							waves="light"
+							className="emailLoginBtn"
+							onClick={onClick}
+							disabled={isFetching}
+						>
+							{isFetching ? 'Processing ...' : 'Login with email'}
+						</Button>
+					</Col>
+					<Col m={6} s={12}>
 						<p style={{ color: 'black' }}>
               Not a member?
-		
+							
 <Link to="/signup"> Signup</Link>
-	</p>
+						</p>
 						<p style={{ color: 'black' }}>
 							<Link to="/resetpass"> Forgot your password?</Link>
 						</p>
 					</Col>
- </Row>
+				</Row>
 				<Row>
 					<Col m={6} s={12}>
 						<Button
 							waves="light"
 							style={{ backgroundColor: 'red' }}
 						>
-            Login with google account
+            	Login with google account
 						
 </Button>
 					</Col>
 					<Col m={6} s={12}>
-		<Button
+						<Button
 							waves="light"
 							style={{ backgroundColor: '#1aa3ff' }}
 						>
             Login with facebook account
 						
 </Button>
- </Col>
+					</Col>
 				</Row>
 			</Card>
-	</Col>
+		</Col>
 	</Row>
 );
 
