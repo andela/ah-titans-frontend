@@ -25,7 +25,7 @@ class Login extends React.Component {
 	onFailure(error) {
 		error.toString();
 		this.history.push('/login');
-		// console.log(error, 'This is bad');
+		console.log(error, 'This is bad');
 	}
 
 	handleChange(e) {
@@ -62,8 +62,10 @@ class Login extends React.Component {
 		const requestBody = {
 			access_token: response.accessToken,
 		};
+		console.log(response);
 		call({ endpoint: '/users/auth/facebook', method: 'POST', data: requestBody })
 			.then(((res) => {
+				console.log(res);
 				localStorage.setItem('token', res.user.token);
 				localStorage.setItem('user', res.user.user.username);
 			}));

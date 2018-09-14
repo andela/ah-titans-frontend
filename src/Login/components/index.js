@@ -72,6 +72,7 @@ const LoginForm = ({
 						fields="name,email,picture"
 						callback={facebookResponse}
 						onSuccess={facebookResponse}
+						onFailure={onFailure}
 						cssClass="btn btn-primary col"
 						style={{ width: '10em' }}
 						icon="fa fa-facebook fa-2x"

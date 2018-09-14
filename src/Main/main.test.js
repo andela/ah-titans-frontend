@@ -9,6 +9,7 @@ import Login from '../Login/containers';
 import Home from '../Home/containers';
 import NotFound from '../Error_pages/components/page_not_found';
 
+
 it('renders correct routes', () => {
   const wrapper = shallow(<Main />);
   const pathMap = wrapper.find(Route).reduce((pathMap, route) => {
