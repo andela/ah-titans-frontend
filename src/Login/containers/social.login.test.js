@@ -31,7 +31,6 @@ describe('<Login />', () => {
 				'Content-Type': 'application/json',
 			},
 		}).then((res) => {
-			console.log(res);
 			expect(res.body).toEqual(JSON.parse(accessToken));
 		});
 	});
@@ -46,7 +45,6 @@ describe('<Login />', () => {
 				'Content-Type': 'application/json',
 			},
 		}).then((res) => {
-			console.log(res.body.user);
 			expect(res.body).toEqual(JSON.parse(accessToken));
 		});
 	});
