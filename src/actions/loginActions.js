@@ -14,11 +14,12 @@ export const loginUserError = error => ({
 	payload: error,
 });
 
-const loginUser = ({ user }) => (dispatch) => {
+const loginUser = ({ user, history }) => (dispatch) => {
 	dispatch(loginRequest());
 	http.post(`${config.BASE_URL}/users/login/`, { user })
 		.then((data) => {
 			dispatch(loginUserSuccessful(data.response.data));
+			history.push('/');
 		})
 		.catch((error) => {
 			dispatch(loginUserError(error.response.data));

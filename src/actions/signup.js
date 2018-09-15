@@ -14,11 +14,12 @@ export const createUserErrorActionCreator = error => ({
 	payload: error,
 });
 
-const createUser = ({ user }) => (dispatch) => {
+const createUser = ({ user, history }) => (dispatch) => {
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
 		.then((data) => {
 			dispatch(createUserActionCreator(data.response.data));
+			history.push('/');
 		})
 		.catch((error) => {
 			dispatch(createUserErrorActionCreator(error.response.data));
