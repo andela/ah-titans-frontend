@@ -14,6 +14,7 @@ export const createUserErrorActionCreator = error => ({
 	payload: error,
 });
 
+<<<<<<< HEAD
 /**
  * Represents functionality for creating a user.
  * @constructor
@@ -29,6 +30,13 @@ const createUser = ({ user, history }) => (dispatch) => {
 			const { response: { data } } = payload;
 			dispatch(createUserActionCreator(data));
 			history.push('/');
+=======
+const createUser = ({ user }) => (dispatch) => {
+	dispatch(signingUp());
+	http.post(`${config.BASE_URL}/users/`, { user })
+		.then((data) => {
+			dispatch(createUserActionCreator(data.response.data));
+>>>>>>> [Chore #160532247] Fix error handling
 		})
 		.catch((error) => {
 			const { response: { data } } = error;

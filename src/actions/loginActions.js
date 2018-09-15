@@ -14,6 +14,7 @@ export const loginUserError = error => ({
 	payload: error,
 });
 
+<<<<<<< HEAD
 /**
  * Represents functionality for creating a user.
  * @constructor
@@ -35,6 +36,16 @@ const loginUser = ({ user, history }) => (dispatch) => {
 		.catch((error) => {
 			const { response: { data } } = error;
 			dispatch(loginUserError(data));
+=======
+const loginUser = ({ user }) => (dispatch) => {
+	dispatch(loginRequest());
+	http.post(`${config.BASE_URL}/users/login/`, { user })
+		.then((data) => {
+			dispatch(loginUserSuccessful(data.response.data));
+		})
+		.catch((error) => {
+			dispatch(loginUserError(error.response.data));
+>>>>>>> [Chore #160532247] Fix error handling
 		});
 };
 
