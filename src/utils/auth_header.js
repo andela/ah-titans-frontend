@@ -11,6 +11,10 @@ const authHeader = () => {
 	if (!user) {
 		return {};
 	}
+<<<<<<< HEAD
+=======
+	// const { user } = JSON.parse(data);
+>>>>>>> [Chore #160532247] Add tests
 	if (user && token) {
 		return { Authorization: `Token ${token}` };
 	}

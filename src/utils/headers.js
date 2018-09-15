@@ -12,6 +12,7 @@ const getToken = () => {
 		return {};
 	}
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if (data && token) {
 		return { Authorization: `Token ${token}` };
 =======
@@ -20,6 +21,12 @@ const getToken = () => {
 	if (user && token2) {
 		return { Authorization: `Token ${token2}` };
 >>>>>>> [Chore #160532247] Fix error handling
+=======
+	// const { user } = JSON.parse(data);
+	// const { token2 } = JSON.parse(token);
+	if (data && token) {
+		return { Authorization: `Token ${token}` };
+>>>>>>> [Chore #160532247] Add tests
 	}
 	return {};
 };
