@@ -18,7 +18,6 @@ const call = ({
 }).catch((error) => {
 	// Error
 	if (error.response) {
-		console.log(error.response.data);
 		return error.response;
 	}
 
