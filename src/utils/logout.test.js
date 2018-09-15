@@ -18,6 +18,7 @@ it('should logout user if token has expired', () => {
 
 it('should test header', () => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	setAuth();
 	getToken();
 =======
@@ -25,6 +26,9 @@ it('should test header', () => {
 	const username = 'manu';
 	localStorage.setItem('token', token);
 	localStorage.setItem('username', username);
+=======
+	setAuth();
+>>>>>>> [Chore #160532247] Refactored  tests
 	getToken();
 	console.log(getToken());
 >>>>>>> [Chore #160532247] Add tests
@@ -32,6 +36,7 @@ it('should test header', () => {
 });
 
 it('should test header', () => {
+<<<<<<< HEAD
 <<<<<<< HEAD
 	setAuth();
 	authHeader();
@@ -43,5 +48,9 @@ it('should test header', () => {
 	authHeader();
 	console.log(getToken());
 >>>>>>> [Chore #160532247] Add tests
+=======
+	setAuth();
+	authHeader();
+>>>>>>> [Chore #160532247] Refactored  tests
 	expect(authHeader()).toEqual({ Authorization: 'Token sdhfihodhfiohdiofh' });
 });
