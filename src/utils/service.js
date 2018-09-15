@@ -20,7 +20,6 @@ const call = ({
 	body: JSON.stringify(data),
 }).catch((error) => {
 	if (error.response) {
-		console.log(error.response.data);
 		return error.response;
 	}
 
