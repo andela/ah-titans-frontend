@@ -11,10 +11,10 @@ const getToken = () => {
 	if (!data || !token) {
 		return {};
 	}
-	const { user } = JSON.parse(data);
-	const { token2 } = JSON.parse(token);
-	if (user && token2) {
-		return { Authorization: `Token ${token2}` };
+	// const { user } = JSON.parse(data);
+	// const { token2 } = JSON.parse(token);
+	if (data && token) {
+		return { Authorization: `Token ${token}` };
 	}
 	return {};
 };
