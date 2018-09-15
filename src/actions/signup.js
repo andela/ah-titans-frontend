@@ -15,6 +15,7 @@ export const createUserErrorActionCreator = error => ({
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents functionality for creating a user.
  * @constructor
@@ -32,11 +33,18 @@ const createUser = ({ user, history }) => (dispatch) => {
 			history.push('/');
 =======
 const createUser = ({ user }) => (dispatch) => {
+=======
+const createUser = ({ user, history }) => (dispatch) => {
+>>>>>>> [Chore #160532247] Add routing after successful login and signup
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
 		.then((data) => {
 			dispatch(createUserActionCreator(data.response.data));
+<<<<<<< HEAD
 >>>>>>> [Chore #160532247] Fix error handling
+=======
+			history.push('/');
+>>>>>>> [Chore #160532247] Add routing after successful login and signup
 		})
 		.catch((error) => {
 			const { response: { data } } = error;

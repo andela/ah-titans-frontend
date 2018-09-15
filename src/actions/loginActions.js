@@ -15,6 +15,7 @@ export const loginUserError = error => ({
 });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 /**
  * Represents functionality for creating a user.
  * @constructor
@@ -38,10 +39,14 @@ const loginUser = ({ user, history }) => (dispatch) => {
 			dispatch(loginUserError(data));
 =======
 const loginUser = ({ user }) => (dispatch) => {
+=======
+const loginUser = ({ user, history }) => (dispatch) => {
+>>>>>>> [Chore #160532247] Add routing after successful login and signup
 	dispatch(loginRequest());
 	http.post(`${config.BASE_URL}/users/login/`, { user })
 		.then((data) => {
 			dispatch(loginUserSuccessful(data.response.data));
+			history.push('/');
 		})
 		.catch((error) => {
 			dispatch(loginUserError(error.response.data));
