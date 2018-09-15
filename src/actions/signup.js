@@ -14,9 +14,9 @@ export const createUserErrorActionCreator = error => ({
 	payload: error,
 });
 
-const createUser = userData => (dispatch) => {
+const createUser = ({ user }) => (dispatch) => {
 	dispatch(signingUp());
-	http.post(`${config.BASE_URL}/users/`, { data: userData })
+	http.post(`${config.BASE_URL}/users/`, { user })
 		.then((data) => {
 			dispatch(createUserActionCreator(data.response.data));
 		})

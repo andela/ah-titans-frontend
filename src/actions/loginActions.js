@@ -9,18 +9,20 @@ export const loginUserSuccessful = data => ({
 	payload: data,
 });
 
-export const loginUserError = data => ({
+export const loginUserError = error => ({
 	type: LOGIN_ERROR,
-	payload: data,
+	payload: error,
 });
 
-const loginUser = userData => (dispatch) => {
+const loginUser = ({ user }) => (dispatch) => {
 	dispatch(loginRequest());
-	http.post(`${config.BASE_URL}/users/login/`, { data: userData })
+	http.post(`${config.BASE_URL}/users/login/`, { user })
 		.then((data) => {
-			dispatch(loginUserSuccessful(data));
+			dispatch(loginUserSuccessful(data.response.data));
 		})
-		.catch((error) => { console.log(error); dispatch(loginUserError(error)); });
+		.catch((error) => {
+			dispatch(loginUserError(error.response.data));
+		});
 };
 
 export default loginUser;
