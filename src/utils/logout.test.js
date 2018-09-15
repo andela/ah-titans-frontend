@@ -21,6 +21,7 @@ it('should test header', () => {
 <<<<<<< HEAD
 	setAuth();
 	getToken();
+<<<<<<< HEAD
 =======
 	const token = 'sdhfihodhfiohdiofh';
 	const username = 'manu';
@@ -32,6 +33,8 @@ it('should test header', () => {
 	getToken();
 	console.log(getToken());
 >>>>>>> [Chore #160532247] Add tests
+=======
+>>>>>>> [Chore #160532247] Removed console.log from test file
 	expect(getToken()).toEqual({ Authorization: 'Token sdhfihodhfiohdiofh' });
 });
 
