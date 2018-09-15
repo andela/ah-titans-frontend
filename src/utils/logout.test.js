@@ -2,30 +2,29 @@ import { logout } from './service';
 import getToken from './headers';
 import authHeader from './auth_header';
 
-it('should logout user if token has expired', () => {
-	const token = 'sjkdhlkfsdknfoshdsidhfndfs';
+const setAuth = () => {
+	const token = 'sdhfihodhfiohdiofh';
+	const username = 'manu';
 	localStorage.setItem('token', token);
+	localStorage.setItem('username', username);
+};
+
+it('should logout user if token has expired', () => {
+	setAuth();
 	logout();
 	const token2 = localStorage.getItem('token');
 	expect(token2).toBe(null);
 });
 
 it('should test header', () => {
-	const token = 'sdhfihodhfiohdiofh';
-	const username = 'manu';
-	localStorage.setItem('token', token);
-	localStorage.setItem('username', username);
+	setAuth();
 	getToken();
 	console.log(getToken());
 	expect(getToken()).toEqual({ Authorization: 'Token sdhfihodhfiohdiofh' });
 });
 
 it('should test header', () => {
-	const token = 'sdhfihodhfiohdiofh';
-	const username = 'manu';
-	localStorage.setItem('token', token);
-	localStorage.setItem('username', username);
+	setAuth();
 	authHeader();
-	console.log(getToken());
 	expect(authHeader()).toEqual({ Authorization: 'Token sdhfihodhfiohdiofh' });
 });
