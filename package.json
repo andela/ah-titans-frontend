@@ -70,6 +70,8 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-facebook-login": "^4.1.0",
+    "react-google-login": "^3.2.1",
     "react-hot-loader": "^4.3.5",
     "react-material-snackbar": "^3.0.1",
     "react-materialize": "^2.4.5",
@@ -77,6 +79,7 @@
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
     "react-router-redux": "^4.0.8",
+    "react-s-alert": "^1.4.1",
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",
     "redux-thunk": "^2.3.0",
@@ -85,7 +88,7 @@
   },
   "jest": {
     "automock": false,
-    "moduleNameMapper":{
+    "moduleNameMapper": {
       "\\.(css|less|sass|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
       "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/__mocks__/fileMock.js"
     },
