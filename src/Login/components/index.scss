@@ -1,10 +1,53 @@
-.error {
-    color: red;
-    margin-left: 2%;
-    font-size: 13px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+$color: #3498db;
+$green: #2ecc71;
+
+form {
+  box-sizing: border-box;
+  margin: 100px auto 0;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
+  padding-bottom: 40px;
+  border-radius: 3px;
+  h1 {
+    box-sizing: border-box;
+    padding: 20px;
+  }
 }
 
-.emailLoginBtn {
-    width: '80%';
+h1 {
+  height: 100px;
+  width: 100%;
+  font-size: 20px;
+  background: darken($color, 4%);
+  color: white;
+  line-height: 150%;
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 2px 5px 1px rgba(0,0,0,0.2);
+}
+.reset-pass {
+  font-size: 11px;
+  color: darken(#2980b9, 4%);
+  border-radius: 3px 3px 0 0;
+}
+.form-input {
+  border-bottom: 1px solid #2980b9
+}
+  
+.btn {
+  border: none;
+  border-radius: 3px;
+  padding: 8px;
+  height: 50px;
+  width: 100%;
+  color: white;
+  box-shadow: 0 3px 6px 0 rgba(0,0,0,0.2);
+  &:hover { 
+    transform: translateY(-3px);
+    box-shadow: 0 6px 6px 0 rgba(0,0,0,0.2);
+  }
+}
+.error {
+  color: #e74c3c;
+  margin-left: 4%;
+  font-size: 12px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
