@@ -15,12 +15,12 @@ describe('testing api', () => {
 			},
 		})
 			.then((res) => {
-				expect(res.data).toEqual('user');
+				expect(res.body).toEqual('{"data":"sjdhinofshdoinjfhsdfs"}');
 			});
 	});
 	it('call login by facebook and return user', () => {
 		const accessToken = 'sihdfodhfionsdhioufhinoshd';
-		fetch.mockResponseOnce(JSON.stringify({ data: 'sjdhinofshdoinjfhsdfs' }));
+		fetch.mockResponseOnce(JSON.stringify({ data: 'facebooktoken' }));
 
 		fetch('https://ah-jn-api.herokuapp.com/api/users/auth/facebook', {
 			method: 'POST',
@@ -30,7 +30,7 @@ describe('testing api', () => {
 			},
 		})
 			.then((res) => {
-				expect(res.data).toEqual('12345');
+				expect(res.body).toEqual('{"data":"facebooktoken"}');
 			});
 
 		expect(fetch.mock.calls.length).toEqual(1);
