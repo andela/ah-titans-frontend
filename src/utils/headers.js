@@ -13,6 +13,7 @@ const getToken = () => {
 	}
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	if (data && token) {
 		return { Authorization: `Token ${token}` };
 =======
@@ -24,6 +25,8 @@ const getToken = () => {
 =======
 	// const { user } = JSON.parse(data);
 	// const { token2 } = JSON.parse(token);
+=======
+>>>>>>> [Chore #160532247] Implement requested changes
 	if (data && token) {
 		return { Authorization: `Token ${token}` };
 >>>>>>> [Chore #160532247] Add tests

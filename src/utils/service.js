@@ -1,13 +1,21 @@
-import axios from 'axios';
 import config from '../config';
 import authHeader from './auth_header';
-
 
 export function logout() {
 	// remove token from local storage to log user out
 	localStorage.removeItem('token');
 }
 
+const handleResponse = response => response.json().then((data) => {
+	if (!response.ok) {
+		if (response.status === 401) {
+			// auto logout if 401 response returned from api
+			logout();
+		}
+		return Promise.reject(data);
+	}
+	return data;
+});
 
 const call = ({
 	endpoint, method, data,
@@ -18,6 +26,7 @@ const call = ({
 		...authHeader(),
 	},
 	body: JSON.stringify(data),
+<<<<<<< HEAD
 }).catch((error) => {
 	if (error.response) {
 		return error.response;
@@ -25,5 +34,8 @@ const call = ({
 
 	return error;
 });
+=======
+}).then(handleResponse);
+>>>>>>> [Chore #160532247] Implement requested changes
 
 export default call;
