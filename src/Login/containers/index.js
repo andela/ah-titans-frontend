@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import Alert from 'react-s-alert';
 import loginUser from '../../actions/loginActions';
 import LoginForm from '../components';
 import call from '../../utils/service';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 class Login extends React.Component {
 	constructor(props) {
@@ -22,8 +25,8 @@ class Login extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	onFailure(error) {
-		error.toString();
+	onFailure() {
+		Alert.error('An error occurred with the social media login, try login by email');
 		this.history.push('/login');
 	}
 
@@ -68,7 +71,6 @@ class Login extends React.Component {
 			}));
 		this.history.push('/');
 	}
-
 
 	render() {
 		const { login } = this.props;

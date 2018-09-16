@@ -7,6 +7,9 @@ import {
 import './index.scss';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
+import Alert from 'react-s-alert';
+// import 'react-s-alert/dist/s-alert-default.css';
+// import 'react-s-alert/dist/s-alert-css-effects/slide.css';
 
 const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 const fbAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
@@ -58,15 +61,12 @@ const LoginForm = ({
 						</p>
 					</Col>
 				</Row>
-        	Or login with:
+        	Or sign in with:
 
 
 				
 					<Row>
-					<div
-						className="text-center row"
-						style={{ marginLeft: '12.8em', marginRight: '19.6em' }}
-					>
+          <Col>
 					<FacebookLogin
 						appId={fbAppId}
 						fields="name,email,picture"
@@ -76,7 +76,7 @@ const LoginForm = ({
 						cssClass="btn btn-primary col"
 						style={{ width: '10em' }}
 						icon="fa fa-facebook fa-2x"
-						textButton=""
+						textButton=" Sign in with facebook"
 					/>
 					<GoogleLogin
 						clientId={googleClientId}
@@ -86,14 +86,14 @@ const LoginForm = ({
 						tag="div"
 						className="col"
 						>
-						<button className="btn btn-danger" type="button" style={{ width: '1em' }}>
-						<i className="fa fa-google fa-2x" />
-  						</button>
+						<a class="waves-effect waves-light btn social google">
+            <i class="fa fa-google"></i> Sign in with google</a>
 						</GoogleLogin>
-					</div>
+            </Col>
 					</Row>
 			</Card>
 		</Col>
+    <Alert stack={{limit: 3}} />
 	</Row>
 );
 

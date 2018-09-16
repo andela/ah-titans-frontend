@@ -41,7 +41,7 @@ describe('<LoginForm />', () => {
   });
 
   it('renders three column components', () => {
-    expect(wrapper.find(Col).length).toEqual(3);
+    expect(wrapper.find(Col).length).toEqual(4);
   });
 
   it('render one facebook login button', () => {
