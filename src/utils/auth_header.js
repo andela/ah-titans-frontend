@@ -1,7 +1,6 @@
 /**
  * Represents an authentication header.
  * @constructor
- * @param {boolean} authenticated - Validation for an authenticated user.
  * @access - Public for both registered and unregistered users.
  */
 
@@ -12,7 +11,6 @@ const authHeader = () => {
 	if (!user) {
 		return {};
 	}
-	// const { user } = JSON.parse(data);
 	if (user && token) {
 		return { Authorization: `Token ${token}` };
 	}

@@ -1,7 +1,7 @@
 /**
  * get Token function returns a token
  * @params null
- * @returns {boolean}
+ * @returns {object}
  */
 
 const getToken = () => {
@@ -11,8 +11,6 @@ const getToken = () => {
 	if (!data || !token) {
 		return {};
 	}
-	// const { user } = JSON.parse(data);
-	// const { token2 } = JSON.parse(token);
 	if (data && token) {
 		return { Authorization: `Token ${token}` };
 	}

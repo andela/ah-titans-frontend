@@ -14,6 +14,15 @@ export const createUserErrorActionCreator = error => ({
 	payload: error,
 });
 
+/**
+ * Represents functionality for creating a user.
+ * @constructor
+ * @param {function} history - Handles routing to the next page.
+ * * @param {object} user - Contains the typed in user information.
+ * @access - Public for both registered and unregistered users.
+ */
+
+
 const createUser = ({ user, history }) => (dispatch) => {
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
@@ -22,7 +31,8 @@ const createUser = ({ user, history }) => (dispatch) => {
 			history.push('/');
 		})
 		.catch((error) => {
-			dispatch(createUserErrorActionCreator(error.response.data));
+			const { ...errorResponse } = error.response;
+			dispatch(createUserErrorActionCreator(errorResponse.data));
 		});
 };
 
