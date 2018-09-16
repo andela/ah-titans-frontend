@@ -867,3 +867,29 @@ ShallowWrapper {
   },
 }
 `;
+
+exports[`Password Input should call onChange prop 1`] = `
+<ResetPasswordForm
+  data=""
+  errors={Object {}}
+  loading={false}
+  onChange={[Function]}
+  onSubmit={[Function]}
+  onValidate={[Function]}
+/>
+`;
+
+exports[`Password Input should not submit data due to incorrect input 1`] = `
+<ResetPasswordForm
+  data="invalid@email"
+  errors={
+    Object {
+      "email": "Email is invalid",
+    }
+  }
+  loading={false}
+  onChange={[Function]}
+  onSubmit={[Function]}
+  onValidate={[Function]}
+/>
+`;

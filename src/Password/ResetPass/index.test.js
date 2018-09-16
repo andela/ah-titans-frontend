@@ -18,3 +18,4 @@ describe('<ResetPass />', () => {
 		expect(snap).toMatchSnapshot();
 	});
 });
+

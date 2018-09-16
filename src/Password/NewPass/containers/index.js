@@ -52,18 +52,16 @@ class NewPassword extends React.Component {
     return errors;
   }
 
-  render() {
+  render() { 
     return (
-      <div>
-        <NewPassForm 
-          onChange={this.onChange} 
-          onSubmit={this.onSubmit} 
-          onValidate={this.onValidate} 
-          data={this.state.data} 
-          errors={this.state.errors}
-          loading={this.state.loading}
-        />
-        </div>
+      <NewPassForm 
+        onChange={this.onChange} 
+        onSubmit={this.onSubmit} 
+        onValidate={this.onValidate} 
+        data={this.state.data} 
+        errors={this.state.errors}
+        loading={this.state.loading}
+      />
     );
   }
 }
