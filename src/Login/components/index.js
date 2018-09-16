@@ -1,76 +1,93 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { Col, Card, Row, Input, Button } from 'react-materialize';
+import {
+	Col, Row, Input, Button
+} from 'react-materialize';
 import './index.scss';
 
-const LoginForm = ({ onClick, onChange, errors, isFetching }) => (
-  <Row style={{ marginTop: '5%' }}>
-    <Col m={6} s={12} offset="m3">
-      <Card textClassName="blacktext" title="Login">
-        <Row>
-          <div className="error">{errors && errors.error}</div>
-          <Input
-            type="email"
-            label="Email"
-            name="email"
-            onChange={onChange}
-            s={12}
-          />
-          <div className="error">{errors && errors.email}</div>
-          <Input
-            type="password"
-            label="password"
-            name="password"
-            onChange={onChange}
-            s={12}
-          />
-          <div className="error">{errors && errors.password}</div>
-        </Row>
-        <Row>
-          <Col m={6} s={12}>
-            <Button
-              waves="light"
-              className="emailLoginBtn"
-              onClick={onClick}
-              disabled={isFetching}
-            >
-              {isFetching ? 'Processing ...' : 'Login with email'}
-            </Button>
-          </Col>
-          <Col m={6} s={12}>
-            <p style={{ color: 'black' }}>
-              Not a member?
-              <Link to="/signup"> Signup</Link>
-            </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col m={6} s={12}>
-            <Button waves="light" style={{ backgroundColor: 'red' }}>
-              Login with google account
-            </Button>
-          </Col>
-          <Col m={6} s={12}>
-            <Button waves="light" style={{ backgroundColor: '#1aa3ff' }}>
-              Login with facebook account
-            </Button>
-          </Col>
-        </Row>
-      </Card>
-    </Col>
-  </Row>
+const LoginForm = ({
+	onClick, onChange, errors, isFetching
+}) => (
+	<Row style={{ marginTop: '5%' }}>
+		<Col m={4} s={12} offset="m4">
+			<form>
+				<h1>Login to your account</h1>
+				<Row>
+					<div className="error">{errors.error}</div>
+					<Input
+						type="email"
+						label="Email"
+						name="email"
+						onChange={onChange}
+						s={12}
+					/>
+					<span className="error">{errors.email}</span>
+					<Input
+						type="password"
+						label="Password"
+						name="password"
+						onChange={onChange}
+						s={12}
+					/>
+					<div className="error">{errors.password}</div>
+				</Row>
+				<Row>
+					<Col m={12} s={12}>
+						<Button
+							waves="light"
+							onClick={onClick}
+							disabled={isFetching}
+							className="btn"
+						>
+							{isFetching ? 'Processing ...' : 'Login'}
+						</Button>
+						<Col
+							m={12}
+							s={12}
+							style={{ textAlign: 'center', marginTop: '30px' }}
+						>
+							<span>
+								<Link to="/resetpass" className="reset-pass">
+                  Forgot password?
+								</Link>
+							</span>
+						</Col>
+						<Col
+							m={12}
+							s={12}
+							style={{ textAlign: 'center', marginTop: '30px' }}
+						>
+							<span>OR</span>
+						</Col>
+						<Col m={12} s={12}>
+							<Col m={6} s={6} style={{ textAlign: 'right' }}>
+								<Link to="/" title="Login with Facebook">
+									<ion-icon name="logo-facebook" size="large" />
+								</Link>
+							</Col>
+							<Col m={6} s={6}>
+								<Link to="/" title="Login with Google" style={{ color: 'red' }}>
+									<ion-icon name="logo-google" size="large" />
+								</Link>
+							</Col>
+						</Col>
+					</Col>
+				</Row>
+			</form>
+		</Col>
+	</Row>
 );
 
 LoginForm.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  onChange: PropTypes.func.isRequired,
-  errors: PropTypes.shape({
-    error: PropTypes.array,
-    email: PropTypes.array,
-    password: PropTypes.array,
-  }).isRequired,
-  isFetching: PropTypes.bool.isRequired,
+	onClick: PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
+	errors: PropTypes.shape({
+		error: PropTypes.array,
+		email: PropTypes.array,
+		password: PropTypes.array,
+	}).isRequired,
+	isFetching: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;
