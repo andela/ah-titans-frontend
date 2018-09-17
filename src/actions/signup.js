@@ -22,7 +22,6 @@ export const createUserErrorActionCreator = error => ({
  * @access - Public for both registered and unregistered users.
  */
 
-
 const createUser = ({ user, history }) => (dispatch) => {
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
