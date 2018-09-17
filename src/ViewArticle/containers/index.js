@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ViewArticle from '../components';
 import fetchArticle from '../../actions/article';
+import Loader from '../../Loader/components/index';
 
 
 class ArticleView extends Component {
@@ -10,9 +11,8 @@ class ArticleView extends Component {
 	}
 	render() {
 		const {article, isFetching, success}  = this.props
-
 		return (
-			<ViewArticle article={article} />
+			<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} />}</React.Fragment>
 		);
 	}
 }
