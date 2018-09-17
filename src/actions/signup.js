@@ -28,6 +28,7 @@ export const createUserErrorActionCreator = error => ({
  */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 const createUser = ({ user, history }) => (dispatch) => {
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
@@ -41,6 +42,8 @@ const createUser = ({ user }) => (dispatch) => {
 =======
 
 >>>>>>> [Chore #160532247] Implement requested changes
+=======
+>>>>>>> [Chore #160011178] return the decode token  file
 const createUser = ({ user, history }) => (dispatch) => {
 >>>>>>> [Chore #160532247] Add routing after successful login and signup
 	dispatch(signingUp());
