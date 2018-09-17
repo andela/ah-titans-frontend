@@ -1,19 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import ViewArticle from '../components';
+import fetchArticle from '../../actions/article';
 
 class ArticleView extends Component {
 	componentDidMount() {
-		this.props.getArticles();
+		this.props.fetchArticle();
 	}
+
 	render() {
-		const article = this.props.article
+		const article = this.props.article;
 
 		return (
-
-			<ViewArticle article={article} />
-
+			<ViewArticle article={article}/>
 		);
 	}
 }
 
-export default ArticleView;
+const mapStatetoProps = state => ({
+	home:
+		state.exampleReducer,
+	article:
+		state.viewArticles,
+});
+export default connect(
+	mapStatetoProps,
+	{
+		fetchArticle,
+	},
+)(ArticleView);
