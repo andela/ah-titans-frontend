@@ -4,6 +4,7 @@ import Home from '../../Home/containers';
 import Login from '../../Login/containers';
 import Signup from '../../Signup/containers/Signup';
 import Article from '../../New_Article/containers/index';
+import ArticleView from '../../ViewArticle/containers';
 import NotFound from '../../Error_pages/components/page_not_found';
 
 const token = localStorage.getItem('token');
@@ -14,6 +15,7 @@ const Main = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
       {token ? <Route exact path="/article" component={Article} /> : ''};
+      <Route exact path="/view" component={ArticleView} />
       <Route component={NotFound} />
     </Switch>
   </main>
