@@ -10,7 +10,7 @@ class ArticleView extends Component {
 		this.props.fetchArticle(this.props.match.params.slug);
 	}
 	render() {
-		const {article, isFetching, success}  = this.props
+		const {article, isFetching}  = this.props
 		return (
 			<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} />}</React.Fragment>
 		);
