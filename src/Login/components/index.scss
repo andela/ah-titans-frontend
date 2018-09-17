@@ -1,9 +1,11 @@
 $color: #3498db;
 $green: #2ecc71;
 
+body{
+  margin-top: 0%;
+}
 form {
   box-sizing: border-box;
-  margin: 100px auto 0;
   box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.2);
   padding-bottom: 40px;
   border-radius: 3px;
@@ -13,7 +15,7 @@ form {
   }
 }
 
-h1 {
+.h1-signin {
   height: 100px;
   width: 100%;
   font-size: 20px;
@@ -32,7 +34,7 @@ h1 {
   border-bottom: 1px solid #2980b9
 }
   
-.btn {
+.btn-signin {
   border: none;
   border-radius: 3px;
   padding: 8px;

@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import {
-	Col, Row, Input, Button
+	Col, Row, Input, Button,
 } from 'react-materialize';
 import './index.scss';
 
 const LoginForm = ({
-	onClick, onChange, errors, isFetching
+	onClick, onChange, errors, isFetching,
 }) => (
-	<Row style={{ marginTop: '5%' }}>
+	<Row >
 		<Col m={4} s={12} offset="m4">
 			<form>
-				<h1>Login to your account</h1>
+				<h1 className="h1-signin">Login to your account</h1>
 				<Row>
 					<div className="error">{errors.error}</div>
 					<Input
@@ -38,7 +38,7 @@ const LoginForm = ({
 							waves="light"
 							onClick={onClick}
 							disabled={isFetching}
-							className="btn"
+							className="btn-signin"
 						>
 							{isFetching ? 'Processing ...' : 'Login'}
 						</Button>

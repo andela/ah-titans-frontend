@@ -1,26 +1,54 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Link, } from 'react-router-dom';
-import {
-  Navbar, Col,
-} from 'react-materialize';
+import { Link } from 'react-router-dom';
+import { Col, Icon, SideNav, Button, SideNavItem } from 'react-materialize';
 import Logo from '../../assets/logo.png';
-// The Header creates links that can be used to navigate
-// between routes.
-const token = localStorage.getItem('token');
+import ProfileIcon from '../../assets/profile.png';
+import Img from '../../assets/signup.png';
+import './index.scss';
+
 const Header = () => (
-  <Navbar style={{ backgroundColor: '#3498db', }}>
-    <Col s={8} offset="s2">
-      <Col s={8}><img height="70" width="80" src={Logo} alt="Loading ..." /></Col>
-      <Col s={4}>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/signup">Signup</Link></li>
-        </ul>
-      </Col>
+  <Col s={12} className="Navbar">
+    <Col m={1}>
+      <SideNav
+        trigger={
+          <Button className="sideMenuButton z-depth-0" style={{backgroundColor: '#3498db'}} m={1}>
+            <Icon>reorder</Icon>
+          </Button>
+        }
+        options={{ closeOnClick: true }}
+      >
+        <SideNavItem
+          userView
+          user={{
+            background: Img,
+            image: ProfileIcon,
+            name: 'John Doe',
+            email: 'jdandturk@gmail.com',
+          }}
+        />
+        <SideNavItem href="/" icon="home">
+				Home
+        </SideNavItem>
+        <SideNavItem href="/" icon="edit">
+          Create Article
+        </SideNavItem>
+        <SideNavItem href="/profile" icon="perm_identity">
+          View My Profile
+        </SideNavItem>
+        <SideNavItem divider />
+        <SideNavItem waves href="#!third" icon="assignment">
+          <Link to="/signup">Signup</Link>
+        </SideNavItem>
+        <SideNavItem waves href="#!third" icon="arrow_left_alt">
+          <Link to="/login">Sign In</Link>
+        </SideNavItem>
+        <SideNavItem waves href="#!third" icon="arrow_right">
+          Logout
+        </SideNavItem>
+      </SideNav>
     </Col>
-  </Navbar>
+      <Col className="logo">Authors' Haven</Col>
+  </Col>
 );
 
 Header.propTypes = {};
