@@ -9,11 +9,11 @@ class ArticleView extends Component {
 		this.props.fetchArticle(this.props.match.params.slug);
 	}
 	render() {
-		const { title, description, body } = this.props.article;
-		console.log(this.props.article)
+		const {article}  = this.props
+		console.log(article)
 
 		return (
-			<ViewArticle title={title} description={description} body={body} author={author} created_at={created_at}/>
+			<ViewArticle article={article} />
 		);
 	}
 }
