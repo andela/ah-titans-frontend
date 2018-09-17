@@ -9,8 +9,7 @@ class ArticleView extends Component {
 		this.props.fetchArticle(this.props.match.params.slug);
 	}
 	render() {
-		const {article}  = this.props
-		console.log(article)
+		const {article, isFetching, success}  = this.props
 
 		return (
 			<ViewArticle article={article} />
@@ -18,11 +17,10 @@ class ArticleView extends Component {
 	}
 }
 
-const mapStatetoProps = state => ({
-	home:
-		state.exampleReducer,
-	article:
-		state.getArticle.items,
+const mapStatetoProps = ({ getArticle}) => ({
+	article: getArticle.items,
+	isFetching: getArticle.isFetching,
+	success: getArticle.success,
 });
 export default connect(
 	mapStatetoProps,
