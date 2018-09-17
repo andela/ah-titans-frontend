@@ -3,7 +3,6 @@
  * @params null
  * @returns {object}
  */
-
 const getToken = () => {
 	// return authorization header with jwt token
 	const data = localStorage.getItem('username');

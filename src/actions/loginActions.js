@@ -25,15 +25,16 @@ export const loginUserError = error => ({
 const loginUser = ({ user, history }) => (dispatch) => {
 	dispatch(loginRequest());
 	http.post(`${config.BASE_URL}/users/login/`, { user })
-		.then((data) => {
-			dispatch(loginUserSuccessful(data.response.data));
-			localStorage.setItem('token', data.user.token);
-			localStorage.setItem('username', data.user.username);
+		.then((payload) => {
+			const { response: { data } } = payload;
+			dispatch(loginUserSuccessful(data));
+			localStorage.setItem('token', payload.user.token);
+			localStorage.setItem('username', payload.user.username);
 			history.push('/');
 		})
 		.catch((error) => {
-			const { ...errorResponse } = error.response;
-			dispatch(loginUserError(errorResponse.data));
+			const { response: { data } } = error;
+			dispatch(loginUserError(data));
 		});
 };
 
