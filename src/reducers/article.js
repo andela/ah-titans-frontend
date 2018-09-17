@@ -1,7 +1,7 @@
 import { VIEW_ARTICLE, GET_ARTICLE_ERROR, GETTING_ARTICLE } from '../actions/types';
 
 const prevState = {
-	item: {},
+	items: {},
 	error: {},
 	isFetching: false,
 	success: false,
@@ -22,10 +22,7 @@ const getArticle = (state = prevState, action) => {
 				...state,
 				isFetching: false,
 				success: true,
-				item:
-					action
-						.payload
-						.articles,
+				items: action.payload.articles,
 			};
 		case GET_ARTICLE_ERROR:
 			return {

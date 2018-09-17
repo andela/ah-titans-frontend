@@ -5,24 +5,15 @@ import fetchArticle from '../../actions/article';
 
 
 class ArticleView extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			title: 'Title',
-			description: 'The Description',
-			body: 'Blahblahblah Blahblahblah Blahblahblah Blahblahblah Blahblahblah Blahblahblah',
-		};
+	componentDidMount() {
+		this.props.fetchArticle(this.props.match.params.slug);
 	}
-
 	render() {
-		const { title, description, body } = this.state;
-		console.log(this.props)
+		const { title, description, body } = this.props.article;
+		console.log(this.props.article)
+
 		return (
-			<ViewArticle
-				title={title}
-				description={description}
-				body={body}
-			/>
+			<ViewArticle title={title} description={description} body={body} author={author} created_at={created_at}/>
 		);
 	}
 }
@@ -31,7 +22,7 @@ const mapStatetoProps = state => ({
 	home:
 		state.exampleReducer,
 	article:
-		state.viewArticles,
+		state.getArticle.items,
 });
 export default connect(
 	mapStatetoProps,

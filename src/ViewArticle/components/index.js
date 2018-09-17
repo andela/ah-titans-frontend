@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Icon } from 'react-materialize';
+import { Col } from 'react-materialize';
 
 class ViewArticle extends React.Component {
 	render() {

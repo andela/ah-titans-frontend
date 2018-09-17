@@ -22,7 +22,7 @@ const fetchArticle = (slug) => (dispatch) => {
 	call(
 		{
 			endpoint:
-				`/article/${slug}`,
+				`/articles/${slug}`,
 			method:
 				'GET',
 		},
