@@ -4,7 +4,7 @@ import signupReducer from './signup';
 import loginReducer from './loginReducer';
 import createArticleReducer from './createArticleReducer';
 import viewArticles from './viewArticles';
-import getArticle from './article'
+import getArticle from './article';
 
 export default combineReducers({
 	exampleReducer,

@@ -15,7 +15,7 @@ const Main = () => (
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
       {token ? <Route exact path="/article" component={Article} /> : ''};
-      <Route exact path="/view" component={ArticleView} />
+      <Route exact path="/article/:slug" component={ArticleView} />
       <Route component={NotFound} />
     </Switch>
   </main>

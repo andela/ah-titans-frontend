@@ -1,4 +1,4 @@
-import { VIEW_ARTICLES, VIEW_ARTICLES_ERROR, GETTING_ARTICLES } from '../actions/types';
+import { VIEW_ARTICLE, GET_ARTICLE_ERROR, GETTING_ARTICLE } from '../actions/types';
 
 const prevState = {
 	item: {},
@@ -11,13 +11,13 @@ const getArticle = (state = prevState, action) => {
 	switch (
 		action.type
 	) {
-		case GETTING_ARTICLES:
+		case GETTING_ARTICLE:
 			return {
 				...state,
 				isFetching: true,
 				success: false,
 			};
-		case VIEW_ARTICLES:
+		case VIEW_ARTICLE:
 			return {
 				...state,
 				isFetching: false,
@@ -27,7 +27,7 @@ const getArticle = (state = prevState, action) => {
 						.payload
 						.articles,
 			};
-		case VIEW_ARTICLES_ERROR:
+		case GET_ARTICLE_ERROR:
 			return {
 				...state,
 				error:

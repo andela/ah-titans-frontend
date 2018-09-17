@@ -15,14 +15,14 @@ export const getArticleErrorActionCreator = error => ({
 	payload: error,
 });
 
-const fetchArticle = () => (dispatch) => {
+const fetchArticle = (slug) => (dispatch) => {
 	dispatch(
 		getArticleActionCreator(),
 	);
 	call(
 		{
 			endpoint:
-				'/article/<slug>',
+				`/article/${slug}`,
 			method:
 				'GET',
 		},
