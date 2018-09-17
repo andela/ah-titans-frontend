@@ -15,14 +15,14 @@ const ArticlesForm = ({ article }) => (
 				textClassName="black-text"
 				title={article.title}
 				actions={[
-					<button className="btn waves-effect waves-light blue-grey">
+					<button className="btn waves-effect waves-light blue">
 						<i className="material-icons">share</i>
 					</button>,
-					<button className="btn waves-effect waves-light blue-grey">
+					<button className="btn waves-effect waves-light blue">
 						<i className="material-icons">thumb_up</i>
 						<span>{article.likes_count}</span>
 					</button>,
-					<button className="btn waves-effect waves-light blue-grey">
+					<button className="btn waves-effect waves-light blue">
 						<i className="material-icons">thumb_down</i>
 						<span>{article.dislikes_count}</span>
 					</button>,

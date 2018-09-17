@@ -1,17 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Col, Icon, SideNav, Button, SideNavItem } from 'react-materialize';
-import Logo from '../../assets/logo.png';
 import ProfileIcon from '../../assets/profile.png';
 import Img from '../../assets/signup.png';
 import './index.scss';
 
 const Header = () => (
-  <Col s={12} className="Navbar">
+  <Col s={12} className="Navbar blue" style={{ height: '60px' }}>
+	
     <Col m={1}>
       <SideNav
         trigger={
-          <Button className="sideMenuButton z-depth-0" style={{backgroundColor: '#3498db'}} m={1}>
+          <Button
+            className="sideMenuButton z-depth-0 blue"
+            m={1}
+          >
             <Icon>reorder</Icon>
           </Button>
         }
@@ -27,27 +30,28 @@ const Header = () => (
           }}
         />
         <SideNavItem href="/" icon="home">
-				Home
+          Home
         </SideNavItem>
-        <SideNavItem href="/" icon="edit">
+        <SideNavItem href="/article" icon="edit">
           Create Article
         </SideNavItem>
         <SideNavItem href="/profile" icon="perm_identity">
           View My Profile
         </SideNavItem>
         <SideNavItem divider />
-        <SideNavItem waves href="#!third" icon="assignment">
-          <Link to="/signup">Signup</Link>
+        <SideNavItem waves href="/signup" icon="assignment">
+           Signup
         </SideNavItem>
-        <SideNavItem waves href="#!third" icon="arrow_left_alt">
-          <Link to="/login">Sign In</Link>
+        <SideNavItem waves href="/login" icon="arrow_left_alt">
+          Sign In
         </SideNavItem>
-        <SideNavItem waves href="#!third" icon="arrow_right">
+        <SideNavItem waves href="/logout" icon="arrow_right">
           Logout
         </SideNavItem>
       </SideNav>
     </Col>
-      <Col className="logo">Authors' Haven</Col>
+		<Col className="logo">Authors' Haven</Col>
+    
   </Col>
 );
 

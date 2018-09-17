@@ -9,7 +9,7 @@ import './index.scss';
 const LoginForm = ({
 	onClick, onChange, errors, isFetching,
 }) => (
-	<Row >
+	<Row>
 		<Col m={4} s={12} offset="m4">
 			<form>
 				<h1 className="h1-signin">Login to your account</h1>

@@ -8,7 +8,7 @@ const SearchComponent = () => (
       <div className="search-bar">
         <Dropdown
           trigger={
-            <Button>
+            <Button className="blue">
               Filter By
               <i className="material-icons right">filter_list</i>
             </Button>
