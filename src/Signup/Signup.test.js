@@ -1,7 +1,11 @@
 import React from 'react';
+<<<<<<< HEAD
 import { MemoryRouter, } from 'react-router-dom';
 import { Provider, } from 'react-redux';
 import { shallow, mount } from 'enzyme';
+=======
+import { shallow} from 'enzyme';
+>>>>>>> dd958961cf1a6579d9d74da3f500a7234e6ecac6
 import SignupForm from './components/SignupForm';
 import Signup from './containers/Signup';
 import store from '../store';
