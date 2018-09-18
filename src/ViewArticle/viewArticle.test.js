@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import toJson from 'enzyme-to-json';
 import store from '../store';
 import ArticleView from './containers/index';
 import ArticlePage from './containers/index';
@@ -18,21 +17,21 @@ describe('Article', () => {
 });
 
 describe('<EditButton />', () => {
-  it('renders without crashing', () => {
+  it('renders edit button component without crashing', () => {
     shallow(<EditButton store={store} />);
   });
 });
 
 describe('ArticleView', () => {
   const article = {
-    article: { slug: '', tagList: ['any'], body: 'this is a test body', created_at: '' },
+    article: { article },
   };
-  it('renders without crashing', () => {
+  it('renders article view component without crashing', () => {
     shallow(<ArticleView store={store} article={article} />);
   });
 });
 
-describe('Articles form', () => {
+describe('View Article form', () => {
   const article = {
     article: { slug: '', tagList: [], body: 'this is a test body', created_at: '', },
   };

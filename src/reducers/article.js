@@ -1,13 +1,13 @@
 import { VIEW_ARTICLE, GET_ARTICLE_ERROR, GETTING_ARTICLE } from '../actions/types';
 
-const prevState = {
+const initialState = {
 	items: {},
 	error: {},
 	isFetching: false,
 	success: false,
 };
 
-const getArticle = (state = prevState, action) => {
+const getArticle = (state = initialState, action) => {
 	switch (
 		action.type
 	) {

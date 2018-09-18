@@ -11,26 +11,42 @@ const expectedAction = type => ({
 });
 
 describe('create actions', () => {
-	it('should create an action getArticles', () => {
+	it('should create an action fetchArticle', () => {
 		const expectedAction = {
 			type: GETTING_ARTICLE,
 		};
-		expect(getArticleActionCreator()).toEqual(expectedAction);
+		expect(
+			getArticleActionCreator(),
+		).toEqual(
+			expectedAction,
+		);
 	});
 
 	it('should create an action get article', () => {
-		expect(viewArticleActionCreator()).toEqual(expectedAction(VIEW_ARTICLE));
+		expect(
+			viewArticleActionCreator(),
+		).toEqual(
+			expectedAction(
+				VIEW_ARTICLE,
+			),
+		);
 	});
 
-	it('should create an action get articles error', () => {
-		expect(getArticleErrorActionCreator()).toEqual(expectedAction(GET_ARTICLE_ERROR));
+	it('should create an action get an article error', () => {
+		expect(
+			getArticleErrorActionCreator(),
+		).toEqual(
+			expectedAction(
+				GET_ARTICLE_ERROR,
+			),
+		);
 	});
 });
 
-describe('select view articles action', () => {
+describe('select view an article action', () => {
 	const article = {};
 
-	test('Dispatches view articles action and payload', () => {
+	test('Dispatches article action and payload', () => {
 		const expectedActions = [
 			{
 				type:
@@ -39,17 +55,25 @@ describe('select view articles action', () => {
 			},
 		];
 
-		store.dispatch(viewArticleActionCreator(article));
-		expect(store.getActions()).toEqual(expectedActions);
+		store.dispatch(
+			viewArticleActionCreator(
+				article,
+			),
+		);
+		expect(
+			store.getActions(),
+		).toEqual(
+			expectedActions,
+		);
 	});
 });
 
-describe('select view articles errors action', () => {
+describe('select article errors action', () => {
 	const errors = {};
 	beforeEach(() => {
 		store.clearActions();
 	});
-	test('Dispatches view articles errors action and payload', () => {
+	test('Dispatches article errors action and payload', () => {
 		const expectedActions = [
 			{
 				type:
@@ -58,23 +82,37 @@ describe('select view articles errors action', () => {
 			},
 		];
 
-		store.dispatch(getArticleErrorActionCreator(errors));
-		expect(store.getActions()).toEqual(expectedActions);
+		store.dispatch(
+			getArticleErrorActionCreator(
+				errors,
+			),
+		);
+		expect(
+			store.getActions(),
+		).toEqual(
+			expectedActions,
+		);
 	});
 });
 
-describe('select getting articles action', () => {
+describe('select getting an article action', () => {
 	beforeEach(() => {
 		store.clearActions();
 	});
-	test('Dispatches getting articles action and payload', () => {
+	test('Dispatches getting an article action and payload', () => {
 		const expectedActions2 = [
 			{
 				type:
 					'GETTING_ARTICLE',
 			},
 		];
-		store.dispatch(getArticleActionCreator());
-		expect(store.getActions()).toEqual(expectedActions2);
+		store.dispatch(
+			getArticleActionCreator(),
+		);
+		expect(
+			store.getActions(),
+		).toEqual(
+			expectedActions2,
+		);
 	});
 });
