@@ -26,7 +26,6 @@ const handleResponse = response => response.json().then((data) => {
   return data;
 });
 
-// const token = localStorage.getItem('token');
 const create = data => fetch('https://ah-titans-api.herokuapp.com/api/articles/', {
   method: 'POST',
   headers: {
