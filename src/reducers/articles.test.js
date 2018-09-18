@@ -15,8 +15,7 @@ describe('viewArticles reducer', () => {
 
 	it('should set isFetching state to true', () => {
 		const startAction = {
-			type:
-				types.GETTING_ARTICLE,
+			type: types.GETTING_ARTICLE,
 		};
 
 		expect(
