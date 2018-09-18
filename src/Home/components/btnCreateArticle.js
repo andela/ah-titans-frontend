@@ -4,16 +4,15 @@ import { Link } from 'react-router-dom';
 
 const CreateArticleButton = () => (
   <Link to="/article">
-    <Button
-      onClick={handleEdit}
-      floating
-      large
-      className="green"
-      fab="vertical"
-      tooltip="Edit article"
-      waves="light"
-      icon="edit"
-    />
+   <Button
+    floating
+    large
+    className="green"
+    fab="vertical"
+    tooltip="Edit article"
+    waves="light"
+    icon="edit"
+  />
   </Link>
 );
 
