@@ -29,7 +29,11 @@ export const createUserErrorActionCreator = error => ({
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const createUser = ({ user, history }) => (dispatch) => {
+=======
+const createUser = ({ user }, history) => (dispatch) => {
+>>>>>>> [Chore #160532247] fixed signin bug
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
 		.then((payload) => {
@@ -49,10 +53,16 @@ const createUser = ({ user, history }) => (dispatch) => {
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
 		.then((data) => {
+<<<<<<< HEAD
 			dispatch(createUserActionCreator(data.response.data));
 <<<<<<< HEAD
 >>>>>>> [Chore #160532247] Fix error handling
 =======
+=======
+			localStorage.setItem('token', data.data.user.token);
+			localStorage.setItem('username', data.data.user.username);
+			dispatch(createUserActionCreator(data.data));
+>>>>>>> [Chore #160532247] fixed signin bug
 			history.push('/');
 >>>>>>> [Chore #160532247] Add routing after successful login and signup
 		})
