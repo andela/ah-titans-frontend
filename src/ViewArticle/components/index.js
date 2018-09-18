@@ -9,12 +9,12 @@ class ViewArticle extends React.Component {
 		return (
 			<Row s={12}>
 				<Col s={12}>
-				<div className="floating left" style={{marginLeft:"25px", marginTop:"25px"}}>
+				{/* <div className="floating left" style={{marginLeft:"25px", marginTop:"25px"}}>
 					<i class="small material-icons floating left">thumb_up</i><br></br>
 					<i class="small material-icons floating left">thumb_down</i><br></br>
 					<i class="small material-icons floating left">bookmark</i><br></br>
 					<i class="small material-icons floating left">share</i><br></br>
-				</div>
+				</div> */}
 				<div className="container">
 					<Row s={12}>
 						<Col s={6}>
@@ -53,6 +53,12 @@ class ViewArticle extends React.Component {
 								<p>{article.body}</p>
 							</div>
 						</Col>
+						<div className="floating" >
+					<i class="small material-icons floating left">thumb_up</i><br></br>
+					<i class="small material-icons floating left">thumb_down</i><br></br>
+					<i class="small material-icons floating left">bookmark</i><br></br>
+					<i class="small material-icons floating left">share</i><br></br>
+				</div>
 				</div>
 			</Col>
 			</Row>
