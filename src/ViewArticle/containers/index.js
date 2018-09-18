@@ -7,25 +7,12 @@ import Loader from '../../Loader/components/index';
 import EditButton from '../components/EditButton';
 
 class ArticleView extends Component {
-	constructor(props){
-		super(props);
-		this.state =  {
-			isFetching: '',
-			article: {}
-		}
-	}
 	componentDidMount() {
 		this.props.fetchArticle(this.props.match.params.slug);
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const { article, isFetching} = nextProps;
-		console.log(nextProps)
-		this.setState({article, isFetching});
-	}
-
 	render() {
-		const {isFetching, article} = this.state;
+		const { article, isFetching } = this.props;
 		return (
 			<div>
 				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} />}</React.Fragment>

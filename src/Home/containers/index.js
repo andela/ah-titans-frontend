@@ -30,7 +30,8 @@ export class Home extends Component {
     const {isFetching, success} = articles
     const all_articles  = articles.items.results
     console.log(all_articles)
-    this.setState({isFetching, success, articles: all_articles})
+    this.setState({isFetching, success, articles:all_articles})
+    console.log(this.state.articles)
   }
 
   render() {
