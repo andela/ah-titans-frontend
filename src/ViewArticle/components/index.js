@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col , Icon, Row } from 'react-materialize';
+import { Col , Row } from 'react-materialize';
 import moment from 'moment';
 
 class ViewArticle extends React.Component {
@@ -38,21 +38,21 @@ class ViewArticle extends React.Component {
 							{article.favorited ? 'favorite_border' : 'favorite'}
 						</i>
 					</Col>
-                   <Col s={12}>
+          <Col s={12}>
 				   	 <div>
-                        <h6><i><b>By: {article.author && article.author.username}</b></i></h6>
-                    </div>
-				   </Col>
-                    <Col s={12}>
+                <h6><i><b>By: {article.author && article.author.username}</b></i></h6>
+            	</div>
+				    </Col>
+            <Col s={12}>
 						<div>
-                        <h6><i><b>{moment(article.updated_at).format('MMM Do YYYY, h:mm:ss a')}</b></i></h6>
-                    	</div>
-					</Col>
-					<Col s={12}>
-					<div>
-						<p>{article.body}</p>
-					</div>
-					</Col>
+              <h6><i><b>{moment(article.updated_at).format('MMM Do YYYY, h:mm:ss a')}</b></i></h6>
+            </div>
+						</Col>
+						<Col s={12}>
+							<div>
+								<p>{article.body}</p>
+							</div>
+						</Col>
 				</div>
 			</Col>
 			</Row>
