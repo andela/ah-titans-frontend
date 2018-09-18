@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import Alert from 'react-s-alert';
 import loginUser from '../../actions/loginActions';
 import LoginForm from '../components';
-import call from '../../utils/service';
 import 'react-s-alert/dist/s-alert-default.css';
 import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import googleLogin from '../../actions/googleActions';
+import facebookLogin from '../../actions/facebookActions';
 
 class Login extends React.Component {
 	constructor(props) {
@@ -52,35 +53,29 @@ class Login extends React.Component {
 		const requestBody = {
 			access_token: response.accessToken,
 		};
-		call({ endpoint: '/users/auth/google-oauth2', method: 'POST', data: requestBody })
-			.then(((res) => {
-				localStorage.setItem('token', res.user.token);
-				localStorage.setItem('user', res.user.user.username);
-			}));
-		this.history.push('/');
+		this.props.googleLogin(requestBody, this.props.history);
 	}
 
 	facebookResponse(response) {
 		const requestBody = {
 			access_token: response.accessToken,
 		};
-		call({ endpoint: '/users/auth/facebook', method: 'POST', data: requestBody })
-			.then(((res) => {
-				localStorage.setItem('token', res.user.token);
-				localStorage.setItem('user', res.user.user.username);
-			}));
-		this.history.push('/');
+		this.props.facebookLogin(requestBody, this.props.history);
 	}
 
 	render() {
 		const { login } = this.props;
-		const { errors, isFetching } = login;
+		const {
+			errors, isFetching, isFetchingFacebook, isFetchingGoogle,
+		} = login;
 		return (
 			<LoginForm
 				onChange={this.handleChange}
 				onClick={this.handleSubmit}
 				errors={errors}
 				isFetching={isFetching}
+				isFetchingFacebook={isFetchingFacebook}
+				isFetchingGoogle={isFetchingGoogle}
 				onFailure={this.onFailure}
 				onSuccess={this.googleResponse}
 				facebookResponse={this.facebookResponse}
@@ -91,10 +86,14 @@ class Login extends React.Component {
 
 Login.propTypes = {
 	loginUser: PropTypes.func.isRequired,
+	googleLogin: PropTypes.func.isRequired,
+	facebookLogin: PropTypes.func.isRequired,
 	login: PropTypes.shape({
 		user: PropTypes.object,
 		errors: PropTypes.object,
 		isFetching: PropTypes.bool,
+		isFetchingGoogle: PropTypes.bool,
+		isFetchingFacebook: PropTypes.bool,
 	}).isRequired,
 };
 
@@ -102,11 +101,16 @@ const mapStateToProps = ({ login }) => ({
 	login,
 });
 
-
 const mapDispatchToProps = (dispatch) => {
 	return {
 		loginUser: (userData, history) => {
 			dispatch(loginUser(userData, history));
+		},
+		googleLogin: (requestBody, history) => {
+			dispatch(googleLogin(requestBody, history));
+		},
+		facebookLogin: (requestBody, history) => {
+			dispatch(facebookLogin(requestBody, history));
 		},
 	};
 };

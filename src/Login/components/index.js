@@ -8,15 +8,13 @@ import './index.scss';
 import GoogleLogin from 'react-google-login';
 import FacebookLogin from 'react-facebook-login';
 import Alert from 'react-s-alert';
-// import 'react-s-alert/dist/s-alert-default.css';
-// import 'react-s-alert/dist/s-alert-css-effects/slide.css';
-
-const googleClientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
-const fbAppId = process.env.REACT_APP_FACEBOOK_APP_ID;
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import config from '../../config';
 
 
 const LoginForm = ({
-	onClick, onChange, errors, isFetching, facebookResponse, onFailure, onSuccess,
+	onClick, onChange, errors, isFetching, facebookResponse, onFailure, onSuccess, isFetchingGoogle, isFetchingFacebook,
 }) => (
 	<Row style={{ marginTop: '5%' }}>
 		<Col m={6} s={12} offset="m3">
@@ -53,33 +51,27 @@ const LoginForm = ({
 					</Col>
 					<Col m={6} s={12}>
 						<p style={{ color: 'black' }}>
-              Not a member?
-							
-					<Link to="/signup">
-              			Signup
-							</Link>
+							Not a member?
+							<Link to="/signup"> Signup </Link>
 						</p>
 					</Col>
 				</Row>
-        	Or sign in with:
-
-
-				
-					<Row>
-          <Col>
-					<FacebookLogin
-						appId={fbAppId}
-						fields="name,email,picture"
-						callback={facebookResponse}
-						onSuccess={facebookResponse}
-						onFailure={onFailure}
-						cssClass="btn btn-primary col"
-						style={{ width: '10em' }}
-						icon="fa fa-facebook fa-2x"
-						textButton=" Sign in with facebook"
-					/>
+				Or sign in with:
+				<Row>
+          		<Col>
+				<FacebookLogin
+					appId={config.fbAppId}
+					fields="name,email,picture"
+					callback={facebookResponse}
+					onSuccess={facebookResponse}
+					onFailure={onFailure}
+					cssClass="btn btn-primary col"
+					style={{ width: '10em' }}
+					icon="fa fa-facebook fa-2x"
+					textButton={isFetchingFacebook ? 'Processing ...' : 'Login with facebook'}
+				/>
 					<GoogleLogin
-						clientId={googleClientId}
+						clientId={config.googleClientId}
 						onSuccess={onSuccess}
 						onFailure={onFailure}
 						type=""
@@ -87,7 +79,7 @@ const LoginForm = ({
 						className="col"
 						>
 						<a class="waves-effect waves-light btn social google">
-            <i class="fa fa-google"></i> Sign in with google</a>
+            <i class="fa fa-google"></i> {isFetchingGoogle ? 'Processing ...' : 'Login with google'}</a>
 						</GoogleLogin>
             </Col>
 					</Row>
@@ -109,6 +101,8 @@ LoginForm.propTypes = {
 		password: PropTypes.array,
 	}).isRequired,
 	isFetching: PropTypes.bool.isRequired,
+	isFetchingGoogle: PropTypes.bool.isRequired,
+	isFetchingFacebook: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;
