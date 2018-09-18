@@ -1,8 +1,9 @@
 import { LIKE_ARTICLE, DISLIKE_ARTICLE, LIKE_DISLIKE_ERROR } from '../actions/types';
 
 const prevState = {
-	items: {},
 	error: {},
+	isLiking: false,
+	isDisliking: false,
 };
 
 const likeDislikeArticles = (state = prevState, action) => {
@@ -12,20 +13,12 @@ const likeDislikeArticles = (state = prevState, action) => {
 		case LIKE_ARTICLE:
 			return {
 				...state,
-				items:
-					action
-						.payload
-						.articles
-						.likes,
+				isLiking: true,
 			};
 		case DISLIKE_ARTICLE:
 			return {
 				...state,
-				items:
-					action
-						.payload
-						.articles
-						.dislike,
+				isDisliking: true,
 			};
 		case LIKE_DISLIKE_ERROR:
 			return {
