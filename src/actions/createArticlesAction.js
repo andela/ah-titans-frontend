@@ -23,6 +23,7 @@ const handleResponse = response => response.json().then((data) => {
   if (!response.ok) {
     return Promise.reject(data);
   }
+
   return data;
 });
 
@@ -44,7 +45,7 @@ const createArticle = (articleData, history) => (dispatch) => {
       dispatch(
         createArticleActionCreator(data)
       );
-      history.push('/');
+      history.push(`/article/${data.articles.slug}`);
     })
     .catch(error => dispatch(createArticleError(error)));
 };
