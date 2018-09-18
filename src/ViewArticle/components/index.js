@@ -1,6 +1,7 @@
 import React from 'react';
 import { Col , Row } from 'react-materialize';
 import moment from 'moment';
+import './index.css';
 
 class ViewArticle extends React.Component {
 	render() {
@@ -12,19 +13,15 @@ class ViewArticle extends React.Component {
 				<div className="container">
 					<Row s={12}>
 						<Col s={6}>
-						<div>
-							<h3 style={{ color: '#2196F3'}}>{article.title}</h3>
-						</div>
-					</Col>
-					<Col s={6} className="star">
-						<div style={{marginTop: "30px", marginLeft: "-100px"}}>
-							<i className="material-icons icon-orange small">star</i>
-							<i className="material-icons icon-orange small star">star</i>
-							<i className="material-icons icon-orange small">star</i>
-							<i className="material-icons icon-orange small">star</i>
-							<i className="material-icons icon-orange small">star_half</i>
-							<i style={{ alignContent: 'center', position: 'inline'}}>4.6</i>
-						</div>
+						<div className="Head">
+							<h3 style={{ color: '#2196F3', marginRight: '20px'}}>{article.title}</h3>
+									<i className="material-icons icon-orange small">star</i>
+									<i className="material-icons icon-orange small star">star</i>
+									<i className="material-icons icon-orange small">star</i>
+									<i className="material-icons icon-orange small">star</i>
+									<i className="material-icons icon-orange small">star_half</i>
+									<i style={{ alignContent: 'center', position: 'inline' }}>4.6</i>
+							</div>
 					</Col>
 					</Row>
 					<Col>

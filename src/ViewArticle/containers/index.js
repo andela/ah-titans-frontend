@@ -31,7 +31,7 @@ const mapStatetoProps = ({ getArticle }) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 	fetchArticle,
-}, dispatch)
+}, dispatch);
 export default connect(
 	mapStatetoProps,
 	mapDispatchToProps,
