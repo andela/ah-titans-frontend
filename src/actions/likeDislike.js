@@ -14,11 +14,11 @@ export const likeDislikeErrorActionCreator = error => ({
 	payload: error,
 });
 
-const likeDislikeArticle = () => (dispatch) => {
+export const likeArticle = () => (dispatch) => {
 	call(
 		{
 			endpoint:
-				'/articles/<slug>/',
+				'/articles/<slug>/like',
 			method:
 				'PUT',
 		},
@@ -40,5 +40,29 @@ const likeDislikeArticle = () => (dispatch) => {
 			),
 		);
 };
-
-export default likeDislikeArticle;
+export const dislikeArticle = () => (dispatch) => {
+	call(
+		{
+			endpoint:
+				'/articles/<slug>/dislike',
+			method:
+				'PUT',
+		},
+	)
+		.then(
+			(data) => {
+				dispatch(
+					dislikeArticleActionCreator(
+						data,
+					),
+				);
+			},
+		)
+		.catch(
+			error => dispatch(
+				likeDislikeErrorActionCreator(
+					error,
+				),
+			),
+		);
+};
