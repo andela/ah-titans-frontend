@@ -1,36 +1,41 @@
-import PropTypes from 'prop-types';
-import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST, } from './types';
-import call from '../utils/service';
+import { LOGIN_SUCCESS, LOGIN_ERROR, LOGIN_REQUEST } from './types';
+import http from '../utils/http.service';
+import config from '../config';
 
-export const loginRequest = () => ({ type: LOGIN_REQUEST, });
+export const loginRequest = () => ({ type: LOGIN_REQUEST });
 
 export const loginUserSuccessful = data => ({
-  type: LOGIN_SUCCESS,
-  payload: data,
+	type: LOGIN_SUCCESS,
+	payload: data,
 });
 
-export const loginUserError = data => ({
-  type: LOGIN_ERROR,
-  payload: data,
+export const loginUserError = error => ({
+	type: LOGIN_ERROR,
+	payload: error,
 });
 
-const loginUser = (userData, history) => (dispatch) => {
-  dispatch(loginRequest());
-  call({ endpoint: '/users/login/', method: 'POST', data: userData, })
-    .then((data) => {
-      localStorage.setItem('token', data.user.token);
-      localStorage.setItem('username', data.user.username);
-      dispatch(
-        loginUserSuccessful(data)
-      );
-      history.push('/');
-    })
-    .catch(error => dispatch(loginUserError(error)));
-};
+/**
+ * Represents functionality for creating a user.
+ * @constructor
+ * @param {function} history - Handles routing to the next page.
+ * * @param {object} user - Contains the typed in user information.
+ * @access - Public for both registered and unregistered users.
+ */
 
-loginUser.propTypes = {
-  loginUserSuccessful: PropTypes.func.isRequired,
-  loginUserError: PropTypes.func.isRequired,
+const loginUser = ({ user, history }) => (dispatch) => {
+	dispatch(loginRequest());
+	http.post(`${config.BASE_URL}/users/login/`, { user })
+		.then((payload) => {
+			const { response: { data } } = payload;
+			dispatch(loginUserSuccessful(data));
+			localStorage.setItem('token', payload.user.token);
+			localStorage.setItem('username', payload.user.username);
+			history.push('/');
+		})
+		.catch((error) => {
+			const { response: { data } } = error;
+			dispatch(loginUserError(data));
+		});
 };
 
 export default loginUser;

@@ -18,12 +18,12 @@ const handleResponse = response => response.json().then((data) => {
 });
 
 const call = ({
-	endpoint, method, data, authenticated,
+	endpoint, method, data,
 }) => fetch(`${config.BASE_URL}${endpoint}`, {
 	method,
 	headers: {
 		'content-type': 'application/json',
-		...authHeader(authenticated),
+		...authHeader(),
 	},
 	body: JSON.stringify(data),
 }).then(handleResponse);

@@ -1,27 +1,39 @@
 import { CREATE_USER, CREATE_USER_ERROR, SIGNUP_REQUEST } from './types';
-import call from '../utils/service';
+import http from '../utils/http.service';
+import config from '../config';
 
 export const signingUp = () => ({ type: SIGNUP_REQUEST });
 
 export const createUserActionCreator = user => ({
-  type: CREATE_USER,
-  payload: user,
+	type: CREATE_USER,
+	payload: user,
 });
 
 export const createUserErrorActionCreator = error => ({
-  type: CREATE_USER_ERROR,
-  payload: error,
+	type: CREATE_USER_ERROR,
+	payload: error,
 });
 
-const createUser = (userData, history) => dispatch => {
-  dispatch(signingUp());
-  call({ endpoint: '/users/', method: 'POST', data: userData })
-    .then(data => {
-      dispatch(createUserActionCreator(data));
-      localStorage.setItem('user', data);
-      history.push('/');
-    })
-    .catch(error => dispatch(createUserErrorActionCreator(error)));
+/**
+ * Represents functionality for creating a user.
+ * @constructor
+ * @param {function} history - Handles routing to the next page.
+ * * @param {object} user - Contains the typed in user information.
+ * @access - Public for both registered and unregistered users.
+ */
+
+const createUser = ({ user, history }) => (dispatch) => {
+	dispatch(signingUp());
+	http.post(`${config.BASE_URL}/users/`, { user })
+		.then((payload) => {
+			const { response: { data } } = payload;
+			dispatch(createUserActionCreator(data));
+			history.push('/');
+		})
+		.catch((error) => {
+			const { response: { data } } = error;
+			dispatch(createUserErrorActionCreator(data));
+		});
 };
 
 export default createUser;
