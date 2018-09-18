@@ -7,7 +7,7 @@ const CreateArticleButton = () => (
     <Button
       floating
       large
-      className="red"
+      className="green"
       fab="vertical"
       tooltip="Create article"
       waves="light"

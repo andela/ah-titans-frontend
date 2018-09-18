@@ -8,6 +8,7 @@ import ArticlesForm from '../components';
 import SearchComponent from '../components/search';
 import Loader from '../../Loader/components/index';
 import getArticles from '../../actions/viewArticles';
+import CreateArticleButton from '../components/btnCreateArticle';
 
 export class Home extends Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ export class Home extends Component {
     const { isFetching, success, } = this.props.articles;
     const articles = this.props.articles.items.results;
     const article = [];
+    const token = localStorage.getItem('token');
 
     if (success === true) {
       articles.map(article_ => article.push(<ArticlesForm article={article_} key={article.slug} />));
@@ -41,6 +43,9 @@ export class Home extends Component {
           {' '}
           {article}
         </Row>
+        {
+          token ? ( <CreateArticleButton /> 
+            ) : ('')}
       </div>
     );
   }
