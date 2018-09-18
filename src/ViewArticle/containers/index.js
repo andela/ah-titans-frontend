@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ViewArticle from '../components';
 import fetchArticle from '../../actions/article';
 import Loader from '../../Loader/components/index';
 import EditButton from '../components/EditButton';
-import { bindActionCreators } from 'redux';
-
 
 class ArticleView extends Component {
+	constructor(props){
+		super(props);
+		this.state =  {
+			isFetching: '',
+			article: {}
+		}
+	}
 	componentDidMount() {
 		this.props.fetchArticle(this.props.match.params.slug);
 	}
 
+	componentWillReceiveProps(nextProps) {
+		const { article, isFetching} = nextProps;
+		this.setState({article, isFetching});
+	}
+
 	render() {
-		const { article, isFetching } = this.props;
+		const {isFetching, article} = this.state;
 		return (
 			<div>
 				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} />}</React.Fragment>
