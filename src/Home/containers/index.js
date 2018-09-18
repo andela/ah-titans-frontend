@@ -10,6 +10,7 @@ import Loader from '../../Loader/components/index';
 import getArticles from '../../actions/viewArticles';
 import CreateArticleButton from '../components/btnCreateArticle';
 import { bindActionCreators } from 'redux';
+import updateState from '../../StateUpdate/updateState';
 
 export class Home extends Component {
   constructor(props){
@@ -23,6 +24,7 @@ export class Home extends Component {
 
   componentDidMount() {
     this.props.getArticles();
+    updateState();
   }
 
   componentWillReceiveProps(nextProps){
@@ -52,7 +54,6 @@ export class Home extends Component {
         ) : (
           ''
         )}
-
         {isFetching && <Loader />}
         <SearchComponent />
         <Row class="home">
