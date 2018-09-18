@@ -18,10 +18,10 @@ const loginUser = (userData, history) => (dispatch) => {
   dispatch(loginRequest());
   call({ endpoint: '/users/login/', method: 'POST', data: userData, })
     .then((data) => {
-      localStorage.setItem('token', data.user.token);
-      localStorage.setItem('username', data.user.username);
       dispatch(
-        loginUserSuccessful(data)
+        loginUserSuccessful(data),
+        localStorage.setItem('token', data.user.token),
+        localStorage.setItem('username', data.user.username)
       );
       history.push('/');
     })

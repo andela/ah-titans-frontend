@@ -7,14 +7,18 @@ import Article from '../../New_Article/containers/index';
 import ArticleView from '../../ViewArticle/containers';
 import NotFound from '../../Error_pages/components/page_not_found';
 
-const token = localStorage.getItem('token');
 const Main = () => (
   <main>
     <Switch>
       <Route exact path="/" component={Home} />
       <Route exact path="/login" component={Login} />
       <Route exact path="/signup" component={Signup} />
-      {token ? <Route exact path="/article" component={Article} /> : ''};
+      {
+        localStorage.getItem('token') ? < Route exact path = "/article"
+        component = {
+          Article
+        }
+        /> : ''};
       <Route exact path="/article/:slug" component={ArticleView} />
       <Route component={NotFound} />
     </Switch>
