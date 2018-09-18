@@ -1,6 +1,9 @@
 import React from 'react';
-import { shallow, } from 'enzyme';
+import { MemoryRouter, } from 'react-router-dom';
+import { Provider, } from 'react-redux';
+import { shallow, mount } from 'enzyme';
 import SignupForm from './components/SignupForm';
+import Signup from './containers/Signup';
 import store from '../store';
 
 describe('Signup form', () => {
@@ -36,5 +39,18 @@ describe('Signup form', () => {
     const wrapper = shallow(<SignupForm store={store} onChange={() => ''} onClick={onClick} />);
     wrapper.find('.blue').simulate('click');
     expect(onClick).toHaveBeenCalled();
+  });
+});
+describe('<Signup />', () => {
+  const signupWrapper = mount(
+    <MemoryRouter initialEntries={['/signup',]}>
+      <Provider store={store}>
+        <Signup />
+      </Provider>
+    </MemoryRouter>
+  );
+
+  it('renders the login form', () => {
+    expect(signupWrapper.find(SignupForm)).toHaveLength(1);
   });
 });
