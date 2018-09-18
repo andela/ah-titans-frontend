@@ -29,7 +29,6 @@ export class Home extends Component {
     const {articles} = nextProps
     const {isFetching, success} = articles
     const all_articles  = articles.items.results
-    console.log(all_articles)
     this.setState({isFetching, success, articles:all_articles})
   }
 
