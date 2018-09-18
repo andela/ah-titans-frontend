@@ -47,4 +47,7 @@ describe('View Article form', () => {
   it('returns 2 tags', () => {
     expect(articlesFormWrapper.find('.chip').length).toEqual(0);
   });
+  it('returns 2 tags', () => {
+    expect(articlesFormWrapper.find('.slug').length).toEqual(0);
+  });
 });
