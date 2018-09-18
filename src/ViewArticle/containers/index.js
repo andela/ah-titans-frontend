@@ -20,6 +20,7 @@ class ArticleView extends Component {
 
 	componentWillReceiveProps(nextProps) {
 		const { article, isFetching} = nextProps;
+		console.log(nextProps)
 		this.setState({article, isFetching});
 	}
 

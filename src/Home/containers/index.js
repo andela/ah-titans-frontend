@@ -12,14 +12,30 @@ import CreateArticleButton from '../components/btnCreateArticle';
 import { bindActionCreators } from 'redux';
 
 export class Home extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isFetching: '',
+      success: '',
+      articles: {}
+    }
+  }
+
   componentDidMount() {
     this.props.getArticles();
   }
 
+  componentWillReceiveProps(nextProps){
+    const {articles} = nextProps
+    const {isFetching, success} = articles
+    const all_articles  = articles.items.results
+    console.log(all_articles)
+    this.setState({isFetching, success, articles: all_articles})
+  }
+
   render() {
     const { new_user, } = this.props.home;
-    const { isFetching, success, } = this.props.articles;
-    const articles = this.props.articles.items.results;
+    const { isFetching, success, articles} = this.state;
     const article = [];
     const token = localStorage.getItem('token');
 
