@@ -13,24 +13,24 @@ class ViewArticle extends React.Component {
 					<Row s={12}>
 						<Col s={6}>
 						<div>
-						<h3 style={{color : 'blue'}}>{article.title}</h3>
+							<h3 style={{ color: '#2196F3'}}>{article.title}</h3>
 						</div>
 					</Col>
-					<Col s={6}>
-						<div>
+					<Col s={6} className="star">
+						<div style={{marginTop: "30px", marginLeft: "-100px"}}>
 							<i className="material-icons icon-orange small">star</i>
-							<i className="material-icons icon-orange small">star</i>
+							<i className="material-icons icon-orange small star">star</i>
 							<i className="material-icons icon-orange small">star</i>
 							<i className="material-icons icon-orange small">star</i>
 							<i className="material-icons icon-orange small">star_half</i>
-							<span style={{ alignContent: 'center', position: 'inline', }}>4.6</span>
+							<i style={{ alignContent: 'center', position: 'inline'}}>4.6</i>
 						</div>
 					</Col>
 					</Row>
 					<Col>
-							<i className="material-icons icon-blue right">
-								{article.favorited ? 'favorite' : 'favorite_border'}
-							</i>
+						<i className="material-icons icon-blue right">
+							{article.favorited ? 'favorite_border' : 'favorite'}
+						</i>
 					</Col>
                    <Col s={12}>
 				   	 <div>
