@@ -15,31 +15,15 @@ describe('create actions', () => {
 		const expectedAction = {
 			type: GETTING_ARTICLE,
 		};
-		expect(
-			getArticleActionCreator(),
-		).toEqual(
-			expectedAction,
-		);
+		expect(getArticleActionCreator()).toEqual(expectedAction);
 	});
 
 	it('should create an action get article', () => {
-		expect(
-			viewArticleActionCreator(),
-		).toEqual(
-			expectedAction(
-				VIEW_ARTICLE,
-			),
-		);
+		expect(viewArticleActionCreator()).toEqual(expectedAction(VIEW_ARTICLE));
 	});
 
 	it('should create an action get an article error', () => {
-		expect(
-			getArticleErrorActionCreator(),
-		).toEqual(
-			expectedAction(
-				GET_ARTICLE_ERROR,
-			),
-		);
+		expect(getArticleErrorActionCreator()).toEqual(expectedAction(GET_ARTICLE_ERROR));
 	});
 });
 
@@ -49,22 +33,13 @@ describe('select view an article action', () => {
 	test('Dispatches article action and payload', () => {
 		const expectedActions = [
 			{
-				type:
-					'VIEW_ARTICLE',
+				type: 'VIEW_ARTICLE',
 				payload: article,
 			},
 		];
 
-		store.dispatch(
-			viewArticleActionCreator(
-				article,
-			),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expectedActions,
-		);
+		store.dispatch(viewArticleActionCreator(article));
+		expect(store.getActions()).toEqual(expectedActions);
 	});
 });
 
@@ -76,22 +51,13 @@ describe('select article errors action', () => {
 	test('Dispatches article errors action and payload', () => {
 		const expectedActions = [
 			{
-				type:
-					'GET_ARTICLE_ERROR',
+				type: 'GET_ARTICLE_ERROR',
 				payload: errors,
 			},
 		];
 
-		store.dispatch(
-			getArticleErrorActionCreator(
-				errors,
-			),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expectedActions,
-		);
+		store.dispatch(getArticleErrorActionCreator(errors));
+		expect(store.getActions()).toEqual(expectedActions);
 	});
 });
 
@@ -100,19 +66,12 @@ describe('select getting an article action', () => {
 		store.clearActions();
 	});
 	test('Dispatches getting an article action and payload', () => {
-		const expectedActions2 = [
+		const expected_actions = [
 			{
-				type:
-					'GETTING_ARTICLE',
+				type: 'GETTING_ARTICLE',
 			},
 		];
-		store.dispatch(
-			getArticleActionCreator(),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expectedActions2,
-		);
+		store.dispatch(getArticleActionCreator());
+		expect(store.getActions()).toEqual(expected_actions);
 	});
 });

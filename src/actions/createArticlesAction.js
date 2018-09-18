@@ -23,7 +23,6 @@ const handleResponse = response => response.json().then((data) => {
   if (!response.ok) {
     return Promise.reject(data);
   }
-
   return data;
 });
 
