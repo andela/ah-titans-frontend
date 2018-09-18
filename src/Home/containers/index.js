@@ -9,6 +9,7 @@ import SearchComponent from '../components/search';
 import Loader from '../../Loader/components/index';
 import getArticles from '../../actions/viewArticles';
 import CreateArticleButton from '../components/btnCreateArticle';
+import { bindActionCreators } from 'redux';
 
 export class Home extends Component {
   componentDidMount() {
@@ -44,7 +45,7 @@ export class Home extends Component {
           {article}
         </Row>
         {
-          token ? ( <CreateArticleButton /> 
+          token ? ( <CreateArticleButton />
             ) : ('')}
       </div>
     );
@@ -55,7 +56,10 @@ const mapStatetoProps = state => ({
   home: state.exampleReducer,
   articles: state.viewArticles,
 });
+const mapDispatchToProps = dispatch => bindActionCreators({
+  getArticles,
+}, dispatch);
 export default connect(
   mapStatetoProps,
-  { getArticles, }
+  mapDispatchToProps,
 )(Home);

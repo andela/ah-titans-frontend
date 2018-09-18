@@ -4,6 +4,7 @@ import ViewArticle from '../components';
 import fetchArticle from '../../actions/article';
 import Loader from '../../Loader/components/index';
 import EditButton from '../components/EditButton';
+import { bindActionCreators } from 'redux';
 
 
 class ArticleView extends Component {
@@ -27,9 +28,11 @@ const mapStatetoProps = ({ getArticle }) => ({
 	isFetching: getArticle.isFetching,
 	success: getArticle.success,
 });
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+	fetchArticle,
+}, dispatch)
 export default connect(
 	mapStatetoProps,
-	{
-		fetchArticle,
-	},
+	mapDispatchToProps,
 )(ArticleView);
