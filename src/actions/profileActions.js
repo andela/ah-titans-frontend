@@ -1,38 +1,49 @@
-import { GET_PROFILE, UPDATE_PROFILE } from './types';
+import {
+	GET_PROFILE, UPDATE_PROFILE, UPDATE_PROFILE_ERROR,
+	GET_PROFILE_ERROR, GET_PROFILE_REQUEST, UPDATE_PROFILE_REQUEST,
+} from './types';
+import call from '../utils/service';
 
-const getProfileSuccessfully = data => ({
+export const getProfileRequest = () => ({
+	type: GET_PROFILE_REQUEST,
+});
+
+export const getProfileSuccessfully = data => ({
 	type: GET_PROFILE,
 	payload: data,
 });
 
-const updateProfileSuccessfully = data => ({
+export const getProfileError = data => ({
+	type: GET_PROFILE_ERROR,
+	payload: data,
+});
+
+export const updateProfileRequest = () => ({
+	type: UPDATE_PROFILE_REQUEST,
+});
+
+export const updateProfileSuccessfully = data => ({
 	type: UPDATE_PROFILE,
 	payload: data,
 });
 
-const token = localStorage.getItem('token');
+export const updateProfileError = error => ({
+	type: UPDATE_PROFILE_ERROR,
+	payload: error,
+});
 
-export const getProfile = () => (dispatch) => {
-	fetch('http://ah-titans-api.herokuapp.com/api/user/', {
-		method: 'GET',
-		headers: {
-			'content-type': 'application/json',
-			Authorization: `Token ${token}`,
-		},
-	})
-		.then(res => res.json())
-		.then(data => dispatch(getProfileSuccessfully(data)));
+export const getProfile = userName => (dispatch) => {
+	dispatch(getProfileRequest());
+	call({ endpoint: `/profiles/${userName}`, method: 'GET' })
+		.then(data => dispatch(getProfileSuccessfully(data)))
+		.catch(error => dispatch(getProfileError(error)));
 };
 
 export const updateProfile = userData => (dispatch) => {
-	fetch('http://ah-titans-api.herokuapp.com/api/user/', {
-		method: 'PUT',
-		headers: {
-			'content-type': 'application/json',
-			Authorization: `Token ${token}`,
-		},
-		body: JSON.stringify(userData),
+	dispatch(updateProfileRequest());
+	call({
+		endpoint: '/user/', method: 'PUT', data: userData, authenticated: true,
 	})
-		.then(res => res.json())
-		.then(data => console.log(data));
+		.then(data => dispatch(updateProfileSuccessfully(data)))
+		.catch(error => dispatch(updateProfileError(error)));
 };

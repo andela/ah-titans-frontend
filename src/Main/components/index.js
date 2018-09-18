@@ -26,7 +26,7 @@ const Main = () => (
 				) : ''
 			}
 			<Route exact path="/article/:slug" component={ArticleView} />
-			<Route exact path="/profile" component={Profile} />
+			<Route exact path="/profile/:username" component={Profile} />
 			<Route component={NotFound} />
 		</Switch>
 	</main>

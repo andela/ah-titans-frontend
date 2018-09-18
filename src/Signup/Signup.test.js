@@ -25,14 +25,14 @@ describe('Signup form', () => {
     expect(signupFormWrapper.find('Button').length).toEqual(1);
   });
 
-  it('renders error fields ', () => {
-    expect(signupFormWrapper.find('.error').length).toEqual(4);
-  });
+	it('renders error fields ', () => {
+		expect(signupFormWrapper.find('.error').length).toEqual(4);
+	});
 
-  it('renders isFetching action correctly', () => {
-    const signupButton = signupFormWrapper.find('.blue').getElement();
-    expect(signupButton.props.children).toBe('SIGNING UP...');
-  });
+	it('renders isFetching action correctly', () => {
+		const signupButton = signupFormWrapper.find('.blue').getElement();
+		expect(signupButton.props.children).toBe('SIGNING UP...');
+	});
 
   it('calls onClick event on click of a board square', () => {
     const onClick = jest.fn();

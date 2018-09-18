@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ProfilePage from '../components/ProfileComponent';
 import { getProfile, updateProfile } from '../../actions/profileActions';
+import Loader from '../../Loader/components';
 
 
 class Profile extends React.Component {
@@ -12,53 +14,87 @@ class Profile extends React.Component {
 			username: '',
 			bio: '',
 			interests: '',
+			image: '',
 		};
 
 		this.handleChange = this.handleChange.bind(this);
 		this.handleClick = this.handleClick.bind(this);
+		this.handleUpload = this.handleUpload.bind(this);
 	}
 
 	componentDidMount() {
-		this.props.getProfile();
-		const {user} = this.props.profile;
-	
+		const { match, getProfile: get } = this.props;
+		const urlUsername = match.params.username;
+		get(urlUsername);
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const {bio, interests, username} = nextProps.profile.user
-		this.setState({ username, bio, interests })
+		const { bio, interests, username } = nextProps.profile.user;
+		this.setState({ username, bio, interests });
 	}
 
 	handleChange(e) {
 		this.setState({ [e.target.name]: e.target.value });
 	}
 
+	handleUpload() {
+		cloudinary.openUploadWidget({ upload_preset: 'iwbpjk8d', tags: ['profpic'], cropping: 'server' },
+			(error, result) => {
+				const { updateProfile: updateImage } = this.props;
+				this.setState({ image: result[0].public_id });
+				updateImage({ user: this.state });
+			});
+	}
+
 	handleClick(e) {
 		e.preventDefault();
 
+		const {
+			username, bio, interests, image,
+		} = this.state;
 		const user = {
 			user: {
-				username: this.state.username,
-				bio: this.state.bio,
-				interests: this.state.interests,
+				username,
+				bio,
+				interests,
+				image,
 			},
 		};
-
-		this.props.updateProfile(user);
+		const { updateProfile: updateDetails } = this.props;
+		updateDetails(user);
 	}
 
 	render() {
-		// const {user} = this.props.profile;
-		console.log(this.state);
-		const { username, bio, interests } = this.state;			
+		const { profile } = this.props;
+		const {
+			user, errors, isFetching,
+		} = profile;
+		const initialUsername = user.username;
+		const initialBio = user.bio;
+		const initialInterests = user.interests;
+		const image = user.image;
+
+
+		const {
+			username, bio, interests,
+		} = this.state;
 		return (
-			<ProfilePage
-				username={username}
-				bio={bio}
-				interests={interests}
-				handleChange={this.handleChange}
-				handleClick={this.handleClick}
-			/>
+			<div>
+				{isFetching && <Loader />}
+				<ProfilePage
+					initialUsername={initialUsername}
+					initialBio={initialBio}
+					initialInterests={initialInterests}
+					username={username}
+					bio={bio}
+					errors={errors}
+					interests={interests}
+					handleChange={this.handleChange}
+					handleClick={this.handleClick}
+					handleUpload={this.handleUpload}
+					publicId={image}
+				/>
+			</div>
 		);
 	}
 }
@@ -66,6 +102,11 @@ class Profile extends React.Component {
 const mapStateToProps = state => ({
 	profile: state.profile,
 });
+
+Profile.propTypes = {
+	getProfile: PropTypes.func,
+	updateProfile: PropTypes.func,
+}
 
 
 export default connect(mapStateToProps, { getProfile, updateProfile })(Profile);
