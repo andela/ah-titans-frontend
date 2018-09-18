@@ -53,7 +53,8 @@ const mapStateToProps = ({ signup, }) => ({
   signup,
 });
 
+
 export default connect(
-  mapStateToProps,
-  { createUser, }
+	mapStateToProps,
+	{ createUser },
 )(Signup);

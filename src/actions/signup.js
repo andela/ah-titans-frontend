@@ -17,20 +17,19 @@ export const createUserErrorActionCreator = error => ({
  * Represents functionality for creating a user.
  * @constructor
  * @param {function} history - Handles routing to the next page.
- * * @param {object} user - Contains the typed in user information.
+ * * @param {object} userData - Contains the typed in user information.
  * @access - Public for both registered and unregistered users.
  */
 
-
-const createUser = (userData, history) => dispatch => {
+const createUser = (userData, history) => (dispatch) => {
 	dispatch(signingUp());
 	call({ endpoint: '/users/', method: 'POST', data: userData })
-	  .then(data => {
-		dispatch(createUserActionCreator(data));
-		localStorage.setItem('user', data);
-		history.push('/');
-	  })
-	  .catch(error => dispatch(createUserErrorActionCreator(error)));
-	};
+		.then((data) => {
+			dispatch(createUserActionCreator(data));
+			localStorage.setItem('user', data);
+			history.push('/');
+		})
+		.catch(error => dispatch(createUserErrorActionCreator(error)));
+};
 
 export default createUser;
