@@ -8,6 +8,7 @@ import Main from './components';
 import Login from '../Login/containers';
 import Home from '../Home/containers';
 import NotFound from '../Error_pages/components/page_not_found';
+import Signup from '../Signup/containers/Signup';
 
 
 it('renders correct routes', () => {
@@ -37,11 +38,11 @@ describe('invalid path should redirect to 404', () => {
 test('valid path should not redirect to 404', () => {
   const wrapper = mount(
     <Provider store={store}>
-      <MemoryRouter initialEntries={['/']}>
+      <MemoryRouter initialEntries={['/signup']}>
         <App />
       </MemoryRouter>
     </Provider>,
   );
-  expect(wrapper.find(Home)).toHaveLength(1);
+  expect(wrapper.find(Signup)).toHaveLength(1);
   expect(wrapper.find(NotFound)).toHaveLength(0);
 });
