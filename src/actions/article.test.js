@@ -15,57 +15,16 @@ describe('create actions', () => {
 		const expectedAction = {
 			type: GETTING_ARTICLE,
 		};
-		expect(
-			getArticleActionCreator(),
-		).toEqual(
-			expectedAction,
-		);
+		expect(getArticleActionCreator()).toEqual(expectedAction);
 	});
 
 	it('should create an action get article', () => {
-		expect(
-			viewArticleActionCreator(),
-		).toEqual(
-			expectedAction(
-				VIEW_ARTICLE,
-			),
-		);
+		expect(viewArticleActionCreator()).toEqual(expectedAction(VIEW_ARTICLE));
 	});
 
 	it('should create an action get articles error', () => {
-		expect(
-			getArticleErrorActionCreator(),
-		).toEqual(
-			expectedAction(
-				GET_ARTICLE_ERROR,
-			),
-		);
+		expect(getArticleErrorActionCreator()).toEqual(expectedAction(GET_ARTICLE_ERROR));
 	});
-});
-
-describe('fetch articles', () => {
-	fetch.mockResponseOnce(
-		JSON.stringify(),
-	);
-	fetch(
-		'https://ah-jn-api.herokuapp.com/api/articles/',
-		{
-			method:
-				'GET',
-			headers: {
-				'Content-Type':
-					'application/json',
-			},
-		},
-	).then(
-		(res) => {
-			expect(
-				res.body,
-			).toEqual(
-				JSON.parse(),
-			);
-		},
-	);
 });
 
 describe('select view articles action', () => {
@@ -80,16 +39,8 @@ describe('select view articles action', () => {
 			},
 		];
 
-		store.dispatch(
-			viewArticleActionCreator(
-				article,
-			),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expectedActions,
-		);
+		store.dispatch(viewArticleActionCreator(article));
+		expect(store.getActions()).toEqual(expectedActions);
 	});
 });
 
@@ -107,16 +58,8 @@ describe('select view articles errors action', () => {
 			},
 		];
 
-		store.dispatch(
-			getArticleErrorActionCreator(
-				errors,
-			),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expectedActions,
-		);
+		store.dispatch(getArticleErrorActionCreator(errors));
+		expect(store.getActions()).toEqual(expectedActions);
 	});
 });
 
@@ -131,13 +74,7 @@ describe('select getting articles action', () => {
 					'GETTING_ARTICLE',
 			},
 		];
-		store.dispatch(
-			getArticleActionCreator(),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expectedActions2,
-		);
+		store.dispatch(getArticleActionCreator());
+		expect(store.getActions()).toEqual(expectedActions2);
 	});
 });

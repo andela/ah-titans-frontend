@@ -16,32 +16,13 @@ export const getArticleErrorActionCreator = error => ({
 });
 
 const fetchArticle = (slug) => (dispatch) => {
-	dispatch(
-		getArticleActionCreator(),
-	);
-	call(
-		{
-			endpoint:
-				`/articles/${slug}`,
-			method:
-				'GET',
-		},
+	dispatch(getArticleActionCreator());
+	call({endpoint: `/articles/${slug}`, method: 'GET'},
 	)
-		.then(
-			(article) => {
-				dispatch(
-					viewArticleActionCreator(
-						article,
-					),
-				);
-			},
-		)
-		.catch(
-			error => dispatch(
-        getArticleErrorActionCreator(
-					error,
-				),
-			),
+	.then((article) => {
+				dispatch(viewArticleActionCreator(article),);
+			})
+	.catch(error => dispatch(getArticleErrorActionCreator(error)),
 		);
 };
 

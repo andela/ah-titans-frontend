@@ -12,28 +12,11 @@ const getArticle = (state = prevState, action) => {
 		action.type
 	) {
 		case GETTING_ARTICLE:
-			return {
-				...state,
-				isFetching: true,
-				success: false,
-			};
+			return { ...state, isFetching: true, success: false};
 		case VIEW_ARTICLE:
-			return {
-				...state,
-				isFetching: false,
-				success: true,
-				items: action.payload.articles,
-			};
+			return { ...state, isFetching: false, success: true, items: action.payload.articles};
 		case GET_ARTICLE_ERROR:
-			return {
-				...state,
-				error:
-					action
-						.payload
-						.errors,
-				isFetching: false,
-				success: false,
-			};
+			return { ...state, error: action.payload.errors, isFetching: false, success: false};
 		default:
 			return state;
 	}

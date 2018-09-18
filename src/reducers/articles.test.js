@@ -10,14 +10,7 @@ describe('viewArticles reducer', () => {
 	};
 
 	it('should return the initial state', () => {
-		expect(
-			reducer(
-				initialState,
-				{},
-			),
-		).toEqual(
-			initialState,
-		);
+		expect(reducer(initialState, {})).toEqual(initialState);
 	});
 
 	it('should set isFetching state to true', () => {
@@ -27,63 +20,25 @@ describe('viewArticles reducer', () => {
 		};
 
 		expect(
-			reducer(
-				initialState,
-				startAction,
-			),
-		).toEqual(
-			{
-				...initialState,
-				isFetching: true,
-				success: false,
-			},
-		);
+			reducer(initialState, startAction),
+		).toEqual({ ...initialState, isFetching: true, success: false });
 	});
 
 	it('should return an error', () => {
 		const startAction = {
-			type:
-        types.GET_ARTICLE_ERROR,
-			payload: {
-				errors: {},
-			},
+			type: types.GET_ARTICLE_ERROR,
+			payload: { errors: {}},
 		};
 
-		expect(
-			reducer(
-				initialState,
-				startAction,
-			),
-		).toEqual(
-			{
-				...initialState,
-				error: {},
-				isFetching: false,
-				success: false,
-			},
-		);
+		expect(reducer(initialState, startAction)).toEqual({ ...initialState, error: {}, isFetching: false, success: false });
 	});
 
 	it('should return an article object', () => {
 		const startAction = {
-			type:
-        types.VIEW_ARTICLE,
-			payload: {
-				articles: {},
-			},
+			type: types.VIEW_ARTICLE,
+			payload: { articles: {}},
 		};
 
-		expect(
-			reducer(
-				initialState,
-				startAction,
-			),
-		).toEqual(
-			{
-				...initialState,
-				success: true,
-				isFetching: false,
-			},
-		);
+		expect(reducer(initialState, startAction)).toEqual({ ...initialState, success: true, isFetching: false });
 	});
 });
