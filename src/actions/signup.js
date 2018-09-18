@@ -22,11 +22,13 @@ export const createUserErrorActionCreator = error => ({
  * @access - Public for both registered and unregistered users.
  */
 
-const createUser = ({ user, history }) => (dispatch) => {
+const createUser = ({ user }, history) => (dispatch) => {
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
 		.then((data) => {
-			dispatch(createUserActionCreator(data.response.data));
+			localStorage.setItem('token', data.data.user.token);
+			localStorage.setItem('username', data.data.user.username);
+			dispatch(createUserActionCreator(data.data));
 			history.push('/');
 		})
 		.catch((error) => {
