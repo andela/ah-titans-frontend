@@ -26,7 +26,7 @@ describe('viewArticles reducer', () => {
 	it('should return an error', () => {
 		const startAction = {
 			type: types.GET_ARTICLE_ERROR,
-			payload: { errors: {}},
+			payload: { errors: {}}
 		};
 
 		expect(reducer(initialState, startAction)).toEqual({ ...initialState, error: {}, isFetching: false, success: false });
