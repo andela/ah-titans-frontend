@@ -8,6 +8,7 @@ import GoogleLogin from 'react-google-login';
 import LoginForm from '.';
 import store from '../../store';
 
+
 describe('<LoginForm />', () => {
 	const wrapper = shallow(
 		<LoginForm
@@ -34,12 +35,17 @@ describe('<LoginForm />', () => {
 		expect(wrapper.find('.error').length).toEqual(3);
 	});
 
+	it('renders isFetching action correctly', () => {
+		const signinButton = wrapper.find('.emailLoginBtn').getElement();
+		expect(signinButton.props.children).toBe('Processing ...');
+	});
+
 	it('renders two input fields', () => {
 		expect(wrapper.find(Input).length).toEqual(2);
 	});
 
 	it('renders three column components', () => {
-		expect(wrapper.find(Col).length).toEqual(3);
+		expect(wrapper.find(Col).length).toEqual(4);
 	});
 
 	it('render one facebook login button', () => {
