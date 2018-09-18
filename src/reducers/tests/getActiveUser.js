@@ -1,5 +1,5 @@
-import { UPDATE_STATE } from '../../actions/types';
-import reducer from '../updateState';
+import { ACTIVE_USER } from '../../actions/types';
+import reducer from '../getActiveUser';
 
 describe('update state reducer', () => {
 	const initialState = {};
@@ -11,7 +11,7 @@ describe('update state reducer', () => {
 		is_verified: true,
 		exp: 1539867520,
 	};
-	const action = { type: UPDATE_STATE, user: { ...user } };
+	const action = { type: ACTIVE_USER, user: { ...user } };
 	it('should return the initial state', () => {
 		expect(reducer(initialState, {})).toEqual(initialState);
 	});

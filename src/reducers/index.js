@@ -5,7 +5,7 @@ import loginReducer from './loginReducer';
 import createArticleReducer from './createArticleReducer';
 import viewArticles from './viewArticles';
 import getArticle from './article';
-import updateStateReducer from './updateState';
+import getActiveUser from './getActiveUser';
 
 export default combineReducers({
 	exampleReducer,
@@ -14,5 +14,5 @@ export default combineReducers({
 	article: createArticleReducer,
 	viewArticles,
 	getArticle,
-	user: updateStateReducer,
+	user: getActiveUser,
 });

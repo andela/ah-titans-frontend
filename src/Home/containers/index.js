@@ -2,7 +2,6 @@ import React, { Component, } from 'react';
 import SnackBar from 'react-material-snackbar';
 import { connect, } from 'react-redux';
 import { Row, } from 'react-materialize';
-
 import '../components/index.scss';
 import ArticlesForm from '../components';
 import SearchComponent from '../components/search';
@@ -10,7 +9,7 @@ import Loader from '../../Loader/components/index';
 import getArticles from '../../actions/viewArticles';
 import CreateArticleButton from '../components/btnCreateArticle';
 import { bindActionCreators } from 'redux';
-import updateState from '../../StateUpdate/updateState';
+import getActiveUser from '../../actions/getActiveUser';
 
 export class Home extends Component {
   constructor(props){
@@ -24,7 +23,7 @@ export class Home extends Component {
 
   componentDidMount() {
     this.props.getArticles();
-    updateState();
+    console.log(getActiveUser());
   }
 
   componentWillReceiveProps(nextProps){
@@ -78,4 +77,5 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 export default connect(
   mapStatetoProps,
   mapDispatchToProps,
+  { getArticles }
 )(Home);
