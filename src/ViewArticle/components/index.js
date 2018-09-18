@@ -47,13 +47,13 @@ class ViewArticle extends React.Component {
 								<p>{article.body}</p>
 							</div>
 						</Col>
-						<div className="floating">
-							<i class="small material-icons floating left">thumb_up</i><br></br>
-							<i class="small material-icons floating left">thumb_down</i><br></br>
-							<i class="small material-icons floating left">bookmark</i><br></br>
-							<i class="small material-icons floating left">share</i><br></br>
-						</div>
-				</div>	
+						<div className="floating" style={{marginLeft:'10px'}} >
+					<i class="small material-icons floating left">thumb_up</i><br></br>
+					<i class="small material-icons floating left">thumb_down</i><br></br>
+					<i class="small material-icons floating left">bookmark</i><br></br>
+					<i class="small material-icons floating left">share</i><br></br>
+				</div>
+				</div>
 			</Col>
 			</Row>
 		);

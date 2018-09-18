@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import store from '../store';
 import ArticleView from './containers/index';
 import ArticlePage from './containers/index';
 import ViewArticle from './components/index';
+import EditButton from './components/EditButton';
 
 describe('Article', () => {
   const article = {
@@ -12,6 +14,12 @@ describe('Article', () => {
   it('renders without crashing', () => {
     shallow(<ArticlePage store={store} article={article} />,
     );
+  });
+});
+
+describe('<EditButton />', () => {
+  it('renders without crashing', () => {
+    shallow(<EditButton store={store} />);
   });
 });
 
