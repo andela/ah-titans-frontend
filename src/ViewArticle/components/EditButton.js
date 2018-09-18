@@ -6,16 +6,7 @@ class EditButton extends React.Component {
 		const { handleEdit } = this.props;
 		return (
 			<div>
-				<Button
-					onClick={handleEdit}
-					floating
-					large
-					className="green"
-					fab="vertical"
-					tooltip="Edit article"
-					waves="light"
-					icon="edit"
-				/>
+				<Button onClick={handleEdit} floating large className="green" fab="vertical" tooltip="Edit article" waves="light" icon="edit" />
 			</div>
 		);
 	}
