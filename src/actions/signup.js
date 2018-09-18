@@ -18,7 +18,7 @@ export const createUserErrorActionCreator = error => ({
  * Represents functionality for creating a user.
  * @constructor
  * @param {function} history - Handles routing to the next page.
- * * @param {object} user - Contains the typed in user information.
+ * * @param {object} userData - Contains the typed in user information.
  * @access - Public for both registered and unregistered users.
  */
 

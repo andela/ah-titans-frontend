@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { FACEBOOK_LOGIN_SUCCESS, FACEBOOK_LOGIN_ERROR, FACEBOOK_LOGIN_REQUEST } from './types';
 import call from '../utils/service';
 
