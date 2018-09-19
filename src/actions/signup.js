@@ -54,6 +54,7 @@ const createUser = ({ user, history }) => (dispatch) => {
 	http.post(`${config.BASE_URL}/users/`, { user })
 		.then((data) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 			dispatch(createUserActionCreator(data.response.data));
 <<<<<<< HEAD
 >>>>>>> [Chore #160532247] Fix error handling
@@ -61,6 +62,8 @@ const createUser = ({ user, history }) => (dispatch) => {
 =======
 			localStorage.setItem('token', data.data.user.token);
 			localStorage.setItem('username', data.data.user.username);
+=======
+>>>>>>> [Chore #160532247] fix bug
 			dispatch(createUserActionCreator(data.data));
 >>>>>>> [Chore #160532247] fixed signin bug
 			history.push('/');

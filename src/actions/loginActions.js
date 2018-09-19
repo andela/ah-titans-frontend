@@ -55,12 +55,13 @@ const loginUser = ({ user, history }) => (dispatch) => {
 	dispatch(loginRequest());
 	http.post(`${config.BASE_URL}/users/login/`, { user })
 		.then((data) => {
+			dispatch(loginUserSuccessful(data.data));
 			localStorage.setItem('token', data.data.user.token);
 			localStorage.setItem('username', data.data.user.username);
-			dispatch(loginUserSuccessful(data.data));
 			history.push('/');
 		})
 		.catch((error) => {
+<<<<<<< HEAD
 <<<<<<< HEAD
 			dispatch(loginUserError(error.response.data));
 >>>>>>> [Chore #160532247] Fix error handling
@@ -68,6 +69,10 @@ const loginUser = ({ user, history }) => (dispatch) => {
 			const { ...errorResponse } = error.response;
 			dispatch(loginUserError(errorResponse.data));
 >>>>>>> [Chore #160532247] Implement requested changes
+=======
+			const { data } = error.response;
+			dispatch(loginUserError(data));
+>>>>>>> [Chore #160532247] fix bug
 		});
 };
 
