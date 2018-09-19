@@ -24,16 +24,14 @@ class ResetPassword extends React.Component {
     if (Object.keys(errors).length === 0) {
 			this.setState({ loading: true });
 			this.props
-				.submit(this.state.data)
-				.catch(err => err.json())
+				.handleSubmit(this.state.data)
 				.then(data =>
 					this.setState({
 						errors: {
 							email: data.user.msg
-						},
-						loading: false
+            }
 					})
-				);
+				).catch(err => err.json())
 		}
   };
 

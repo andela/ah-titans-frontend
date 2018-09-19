@@ -1,0 +1,28 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import './index.scss';
+import { bindActionCreators } from 'redux';
+import { reset } from '../../actions/passReset';
+import ResetPassword from './containers';
+
+class ResetPass extends React.Component {
+	handleSubmit = (data) => {
+		this.props.reset(data, this.props.history);
+	}
+
+
+	render() {
+		return <ResetPassword handleSubmit={this.handleSubmit} />;
+	}
+}
+
+ResetPass.propTypes = {
+	history: PropTypes.shape({
+		push: PropTypes.func.isRequired,
+	}).isRequired,
+	reset: PropTypes.func.isRequired,
+};
+
+const mapDispatchToProps = dispatch => bindActionCreators({ reset }, dispatch);
+export default connect(null, mapDispatchToProps)(ResetPass);

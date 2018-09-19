@@ -1,10 +1,16 @@
-import { USER_RESET_PASS, } from '../actions/types';
+import { USER_RESET_PASS, USER_RESET_FAIL } from '../actions/types';
 
-export default function resetPass(state = {}, action = {}) {
-  switch (action.type) {
-  case USER_RESET_PASS:
-    return action.user;
-  default:
-    return state;
-  }
+const prevState = {
+	loading: false,
+};
+
+export default function resetPass(state = prevState, action = {}) {
+	switch (action.type) {
+		case USER_RESET_PASS:
+			return action.user;
+		case USER_RESET_FAIL:
+			return { ...state, loading: false };
+		default:
+			return state;
+	}
 }
