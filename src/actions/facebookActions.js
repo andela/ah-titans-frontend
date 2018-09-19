@@ -27,7 +27,6 @@ const facebookLogin = (requestBody, history) => (dispatch) => {
 	call({ endpoint: '/users/auth/facebook', method: 'POST', data: requestBody })
 		.then((data) => {
 			localStorage.setItem('token', data.user.token);
-			localStorage.setItem('username', data.user.user.username);
 			dispatch(
 				facebookLoginUserSuccessful(data),
 			);
@@ -35,10 +34,4 @@ const facebookLogin = (requestBody, history) => (dispatch) => {
 		})
 		.catch(error => dispatch(facebookLoginUserError(error)));
 };
-
-facebookLogin.propTypes = {
-	facebookLoginUserSuccessful: PropTypes.func.isRequired,
-	facebookLoginUserError: PropTypes.func.isRequired,
-};
-
 export default facebookLogin;
