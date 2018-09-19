@@ -5,6 +5,7 @@ import loginReducer from './loginReducer';
 import createArticleReducer from './createArticleReducer';
 import viewArticles from './viewArticles';
 import getArticle from './article';
+import likeDislikeArticles from './likeDislike';
 
 export default combineReducers({
 	exampleReducer,
@@ -13,4 +14,5 @@ export default combineReducers({
 	article: createArticleReducer,
 	viewArticles,
 	getArticle,
+	likeDislikeArticles,
 });
