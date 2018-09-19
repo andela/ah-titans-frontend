@@ -35,6 +35,7 @@ describe('profile actions', () => {
 		const expectedAction = {
 			type: types.UPDATE_PROFILE,
 			payload: data,
+			success: true,
 		};
 		store.dispatch(updateProfileSuccessfully(data));
 		expect(store.getActions()).toEqual([expectedAction]);

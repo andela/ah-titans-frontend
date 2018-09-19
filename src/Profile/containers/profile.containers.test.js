@@ -10,7 +10,12 @@ describe('<Profile />', () => {
 	const profileWrapper = mount(
 		<MemoryRouter initialEntries={['/profile']}>
 			<Provider store={store}>
-				<Profile match={{ params: { username: 'Ronnie' }, isExact: true }} />
+				<Profile
+					match={{
+						params: { username: 'Ronnie' },
+						isExact: true,
+					}}
+				/>
 			</Provider>
 		</MemoryRouter>,
 	);
@@ -22,7 +27,7 @@ describe('<Profile />', () => {
 		const wrapper = mount(
 			<MemoryRouter>
 				<Provider store={store}>
-					<ProfilePage handleClick={onClick} />
+					<ProfilePage handleClick={onClick} errors={{ errors: { username: '' } }} />
 				</Provider>
 			</MemoryRouter>,
 		);

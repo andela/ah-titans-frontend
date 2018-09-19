@@ -14,6 +14,7 @@ describe('profile reducer', () => {
 	const initialState = {
 		user: { userData },
 		errors: {},
+		success: false,
 		isFetching: false,
 	};
 
@@ -67,6 +68,7 @@ describe('profile reducer', () => {
 		expect(reducer(initialState, startAction)).toEqual({
 			...initialState,
 			isFetching: false,
+			success: true,
 			user: { username: '', bio: '', interests: '' },
 		});
 	});
@@ -84,6 +86,7 @@ describe('profile reducer', () => {
 		};
 		expect(reducer(initialState, startAction)).toEqual({
 			...initialState,
+			success: false,
 			errors: 'some error',
 		});
 	});

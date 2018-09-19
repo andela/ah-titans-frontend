@@ -1,6 +1,6 @@
 import {
 	GET_PROFILE, UPDATE_PROFILE, UPDATE_PROFILE_ERROR,
-	GET_PROFILE_ERROR, GET_PROFILE_REQUEST, UPDATE_PROFILE_REQUEST,
+	GET_PROFILE_ERROR, GET_PROFILE_REQUEST, UPDATE_PROFILE_REQUEST, CLEAR_STORE,
 } from './types';
 import call from '../utils/service';
 
@@ -24,12 +24,17 @@ export const updateProfileRequest = () => ({
 
 export const updateProfileSuccessfully = data => ({
 	type: UPDATE_PROFILE,
+	success: true,
 	payload: data,
 });
 
 export const updateProfileError = error => ({
 	type: UPDATE_PROFILE_ERROR,
 	payload: error,
+});
+
+export const clearStore = () => ({
+	type: CLEAR_STORE,
 });
 
 export const getProfile = userName => (dispatch) => {
@@ -44,6 +49,16 @@ export const updateProfile = userData => (dispatch) => {
 	call({
 		endpoint: '/user/', method: 'PUT', data: userData, authenticated: true,
 	})
-		.then(data => dispatch(updateProfileSuccessfully(data)))
-		.catch(error => dispatch(updateProfileError(error)));
+		.then((data) => {
+			dispatch(updateProfileSuccessfully(data));
+			setTimeout(() => {
+				dispatch(clearStore());
+			}, 1000);
+		})
+		.catch((error) => {
+			dispatch(updateProfileError(error));
+			setTimeout(() => {
+				dispatch(clearStore());
+			}, 1000);
+		});
 };

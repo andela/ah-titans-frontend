@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ProfilePage from '../components/ProfileComponent';
 import { getProfile, updateProfile } from '../../actions/profileActions';
 import Loader from '../../Loader/components';
-
+import Toast from '../../Toast';
 
 class Profile extends React.Component {
 	constructor(props) {
@@ -29,8 +29,12 @@ class Profile extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const { bio, interests, username } = nextProps.profile.user;
-		this.setState({ username, bio, interests });
+		const {
+			bio, interests, username, image,
+		} = nextProps.profile.user;
+		this.setState({
+			username, bio, interests, image,
+		});
 	}
 
 	handleChange(e) {
@@ -38,7 +42,7 @@ class Profile extends React.Component {
 	}
 
 	handleUpload() {
-		cloudinary.openUploadWidget({ upload_preset: 'iwbpjk8d', tags: ['profpic'], cropping: 'server' },
+		cloudinary.openUploadWidget({ upload_preset: 'iwbpjk8d', tags: ['profpic'] },
 			(error, result) => {
 				const { updateProfile: updateImage } = this.props;
 				this.setState({ image: result[0].public_id });
@@ -60,8 +64,14 @@ class Profile extends React.Component {
 				image,
 			},
 		};
-		const { updateProfile: updateDetails } = this.props;
+		console.log(this.props);
+		const { updateProfile: updateDetails, history } = this.props;
+		const { username: newName } = this.state;
+		const { profile } = this.props;
+		const { username: oldName } = profile.user;
 		updateDetails(user);
+		const path = (newName !== '') ? newName : oldName;
+		history.push(`/profile/${path}`);
 	}
 
 	render() {
@@ -74,12 +84,16 @@ class Profile extends React.Component {
 		const initialInterests = user.interests;
 		const image = user.image;
 
+		console.log(profile.success);
+		console.log(this.props);
+
 
 		const {
 			username, bio, interests,
 		} = this.state;
 		return (
-			<div>
+			<div>	
+				{profile.success && <Toast message="Profile updated successfully." type="success" />}
 				{isFetching && <Loader />}
 				<ProfilePage
 					initialUsername={initialUsername}
@@ -106,7 +120,7 @@ const mapStateToProps = state => ({
 Profile.propTypes = {
 	getProfile: PropTypes.func,
 	updateProfile: PropTypes.func,
-}
+};
 
 
 export default connect(mapStateToProps, { getProfile, updateProfile })(Profile);
