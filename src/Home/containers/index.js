@@ -9,7 +9,6 @@ import SearchComponent from '../components/search';
 import Loader from '../../Loader/components/index';
 import getArticles from '../../actions/viewArticles';
 import CreateArticleButton from '../components/btnCreateArticle';
-import { bindActionCreators } from 'redux';
 import getActiveUser from '../../actions/getActiveUser';
 
 export class Home extends Component {
@@ -78,5 +77,4 @@ const mapStatetoProps = state => ({
 export default connect(
   mapStatetoProps,
   mapDispatchToProps,
-  { getArticles }
 )(Home);
