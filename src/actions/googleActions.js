@@ -27,18 +27,12 @@ const googleLogin = (requestBody, history) => (dispatch) => {
 	call({ endpoint: '/users/auth/google-oauth2', method: 'POST', data: requestBody })
 		.then((data) => {
 			localStorage.setItem('token', data.user.token);
-			localStorage.setItem('username', data.user.user.username);
 			dispatch(
 				loginUserSuccessful(data),
 			);
 			history.push('/');
 		})
 		.catch(error => dispatch(loginUserError(error)));
-};
-
-googleLogin.propTypes = {
-	loginUserSuccessful: PropTypes.func.isRequired,
-	loginUserError: PropTypes.func.isRequired,
 };
 
 export default googleLogin;
