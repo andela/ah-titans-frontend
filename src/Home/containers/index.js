@@ -13,9 +13,25 @@ import { bindActionCreators } from 'redux';
 import getActiveUser from '../../actions/getActiveUser';
 
 export class Home extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			isFetching: '',
+			success: '',
+			articles: {},
+		};
+	}
+
 	componentDidMount() {
 		this.props.getArticles();
 		this.props.getActiveUser();
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const { articles } = nextProps;
+		const { isFetching, success } = articles;
+		const all_articles = articles.items.results;
+		this.setState({ isFetching, success, articles: all_articles });
 	}
 
 	render() {
@@ -23,8 +39,10 @@ export class Home extends Component {
 		const { isFetching, success } = this.props.articles;
 		const articles = this.props.articles.items.results;
 		const article = [];
+		const token = localStorage.getItem('token');
+
 		if (success === true) {
-			articles.map(article_ => article.push(<ArticlesForm article={article_} key={article.slug} />),);
+			articles.map(article_ => article.push(<ArticlesForm article={article_} key={article.slug} />) );
 		}
 
 		return (
@@ -48,15 +66,15 @@ export class Home extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => bindActionCreators({ getActiveUser, getArticles }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({
+	getActiveUser, getArticles,
+}, dispatch);
 
 const mapStatetoProps = state => ({
 	home: state.exampleReducer,
 	articles: state.viewArticles,
 });
-const mapDispatchToProps = dispatch => bindActionCreators({
-  getArticles,
-}, dispatch);
+
 export default connect(
   mapStatetoProps,
   mapDispatchToProps,
