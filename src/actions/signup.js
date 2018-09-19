@@ -26,8 +26,6 @@ const createUser = ({ user }, history) => (dispatch) => {
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
 		.then((data) => {
-			localStorage.setItem('token', data.data.user.token);
-			localStorage.setItem('username', data.data.user.username);
 			dispatch(createUserActionCreator(data.data));
 			history.push('/');
 		})

@@ -26,14 +26,14 @@ const loginUser = ({ user }, history) => (dispatch) => {
 	dispatch(loginRequest());
 	http.post(`${config.BASE_URL}/users/login/`, { user })
 		.then((data) => {
+			dispatch(loginUserSuccessful(data.data));
 			localStorage.setItem('token', data.data.user.token);
 			localStorage.setItem('username', data.data.user.username);
-			dispatch(loginUserSuccessful(data.data));
 			history.push('/');
 		})
 		.catch((error) => {
-			const { ...errorResponse } = error.response;
-			dispatch(loginUserError(errorResponse.data));
+			const { data } = error.response;
+			dispatch(loginUserError(data));
 		});
 };
 
