@@ -68,3 +68,4 @@ describe('Password Input', () => {
 		expect(toJson(component)).toMatchSnapshot();
 	});
 });
+
