@@ -26,16 +26,6 @@ const call = ({
 		...authHeader(),
 	},
 	body: JSON.stringify(data),
-<<<<<<< HEAD
-}).catch((error) => {
-	if (error.response) {
-		return error.response;
-	}
-
-	return error;
-});
-=======
 }).then(handleResponse);
->>>>>>> [Chore #160532247] Implement requested changes
 
 export default call;

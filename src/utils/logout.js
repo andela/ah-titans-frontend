@@ -1,7 +1,7 @@
 /**
  * Logs out a user
  * @params {null}
- * @return {null}
+ * @returnd {null}
  */
 const logoutActiveUser = () => {
 	localStorage.removeItem('token');
