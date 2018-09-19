@@ -11,7 +11,7 @@ const CreateArticleButton = () => (
     fab="vertical"
     tooltip="Edit article"
     waves="light"
-    icon="edit"
+    icon="add"
   />
   </Link>
 );

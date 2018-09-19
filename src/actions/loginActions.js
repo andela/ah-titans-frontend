@@ -36,20 +36,4 @@ const loginUser = (userData, history) => (dispatch) => {
  * @access - Public for both registered and unregistered users.
  */
 
-const loginUser = ({ user, history }) => (dispatch) => {
-	dispatch(loginRequest());
-	http.post(`${config.BASE_URL}/users/login/`, { user })
-		.then((payload) => {
-			const { response: { data } } = payload;
-			dispatch(loginUserSuccessful(data));
-			localStorage.setItem('token', payload.user.token);
-			localStorage.setItem('username', payload.user.username);
-			history.push('/');
-		})
-		.catch((error) => {
-			const { response: { data } } = error;
-			dispatch(loginUserError(data));
-		});
-};
-
 export default loginUser;
