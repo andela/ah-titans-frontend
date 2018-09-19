@@ -6,9 +6,9 @@ const LikeDislike = ({
 }) => (
 	<div>
 		<span>{count}</span>
-		<a href="#" onClick={onClick}>
+		<button onClick={onClick}>
 			<i className="material-icons" id={id}>{icon}</i>
-		</a>
+		</button>
 	</div>
 );
 
