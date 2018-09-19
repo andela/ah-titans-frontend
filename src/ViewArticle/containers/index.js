@@ -30,6 +30,7 @@ class ArticleView extends Component {
 
 	render() {
 		const { article, isFetching } = this.props;
+		console.log(this.props)
 		return (
 			<div>
 				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} onClick={this.handleLikeDislike} />}</React.Fragment>
