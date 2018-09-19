@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import {
   NEW_ARTICLE,
   NEW_ARTICLE_REQUEST,
@@ -30,7 +29,7 @@ const create = data => fetch('https://ah-titans-api.herokuapp.com/api/articles/'
   method: 'POST',
   headers: {
     'content-type': 'application/json',
-    'Authorization': 'Token ' + localStorage.getItem('token'),
+    'Authorization': `Token ${localStorage.getItem('token')}`,
   },
   body: JSON.stringify(data),
 })
