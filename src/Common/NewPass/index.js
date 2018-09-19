@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NewPassword from './containers';
 import { connect } from 'react-redux';
-import { newpass } from '../../actions/newPass';
+import { bindActionCreators } from 'redux';
+import { checkURL, newpass } from '../../actions/newPass';
 import call from '../../utils/service';
 
 class NewPass extends React.Component {
-	state = {}
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
   componentDidMount() {
-    this.props.checkURL
-    call({
-			endpoint: `/reset/${this.props.match.params.uidb64}/${this.props.match.params.token}/`,
-			method: 'GET'
-		}).then(res => this.setState(res));
+    this.props.checkURL(this.props.match.params.uidb64, this.props.match.params.token, this.props.history);
 	}
 	
 	submit = (data) => {
@@ -26,16 +26,24 @@ class NewPass extends React.Component {
   };
 
   render() {
-		if (this.state.msg) this.props.history.push('/NotFound')
-    return <NewPassword reset_token={this.state.token} submit={this.submit}/>;
+    const { token } = this.props.newPass.newPass;
+    return <NewPassword reset_token={token} submit={this.submit}/>;
   }
 }
 
-NewPass.propTypes = {
+NewPass.propTypes = { 
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired,
 }
-  
-export default connect(null, {newpass})(NewPass);
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+	checkURL, newpass,
+}, dispatch);
+
+const mapStatetoProps = newPass => ({
+  newPass
+});
+
+export default connect(mapStatetoProps, mapDispatchToProps)(NewPass);
  

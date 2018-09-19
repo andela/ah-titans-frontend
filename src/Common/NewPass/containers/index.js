@@ -3,15 +3,18 @@ import NewPassForm from '../components';
 import PropTypes from 'prop-types';
 
 class NewPassword extends React.Component {
-  state = {
-    data: {
-      new_password: '',
-      cpassword: ''
-    },
-    loading: false,
-    errors: {}
-  };
-
+  constructor(props){
+    super(props);
+    this.state = {
+      data: {
+        new_password: '',
+        cpassword: ''
+      },
+      loading: false,
+      errors: {}
+    };
+  
+  }
   
   onChange = e => this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value}});
 
