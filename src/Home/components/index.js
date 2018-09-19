@@ -8,7 +8,7 @@ import './index.scss';
 
 const ArticlesForm = ({ article, }) => (
   <Col s={12} m={6}>
-    <Link to="/article/slug">
+    <Link to={`/article/${article.slug}`}>
       <Card
         key={article.slug}
         className="grey lighten-4 article"

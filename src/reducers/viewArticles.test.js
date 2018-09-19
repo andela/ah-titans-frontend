@@ -42,7 +42,7 @@ describe('viewArticles reducer', () => {
   it('should return an article object', () => {
     const startAction = {
       type: types.VIEW_ARTICLES,
-      payload: { articles: {}, },
+      payload: { articles: {} },
     };
 
     expect(reducer(initialState, startAction)).toEqual({
