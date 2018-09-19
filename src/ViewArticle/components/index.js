@@ -2,6 +2,8 @@ import React from 'react';
 import { Col , Row } from 'react-materialize';
 import moment from 'moment';
 import './index.css';
+import Icons from '../../Icons/components/index';
+import { FETCHING_ARTICLES } from '../../actions/types';
 
 class ViewArticle extends React.Component {
 	render() {
@@ -12,7 +14,7 @@ class ViewArticle extends React.Component {
 				<Col s={12}>
 				<div className="container">
 					<Row s={12}>
-						<Col s={6}>
+						<Col>
 						<div className="Head">
 							<h3 style={{ color: '#2196F3', marginRight: '20px'}}>{article.title}</h3>
 									<i className="material-icons icon-orange small">star</i>
@@ -44,12 +46,22 @@ class ViewArticle extends React.Component {
 								<p>{article.body}</p>
 							</div>
 						</Col>
-						<div className="floating" style={{marginLeft:'10px'}} >
-					<i class="small material-icons floating left">thumb_up</i><br></br>
-					<i class="small material-icons floating left">thumb_down</i><br></br>
-					<i class="small material-icons floating left">bookmark</i><br></br>
-					<i class="small material-icons floating left">share</i><br></br>
+						<Col className='icona'>
+					<div className="floating" style={{display:'inline-flex'}} >
+					<div className="clear">
+					<Icons icon='thumb_up' onclick={{}} id='like' count={article.likes_count}/>
+					</div>
+					<div className='clear' >
+									<Icons icon='thumb_down' onclick={{}} id='dislike' count={article.dislikes_count} />
+					</div>
+					<div className='clear'>
+					<Icons icon='bookmark' onclick={{}} />
+					</div>
+					<div className='clear'>
+					<Icons icon='share' onclick={{}} />
+					</div>
 				</div>
+				</Col>
 				</div>
 			</Col>
 			</Row>
