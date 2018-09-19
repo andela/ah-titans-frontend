@@ -14,20 +14,6 @@ export const loginUserError = error => ({
 	payload: error,
 });
 
-const loginUser = (userData, history) => (dispatch) => {
-  dispatch(loginRequest());
-  call({ endpoint: '/users/login/', method: 'POST', data: userData, })
-    .then((data) => {
-      dispatch(
-        loginUserSuccessful(data),
-        localStorage.setItem('token', data.user.token),
-        localStorage.setItem('username', data.user.username)
-      );
-      history.push('/');
-    })
-    .catch(error => dispatch(loginUserError(error)));
-};
-
 /**
  * Represents functionality for creating a user.
  * @constructor
@@ -35,5 +21,21 @@ const loginUser = (userData, history) => (dispatch) => {
  * * @param {object} user - Contains the typed in user information.
  * @access - Public for both registered and unregistered users.
  */
+
+const loginUser = ({ user, history }) => (dispatch) => {
+	dispatch(loginRequest());
+	http.post(`${config.BASE_URL}/users/login/`, { user })
+		.then((payload) => {
+			const { response: { data } } = payload;
+			dispatch(loginUserSuccessful(data));
+			localStorage.setItem('token', payload.user.token);
+			localStorage.setItem('username', payload.user.username);
+			history.push('/');
+		})
+		.catch((error) => {
+			const { response: { data } } = error;
+			dispatch(loginUserError(data));
+		});
+};
 
 export default loginUser;
