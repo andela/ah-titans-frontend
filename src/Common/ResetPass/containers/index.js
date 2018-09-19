@@ -11,7 +11,6 @@ class ResetPassword extends React.Component {
     data: {
       email: ''
     }, 
-    loading: false,
     errors: {}
   };
 
@@ -59,7 +58,7 @@ class ResetPassword extends React.Component {
         onValidate={this.onValidate} 
         data={this.state.data.email} 
         errors={this.state.errors}
-        loading={this.state.loading}
+        loading={this.props.loading}
       />
     );
   }

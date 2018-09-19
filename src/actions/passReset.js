@@ -1,6 +1,9 @@
 import swal from 'sweetalert';
-import { USER_RESET_PASS, USER_RESET_FAIL } from './types';
-import api from './api';
+import { USER_RESET_PASS, USER_RESET_FAIL, USER_RESETTING_PASS } from './types';
+
+export const userResettingPass = () => ({
+	type: USER_RESETTING_PASS,
+});
 
 export const userResetPass = user => ({
 	type: USER_RESET_PASS,
@@ -12,6 +15,7 @@ export const userResetFail = () => ({
 });
 
 export const reset = (creds, history) => (dispatch) => {
+	dispatch(userResettingPass());
 	fetch('https://ah-titans-api.herokuapp.com/api/users/reset_pass/', {
 		method: 'POST',
 		body: JSON.stringify({ user: creds }),
@@ -28,7 +32,7 @@ export const reset = (creds, history) => (dispatch) => {
 				dispatch(userResetFail());
 				swal('Error', 'This email does not exist', 'error');
 			} else {
-				swal('Error', 'Something went wrong', 'error');
+				swal('Error', 'An unknown error occured.', 'error');
 			}
 		});
 };

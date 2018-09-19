@@ -10,6 +10,5 @@ export default combineReducers({
 	signup: signupReducer,
 	login: loginReducer,
 	article: createArticleReducer,
-
 	resetPass,
 });

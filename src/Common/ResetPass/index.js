@@ -11,9 +11,10 @@ class ResetPass extends React.Component {
 		this.props.reset(data, this.props.history);
 	}
 
-
 	render() {
-		return <ResetPassword handleSubmit={this.handleSubmit} />;
+    const { loading } = this.props.resetPass;
+    console.log(loading)
+		return <ResetPassword loading={loading} handleSubmit={this.handleSubmit} />;
 	}
 }
 
@@ -24,5 +25,9 @@ ResetPass.propTypes = {
 	reset: PropTypes.func.isRequired,
 };
 
+const mapStateToProps = ({ resetPass }) => ({
+	resetPass,
+});
+
 const mapDispatchToProps = dispatch => bindActionCreators({ reset }, dispatch);
-export default connect(null, mapDispatchToProps)(ResetPass);
+export default connect(mapStateToProps, mapDispatchToProps)(ResetPass);
