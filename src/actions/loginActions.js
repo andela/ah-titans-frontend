@@ -27,8 +27,9 @@ const loginUser = ({ user }, history) => (dispatch) => {
 	http.post(`${config.BASE_URL}/users/login/`, { user })
 		.then((data) => {
 			dispatch(loginUserSuccessful(data.data));
-			localStorage.setItem('token', data.data.user.token);
-			localStorage.setItem('username', data.data.user.username);
+			const info = data.data.user;
+			localStorage.setItem('token', info.token);
+			localStorage.setItem('username', info.username);
 			history.push('/');
 		})
 		.catch((error) => {
