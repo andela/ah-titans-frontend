@@ -26,12 +26,12 @@ const handleResponse = response => response.json().then((data) => {
 });
 
 const create = data => fetch('https://ah-titans-api.herokuapp.com/api/articles/', {
-	method: 'POST',
-	headers: {
-		'content-type': 'application/json',
-		Authorization: `Token ${localStorage.getItem('token')}`,
-	},
-	body: JSON.stringify(data),
+  method: 'POST',
+  headers: {
+    'content-type': 'application/json',
+    'Authorization': `Token ${localStorage.getItem('token')}`,
+  },
+  body: JSON.stringify(data),
 })
 	.then(res => handleResponse(res));
 
