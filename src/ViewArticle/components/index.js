@@ -3,11 +3,10 @@ import { Col , Row } from 'react-materialize';
 import moment from 'moment';
 import './index.css';
 import Icons from '../../Icons/components/index';
-import { FETCHING_ARTICLES } from '../../actions/types';
 
 class ViewArticle extends React.Component {
 	render() {
-		const {article} = this.props;
+		const { article, onClick } = this.props;
 
 		return (
 			<Row s={12}>
@@ -49,10 +48,10 @@ class ViewArticle extends React.Component {
 						<Col className='icona'>
 					<div className="floating" style={{display:'inline-flex'}} >
 					<div className="clear">
-					<Icons icon='thumb_up' onclick={{}} id='like' count={article.likes_count}/>
+					<Icons icon='thumb_up' onClick={onClick} id='like' count={article.likes_count}/>
 					</div>
 					<div className='clear' >
-									<Icons icon='thumb_down' onclick={{}} id='dislike' count={article.dislikes_count} />
+									<Icons icon='thumb_down' onClick={onClick} id='dislike' count={article.dislikes_count} />
 					</div>
 					<div className='clear'>
 					<Icons icon='bookmark' onclick={{}} />

@@ -10,21 +10,29 @@ import EditButton from '../components/EditButton';
 class ArticleView extends Component {
 	componentDidMount() {
 		this.props.fetchArticle(this.props.match.params.slug);
+		this.props.dislike(this.props.match.params.slug);
+		this.props.like(this.props.match.params.slug);
 	}
 
-	handleLikeDislike(){
-		e.preventDefault()
+	handleLikeDislike(e){
+		e.preventDefault();
+		const {likes, dislikes, match} = this.props;
 		if(e.target.id == 'like'){
-
+			likes(match.params.slug);
+		}
+		else if(e.target.id == 'dislike'){
+			dislikes(match.params.slug);
+		}
+		else{
+				return 'Please log in to like or dislike this article'
 		}
 	}
 
 	render() {
 		const { article, isFetching } = this.props;
-		console.log(this.props)
 		return (
 			<div>
-				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} />}</React.Fragment>
+				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} onClick={this.handleLikeDislike} />}</React.Fragment>
 				<EditButton />
 			</div>
 		);
@@ -39,8 +47,8 @@ const mapStatetoProps = ({ getArticle }) => ({
 
 const mapDispatchToProps = dispatch => bindActionCreators({
 	fetchArticle,
-	dislikeArticle,
-	likeArticle,
+	dislike: dislikeArticle,
+	like: likeArticle,
 }, dispatch);
 export default connect(
 	mapStatetoProps,
