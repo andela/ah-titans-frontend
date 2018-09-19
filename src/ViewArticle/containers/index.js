@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import ViewArticle from '../components';
+import ViewArticle from '../components/index';
 import fetchArticle from '../../actions/article';
 import { likeArticle, dislikeArticle } from '../../actions/likeDislike';
 import Loader from '../../Loader/components/index';
