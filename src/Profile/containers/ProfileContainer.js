@@ -64,7 +64,6 @@ class Profile extends React.Component {
 				image,
 			},
 		};
-		console.log(this.props);
 		const { updateProfile: updateDetails, history } = this.props;
 		const { username: newName } = this.state;
 		const { profile } = this.props;
@@ -83,16 +82,12 @@ class Profile extends React.Component {
 		const initialBio = user.bio;
 		const initialInterests = user.interests;
 		const image = user.image;
-
-		console.log(profile.success);
-		console.log(this.props);
-
-
 		const {
 			username, bio, interests,
 		} = this.state;
+
 		return (
-			<div>	
+			<div>
 				{profile.success && <Toast message="Profile updated successfully." type="success" />}
 				{isFetching && <Loader />}
 				<ProfilePage
