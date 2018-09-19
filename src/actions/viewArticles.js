@@ -16,18 +16,6 @@ export const getArticlesErrorActionCreator = error => ({
 	payload: error,
 });
 
-// const getArticles = () => dispatch => {
-//   dispatch(gettingArticlesActionCreator());
-//   call({
-//     endpoint: '/articles/',
-//     method: 'GET',
-//   })
-//     .then(articles => {
-//       dispatch(getArticlesActionCreator(articles));
-//     })
-//     .catch(error => dispatch(getArticlesErrorActionCreator(error)));
-// };
-
 const getArticles = () => (dispatch) => {
 	dispatch(gettingArticlesActionCreator());
 	http.get(`${config.BASE_URL}/articles/`)
@@ -40,6 +28,5 @@ const getArticles = () => (dispatch) => {
 			dispatch(getArticlesErrorActionCreator(data));
 		});
 };
-
 
 export default getArticles;
