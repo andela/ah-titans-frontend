@@ -22,12 +22,11 @@ export const createUserErrorActionCreator = error => ({
  * @access - Public for both registered and unregistered users.
  */
 
-const createUser = ({ user, history }) => (dispatch) => {
+const createUser = ({ user }, history) => (dispatch) => {
 	dispatch(signingUp());
 	http.post(`${config.BASE_URL}/users/`, { user })
-		.then((payload) => {
-			const { response: { data } } = payload;
-			dispatch(createUserActionCreator(data));
+		.then((data) => {
+			dispatch(createUserActionCreator(data.data));
 			history.push('/');
 		})
 		.catch((error) => {

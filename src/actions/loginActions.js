@@ -22,14 +22,14 @@ export const loginUserError = error => ({
  * @access - Public for both registered and unregistered users.
  */
 
-const loginUser = ({ user, history }) => (dispatch) => {
+const loginUser = ({ user }, history) => (dispatch) => {
 	dispatch(loginRequest());
 	http.post(`${config.BASE_URL}/users/login/`, { user })
-		.then((payload) => {
-			const { response: { data } } = payload;
-			dispatch(loginUserSuccessful(data));
-			localStorage.setItem('token', payload.user.token);
-			localStorage.setItem('username', payload.user.username);
+		.then((data) => {
+			dispatch(loginUserSuccessful(data.data));
+			const info = data.data.user;
+			localStorage.setItem('token', info.token);
+			localStorage.setItem('username', info.username);
 			history.push('/');
 		})
 		.catch((error) => {
