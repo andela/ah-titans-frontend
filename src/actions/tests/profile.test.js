@@ -1,6 +1,7 @@
 import configureStore from 'redux-mock-store';
 import {
 	getProfileSuccessfully, getProfileError, updateProfileSuccessfully, updateProfileError,
+	getProfileRequest, updateProfileRequest, clearStore,
 } from '../profileActions';
 import * as types from '../types';
 
@@ -49,6 +50,33 @@ describe('profile actions', () => {
 			payload: error,
 		};
 		store.dispatch(updateProfileError(error));
+		expect(store.getActions()).toEqual([expectedAction]);
+	});
+
+	it('should create an action for update profile request', () => {
+		store.clearActions();
+		const expectedAction = {
+			type: types.UPDATE_PROFILE_REQUEST,
+		};
+		store.dispatch(updateProfileRequest());
+		expect(store.getActions()).toEqual([expectedAction]);
+	});
+
+	it('should create an action for get profile request', () => {
+		store.clearActions();
+		const expectedAction = {
+			type: types.GET_PROFILE_REQUEST,
+		};
+		store.dispatch(getProfileRequest());
+		expect(store.getActions()).toEqual([expectedAction]);
+	});
+
+	it('should create an action for clear store request', () => {
+		store.clearActions();
+		const expectedAction = {
+			type: types.CLEAR_STORE,
+		};
+		store.dispatch(clearStore());
 		expect(store.getActions()).toEqual([expectedAction]);
 	});
 });
