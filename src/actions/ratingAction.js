@@ -10,23 +10,18 @@ export const ratingErrorActionCreator = error => ({
 	payload: error,
 });
 
-export const sucessfullRating = slug => (dispatch) => {
+export const sucessfullRating = (slug, rateData) => (dispatch) => {
+	console.log('Rating');
+
 	call(
 		{
-			endpoint: `/articles/${slug}/`,
+			endpoint: `/articles/${slug}/rate/`,
 			method:
                 'POST',
+			data: rateData,
 		},
 	)
-		.then(
-			(data) => {
-				dispatch(
-					rateAction(
-						data,
-					),
-				);
-			},
-		)
+		.then(data => console.log(data))
 		.catch(
 			error => dispatch(
 				ratingErrorActionCreator(
