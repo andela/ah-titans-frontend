@@ -24,6 +24,7 @@ export const likeArticle = slug => (dispatch) => {
   )
     .then(
       (data) => {
+        console.log("------------>",data)
         dispatch(
           likeArticleActionCreator(
             data,

@@ -8,20 +8,25 @@ import Loader from '../../Loader/components/index';
 import EditButton from '../components/EditButton';
 
 class ArticleView extends Component {
+	constructor(props){
+		super(props);
+		this.handleLikeDislike = this.handleLikeDislike.bind(this)
+	}
 	componentDidMount() {
 		this.props.fetchArticle(this.props.match.params.slug);
-		this.props.dislike(this.props.match.params.slug);
-		this.props.like(this.props.match.params.slug);
 	}
 
-	handleLikeDislike(e){
+	handleLikeDislike(e) {
 		e.preventDefault();
-		const {likes, dislikes, match} = this.props;
+		const {like, dislike } = this.props;
+		const {match} = this.props
 		if(e.target.id == 'like'){
-			likes(match.params.slug);
+			like(match.params.slug);
+			this.props.fetchArticle(this.props.match.params.slug)
 		}
 		else if(e.target.id == 'dislike'){
-			dislikes(match.params.slug);
+			dislike(match.params.slug);
+			this.props.fetchArticle(this.props.match.params.slug)
 		}
 		else{
 				return 'Please log in to like or dislike this article'
@@ -30,7 +35,6 @@ class ArticleView extends Component {
 
 	render() {
 		const { article, isFetching } = this.props;
-		console.log(this.props)
 		return (
 			<div>
 				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} onClick={this.handleLikeDislike} />}</React.Fragment>
@@ -51,6 +55,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 	dislike: dislikeArticle,
 	like: likeArticle,
 }, dispatch);
+
 export default connect(
 	mapStatetoProps,
 	mapDispatchToProps,
