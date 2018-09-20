@@ -41,7 +41,6 @@ class Article extends React.Component {
   render() {
     const { article, } = this.props;
     const { errors, isFetching, } = article;
-    console.log(errors);
 
     return (
       <NewArticle

@@ -1,5 +1,7 @@
 import { GOOGLE_LOGIN_SUCCESS, GOOGLE_LOGIN_ERROR, GOOGLE_LOGIN_REQUEST } from './types';
-import call from '../utils/service';
+import http from '../utils/http.service';
+import config from '../config';
+
 
 export const loginRequest = () => ({ type: GOOGLE_LOGIN_REQUEST });
 
@@ -22,12 +24,13 @@ export const loginUserError = data => ({
  */
 
 const googleLogin = (requestBody, history) => (dispatch) => {
+	const data2 = requestBody.access_token;
 	dispatch(loginRequest());
-	call({ endpoint: '/users/auth/google-oauth2', method: 'POST', data: requestBody })
+	http.post(`${config.BASE_URL}/users/auth/google-oauth2`, { access_token: data2 })
 		.then((data) => {
-			localStorage.setItem('token', data.user.token);
+			localStorage.setItem('token', data.data.user.token);
 			dispatch(
-				loginUserSuccessful(data),
+				loginUserSuccessful(data.data.user.token),
 			);
 			history.push('/');
 		})

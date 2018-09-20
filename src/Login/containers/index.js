@@ -26,14 +26,32 @@ class Login extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	/**
+ * Represents functionality for handling social login errors.
+ * @access - Public for both registered and unregistered users.
+ * @return {object} Return an object containing the error message from social login.
+ */
+
 	onFailure() {
 		Alert.error('An error occurred with the social media login, try login by email');
 		this.history.push('/login');
 	}
 
+	/**
+ * Represents functionality for handling changes in input.
+ * @event  e - Handles input events.
+ * @access - Public for both registered and unregistered users.
+ */
+
 	handleChange(e) {
 		this.setState({ [e.target.name]: e.target.value });
 	}
+	/**
+ * Represents functionality for handling submittions.
+ * @constructor
+ * @event  e - Handles submit event.
+ * @access - Public for both registered and unregistered users.
+ */
 
 	handleSubmit(e) {
 		e.preventDefault();
@@ -48,6 +66,13 @@ class Login extends React.Component {
 
 		this.props.loginUser(user, this.props.history);
 	}
+	/**
+ * Represents functionality for google login.
+ * @param {function} history - Handles routing to the next page.
+ * @param {object} response - Contains the token from google.
+ * @access - Public for both registered and unregistered users.
+ * @return {object} Returns a user token and user details.
+ */
 
 	googleResponse(response) {
 		const requestBody = {
@@ -55,6 +80,15 @@ class Login extends React.Component {
 		};
 		this.props.googleLogin(requestBody, this.props.history);
 	}
+
+	/**
+ * Represents functionality for facebook login.
+ * @param {function} history - Handles routing to the next page.
+ * @param {object} response - Contains the token from facebook.
+ * @access - Public for both registered and unregistered users.
+ * @return {object} Returns a user token and user details.
+ */
+
 
 	facebookResponse(response) {
 		const requestBody = {

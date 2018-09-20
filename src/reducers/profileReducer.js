@@ -11,6 +11,7 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
+	const { payload } = action;
 	switch (action.type) {
 		case GET_PROFILE_REQUEST:
 			return {
@@ -20,13 +21,14 @@ export default function (state = initialState, action) {
 		case GET_PROFILE:
 			return {
 				...state,
-				user: action.payload.profiles,
+				user: payload.profiles,
 				isFetching: false,
 			};
 		case GET_PROFILE_ERROR:
+
 			return {
 				...state,
-				errors: action.payload.profile.errors.detail,
+				errors: payload.profile.errors.detail,
 				isFetching: false,
 			};
 		case UPDATE_PROFILE_REQUEST:
@@ -37,14 +39,14 @@ export default function (state = initialState, action) {
 		case UPDATE_PROFILE:
 			return {
 				...state,
-				user: action.payload.user,
+				user: payload.user,
 				isFetching: false,
 				success: true,
 			};
 		case UPDATE_PROFILE_ERROR:
 			return {
 				...state,
-				errors: action.payload.errors,
+				errors: payload.errors,
 				isFetching: false,
 				success: false,
 			};

@@ -37,6 +37,12 @@ class Profile extends React.Component {
 		});
 	}
 
+	/**
+ * Represents functionality for handling changes in input.
+ * @event  e - Handles input events.
+ * @access - Public for registered users.
+ */
+
 	handleChange(e) {
 		this.setState({ [e.target.name]: e.target.value });
 	}
@@ -49,6 +55,13 @@ class Profile extends React.Component {
 				updateImage({ user: this.state });
 			});
 	}
+
+	/**
+ * Represents functionality for handling submittions.
+ * @constructor
+ * @event  e - Handles submit event.
+ * @access - Public for registered users.
+ */
 
 	handleClick(e) {
 		e.preventDefault();

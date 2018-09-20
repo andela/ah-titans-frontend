@@ -25,7 +25,7 @@ const handleResponse = response => response.json().then((data) => {
 	return data;
 });
 
-const create = data => fetch('https://ah-titans-api.herokuapp.com/api/articles/', {
+const create = data => fetch('http://localhost:8000/api/articles/', {
 	method: 'POST',
 	headers: {
 		'content-type': 'application/json',
