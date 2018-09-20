@@ -50,7 +50,6 @@ class ViewArticle extends React.Component {
 								<h6><i><b>{moment(article.updated_at).format('MMM Do YYYY, h:mm:ss a')}</b></i></h6>
 							</div>
 					</Col>
-					</Row>
 					<Col>
 						<i className="material-icons icon-blue right">
 							{article.favorited ? 'favorite_border' : 'favorite'}
