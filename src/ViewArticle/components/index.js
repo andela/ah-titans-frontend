@@ -7,7 +7,6 @@ import './index.css';
 class ViewArticle extends React.Component {
 	render() {
 		const {article} = this.props;
-		console.log(article.author);
 
 		return (
 			<Row s={12}>
