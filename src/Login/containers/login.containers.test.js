@@ -5,7 +5,6 @@ import { Provider, } from 'react-redux';
 import Login from '.';
 import store from '../../store';
 
-
 describe('<Login />', () => {
   const loginWrapper = shallow(
     <MemoryRouter initialEntries={['/login',]}>
