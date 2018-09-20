@@ -23,10 +23,8 @@ class ArticleView extends Component {
 		const { match } = this.props;
 		if (e.target.id == 'like') {
 			like(match.params.slug);
-			this.props.fetchArticle(this.props.match.params.slug);
 		} else if (e.target.id == 'dislike') {
 			dislike(match.params.slug);
-			this.props.fetchArticle(this.props.match.params.slug);
 		} else {
 			return 'Please log in to like or dislike this article';
 		}
