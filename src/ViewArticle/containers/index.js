@@ -21,9 +21,9 @@ class ArticleView extends Component {
 		e.preventDefault();
 		const { like, dislike } = this.props;
 		const { match } = this.props;
-		if (e.target.id == 'like') {
+		if (e.target.id === 'like') {
 			like(match.params.slug);
-		} else if (e.target.id == 'dislike') {
+		} else if (e.target.id === 'dislike') {
 			dislike(match.params.slug);
 		} else {
 			return 'Please log in to like or dislike this article';
