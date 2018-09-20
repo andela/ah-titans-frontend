@@ -17,9 +17,7 @@ describe('viewArticles reducer', () => {
       type: types.LIKE_ARTICLE,
     };
 
-    expect(
-      reducer(initialState, startAction),
-    ).toEqual({ ...initialState, isLiking: true });
+    expect(reducer(initialState, startAction)).toEqual({ ...initialState, isLiking: true });
   });
 
   it('should set isDisliking state to true', () => {
@@ -27,15 +25,13 @@ describe('viewArticles reducer', () => {
       type: types.DISLIKE_ARTICLE,
     };
 
-    expect(
-      reducer(initialState, startAction),
-    ).toEqual({ ...initialState, isDisliking: true });
+    expect(reducer(initialState, startAction)).toEqual({ ...initialState, isDisliking: true });
   });
 
   it('should return an error on like/dislike', () => {
     const startAction = {
       type: types.LIKE_DISLIKE_ERROR,
-      payload: { errors: {} }
+      payload: { errors: {} },
     };
 
     expect(reducer(initialState, startAction)).toEqual({ ...initialState, error: {}, isLiking: '', isDisliking: '' });

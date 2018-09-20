@@ -16,43 +16,19 @@ const expectedAction = type => ({
 
 describe('create actions', () => {
 	it('should create an action like an article', () => {
-		expect(
-			likeArticleActionCreator(),
-		).toEqual(
-			expectedAction(
-				LIKE_ARTICLE,
-			),
-		);
+		expect(likeArticleActionCreator()).toEqual(expectedAction(LIKE_ARTICLE));
 	});
 
 	it('should create an action dislike an article', () => {
-		expect(
-			dislikeArticleActionCreator(),
-		).toEqual(
-			expectedAction(
-				DISLIKE_ARTICLE,
-			),
-		);
+		expect(dislikeArticleActionCreator()).toEqual(expectedAction(DISLIKE_ARTICLE));
 	});
 
 	it('should create an action get error on like/dislike', () => {
-		expect(
-			likeDislikeErrorActionCreator(),
-		).toEqual(
-			expectedAction(
-				LIKE_DISLIKE_ERROR,
-			),
-		);
+		expect(likeDislikeErrorActionCreator()).toEqual(expectedAction(LIKE_DISLIKE_ERROR));
 	});
 
 	it('should create an action like an article', () => {
-		expect(
-			likeDislikeArticleSuccess(),
-		).toEqual(
-			expectedAction(
-				VIEW_ARTICLE,
-			),
-		);
+		expect(likeDislikeArticleSuccess()).toEqual(expectedAction(VIEW_ARTICLE));
 	});
 });
 
@@ -62,21 +38,12 @@ describe('select like/dislike an article action', () => {
 	test('Dispatches like article action and payload', () => {
 		const expectedActions = [
 			{
-				type:
-					'LIKE_ARTICLE',
+				type: 'LIKE_ARTICLE',
 			},
 		];
 
-		store.dispatch(
-			likeArticleActionCreator(
-				data,
-			),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expectedActions,
-		);
+		store.dispatch(likeArticleActionCreator(data));
+		expect(store.getActions()).toEqual(expectedActions);
 	});
 });
 
@@ -88,22 +55,13 @@ describe('select like/dislike errors action', () => {
 	test('Dispatches like/dislike errors action and payload', () => {
 		const expectedActions = [
 			{
-				type:
-					'LIKE_DISLIKE_ERROR',
+				type: 'LIKE_DISLIKE_ERROR',
 				payload: errors,
 			},
 		];
 
-		store.dispatch(
-			likeDislikeErrorActionCreator(
-				errors,
-			),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expectedActions,
-		);
+		store.dispatch(likeDislikeErrorActionCreator(errors));
+		expect(store.getActions()).toEqual(expectedActions);
 	});
 });
 
@@ -114,17 +72,10 @@ describe('select disliking an article action', () => {
 	test('Dispatches disliking an article action and payload', () => {
 		const expected_actions = [
 			{
-				type:
-					'DISLIKE_ARTICLE',
+				type: 'DISLIKE_ARTICLE',
 			},
 		];
-		store.dispatch(
-			dislikeArticleActionCreator(),
-		);
-		expect(
-			store.getActions(),
-		).toEqual(
-			expected_actions,
-		);
+		store.dispatch(dislikeArticleActionCreator());
+		expect(store.getActions()).toEqual(expected_actions);
 	});
 });
