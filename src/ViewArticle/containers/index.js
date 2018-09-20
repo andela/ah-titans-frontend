@@ -24,8 +24,8 @@ class ArticleView extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const { article, isFetching, } = nextProps;
-		const { detail } = article
+		const { article, isFetching } = nextProps;
+		const { detail } = article;
 		this.setState({ isFetching, article, error: detail });
 	}
 
