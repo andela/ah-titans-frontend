@@ -39,7 +39,7 @@ class ArticleView extends Component {
 			} else if (e.target.id === 'dislike') {
 				dislike(match.params.slug);
 			}
-	  }else {
+	  } else {
 			swal('Please log in to like or dislike this article');
 		}
 	}
