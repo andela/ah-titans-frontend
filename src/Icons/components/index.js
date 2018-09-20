@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './icon.scss';
 
 const Icons = ({
 	id, icon, count, onClick,
 }) => (
 	<div>
-	<button onClick={onClick} >
+	<button className="icon_btn" onClick={onClick} >
 			<i className="material-icons" id={id}>{icon}</i>
 			<span>{count}</span>
 		</button>

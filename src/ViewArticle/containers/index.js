@@ -24,8 +24,8 @@ class ArticleView extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const { article, isFetching, } = nextProps;
-		const { detail } = article
+		const { article, isFetching } = nextProps;
+		const { detail } = article;
 		this.setState({ isFetching, article, error: detail });
 	}
 
@@ -33,13 +33,13 @@ class ArticleView extends Component {
 		e.preventDefault();
 		const { like, dislike } = this.props;
 		const { match } = this.props;
-		if (localStorage.getItem('token')){
+		if (localStorage.getItem('token')) {
 			if (e.target.id === 'like') {
 				like(match.params.slug);
 			} else if (e.target.id === 'dislike') {
 				dislike(match.params.slug);
 			}
-	  }else {
+	  } else {
 			swal('Please log in to like or dislike this article');
 		}
 	}
