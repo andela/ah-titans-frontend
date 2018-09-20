@@ -1,22 +1,18 @@
 /**
  * Represents an authentication header.
  * @constructor
- * @param {boolean} authenticated - Validation for an authenticated user.
  * @access - Public for both registered and unregistered users.
  */
 
-const authHeader = (authenticated) => {
+const authHeader = () => {
 	// return authorization header with jwt token
-	if (!authenticated) {
+	const token = localStorage.getItem('token');
+	const user = localStorage.getItem('username');
+	if (!user) {
 		return {};
 	}
-	const data = localStorage.getItem('user');
-	if (!data) {
-		return {};
-	}
-	const { user } = JSON.parse(data);
-	if (user && user.token) {
-		return { Authorization: `Token ${user.token}` };
+	if (user && token) {
+		return { Authorization: `Token ${token}` };
 	}
 	return {};
 };
