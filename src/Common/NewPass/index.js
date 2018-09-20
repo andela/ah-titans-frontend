@@ -4,7 +4,6 @@ import NewPassword from './containers';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { checkURL, newpass } from '../../actions/newPass';
-import call from '../../utils/service';
 
 class NewPass extends React.Component {
   constructor(props){
