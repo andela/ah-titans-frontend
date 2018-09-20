@@ -20,7 +20,7 @@ const NewPassForm = ({
 							name="new_password"
 							id="new_password"
 							value={data.password}
-							onChange={onChange}
+							onChange={onChange} 
 							onKeyUp={onValidate}
 						/>
 						{errors.new_password && <InlineError text={errors.new_password} />}
