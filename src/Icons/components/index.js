@@ -9,7 +9,7 @@ const Icons = ({
 	<button className="icon_btn" onClick={onClick} >
 			<i className="material-icons" id={id}>{icon}</i>
 			<span>{count}</span>
-		</button>
+	</button>
 	</div>
 );
 
