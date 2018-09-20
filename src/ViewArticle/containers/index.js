@@ -8,29 +8,33 @@ import Loader from '../../Loader/components/index';
 import EditButton from '../components/EditButton';
 
 class ArticleView extends Component {
-	componentDidMount() {
-		this.props.fetchArticle(this.props.match.params.slug);
-		this.props.dislike(this.props.match.params.slug);
-		this.props.like(this.props.match.params.slug);
+	constructor(props) {
+		super(props);
+		this.handleLikeDislike = this.handleLikeDislike.bind(this);
 	}
 
-	handleLikeDislike(e){
+	componentDidMount() {
+		this.props.fetchArticle(this.props.match.params.slug);
+	}
+
+	handleLikeDislike(e) {
 		e.preventDefault();
-		const {likes, dislikes, match} = this.props;
-		if(e.target.id == 'like'){
-			likes(match.params.slug);
-		}
-		else if(e.target.id == 'dislike'){
-			dislikes(match.params.slug);
-		}
-		else{
-				return 'Please log in to like or dislike this article'
+		const {
+			like,
+			dislike,
+			match,
+		} = this.props;
+		if (e.target.id === 'like') {
+			like(match.params.slug);
+		} else if (e.target.id === 'dislike') {
+			dislike(match.params.slug);
+		} else {
+			return 'Please log in to like or dislike this article';
 		}
 	}
 
 	render() {
 		const { article, isFetching } = this.props;
-		console.log(this.props)
 		return (
 			<div>
 				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} onClick={this.handleLikeDislike} />}</React.Fragment>
