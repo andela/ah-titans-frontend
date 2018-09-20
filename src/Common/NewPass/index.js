@@ -14,7 +14,7 @@ class NewPass extends React.Component {
     this.props.checkURL(this.props.match.params.uidb64, this.props.match.params.token, this.props.history);
 	}
 	
-	submit = (data) => {
+	handleSubmit = (data) => {
     this.props.newpass(data)
       .then(
         (res) => swal("Success", `${res.reset} Click OK to login`, "success" )
@@ -26,7 +26,7 @@ class NewPass extends React.Component {
 
   render() {
     const { token } = this.props.newPass.newPass;
-    return <NewPassword reset_token={token} submit={this.submit}/>;
+    return <NewPassword reset_token={token} handleSubmit={this.handleSubmit}/>;
   }
 }
 
@@ -45,4 +45,3 @@ const mapStatetoProps = newPass => ({
 });
 
 export default connect(mapStatetoProps, mapDispatchToProps)(NewPass);
- 

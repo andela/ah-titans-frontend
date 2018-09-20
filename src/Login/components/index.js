@@ -45,15 +45,18 @@ const LoginForm = ({
 					<Col m={6} s={12}>
 						<p style={{ color: 'black' }}>
               Not a member?
-              <Link to="/signup"> Signup</Link>
-            </p>
+							<Link to="/signup"> Signup</Link>
+						</p>
+						<p style={{ color: 'black' }}>
+							<Link to="/resetpass"> Forgot your password?</Link>
+						</p>
 					</Col>
 				</Row>
 				<Row>
 					<Col m={6} s={12}>
 						<Button waves="light" style={{ backgroundColor: 'red' }}>
               Login with google account
-            </Button>
+						</Button>
 					</Col>
 					<Col m={6} s={12}>
 						<Button waves="light" style={{ backgroundColor: '#1aa3ff' }}>

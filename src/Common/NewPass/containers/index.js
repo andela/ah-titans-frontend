@@ -16,16 +16,22 @@ class NewPassword extends React.Component {
   
   }
   
-  onChange = e => this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value}});
+  handleChange = event => {
+    this.setState(
+      { 
+        data: { ...this.state.data, [event.target.name]: event.target.value}
+      }
+    )
+  };
 
-  onSubmit = e => {
-    e.preventDefault();
-    const errors = this.validate(this.state.data);
+  handleSubmit = event => {
+    event.preventDefault();
+    const errors = this.onKeyUpValidate(this.state.data);
     this.setState({errors});
     if (Object.keys(errors).length === 0) {
 			this.setState({ loading: true });
 			this.props
-				.submit({
+				.handleSubmit({
 					reset_token: this.props.reset_token,
 					new_password: this.state.data.new_password
 				})
@@ -41,12 +47,12 @@ class NewPassword extends React.Component {
 		}
   };
 
-  onValidate = () => {
-    const errors = this.validate(this.state.data);
+  handleInputValidation = () => {
+    const errors = this.onKeyUpValidate(this.state.data);
     this.setState({errors});
   }; 
   
-  validate = (data) => {
+  onKeyUpValidate = (data) => {
     const errors = {};
     if (!data.new_password) errors.new_password = "Password is required";
     if (!data.cpassword) errors.cpassword = "You need to confirm your password";
@@ -58,9 +64,9 @@ class NewPassword extends React.Component {
   render() { 
     return (
       <NewPassForm 
-        onChange={this.onChange} 
-        onSubmit={this.onSubmit} 
-        onValidate={this.onValidate} 
+        onChange={this.handleChange} 
+        onSubmit={this.handleSubmit} 
+        onValidate={this.handleInputValidation} 
         data={this.state.data} 
         errors={this.state.errors}
         loading={this.state.loading}
@@ -70,8 +76,7 @@ class NewPassword extends React.Component {
 }
 
 NewPassword.propTypes = {
-  submit: PropTypes.func.isRequired
+  handleSubmit: PropTypes.func.isRequired
 };
 
 export default NewPassword;
- 

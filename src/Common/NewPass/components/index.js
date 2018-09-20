@@ -57,5 +57,4 @@ const NewPassForm = ({
 	</Row>
 );
 
-
 export default NewPassForm;

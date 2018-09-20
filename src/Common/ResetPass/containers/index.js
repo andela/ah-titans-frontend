@@ -14,23 +14,29 @@ class ResetPassword extends React.Component {
     errors: {}
   };
 
-  onChange = e => this.setState({ data: { ...this.state.data, [e.target.name]: e.target.value}});
+  handleChange = event => {
+    this.setState(
+      { 
+        data: { ...this.state.data, [event.target.name]: event.target.value}
+      }
+    )
+  };
 
-  onSubmit = e => {
-    e.preventDefault();
-    const errors = this.validate(this.state.data);
+  handleSubmit = event => {
+    event.preventDefault();
+    const errors = this.handleKeyUpValidation(this.state.data);
     this.setState({errors});
     if (Object.keys(errors).length === 0) {
 			this.props.handleSubmit(this.state.data)
 		}
   };
 
-  onValidate = () => {
-    const errors = this.validate(this.state.data);
+  handleInputValidation = () => {
+    const errors = this.handleKeyUpValidation(this.state.data);
     this.setState({errors});
   };
   
-  validate = (data) => {
+  handleKeyUpValidation = (data) => {
     const errors = {};
     if (!data.email) {
       errors.email = "Email is required";
@@ -44,9 +50,9 @@ class ResetPassword extends React.Component {
   render() {
     return (
       <ResetPasswordForm 
-        onChange={this.onChange} 
-        onSubmit={this.onSubmit} 
-        onValidate={this.onValidate} 
+        onChange={this.handleChange} 
+        onSubmit={this.handleSubmit} 
+        onValidate={this.handleInputValidation} 
         data={this.state.data.email} 
         errors={this.state.errors}
         loading={this.props.loading}

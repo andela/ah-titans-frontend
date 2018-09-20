@@ -12,7 +12,6 @@ export const passResetToken = token => ({
 	token,
 });
 
-
 export const checkURL = (uidb64, token, history) => (dispatch) => {
 	call({
 		endpoint: `/reset/${uidb64}/${token}/`,
@@ -23,4 +22,7 @@ export const checkURL = (uidb64, token, history) => (dispatch) => {
 	});
 };
 
-export const newpass = credentials => dispatch => api.pass.newpass(credentials).then(reset => dispatch(userNewPass(reset)));
+export const newpass = credentials => dispatch => {
+	api.pass.newpass(credentials)
+		.then(reset => dispatch(userNewPass(reset)))
+};

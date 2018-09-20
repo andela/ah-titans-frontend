@@ -3,7 +3,6 @@ import fetchMock from 'fetch-mock';
 import { USER_NEW_PASS } from '../types';
 import { userNewPass } from '../newPass';
 
-
 describe('article actions', () => {
 	beforeEach(() => {
 		fetch.resetMocks();
