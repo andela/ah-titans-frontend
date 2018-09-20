@@ -1,7 +1,7 @@
 import fetchMock from 'fetch-mock';
 
-import { USER_NEW_PASS, PASS_RESET_TOKEN } from '../types';
-import { userNewPass, passResetToken } from '../newPass';
+import { USER_NEW_PASS } from '../types';
+import { userNewPass } from '../newPass';
 
 
 describe('article actions', () => {
@@ -18,11 +18,5 @@ describe('article actions', () => {
 			type: USER_NEW_PASS,
 		};
 		expect(userNewPass()).toEqual(expectedAction);
-	});
-	it('should create an action to verify reset token', () => {
-		const expectedAction = {
-			type: PASS_RESET_TOKEN,
-		};
-		expect(passResetToken()).toEqual(expectedAction);
 	});
 });
