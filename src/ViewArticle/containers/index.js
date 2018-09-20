@@ -19,15 +19,14 @@ class ArticleView extends Component {
 
 	handleLikeDislike(e) {
 		e.preventDefault();
-		const {
-			like,
-			dislike,
-			match,
-		} = this.props;
-		if (e.target.id === 'like') {
+		const { like, dislike } = this.props;
+		const { match } = this.props;
+		if (e.target.id == 'like') {
 			like(match.params.slug);
-		} else if (e.target.id === 'dislike') {
+			this.props.fetchArticle(this.props.match.params.slug);
+		} else if (e.target.id == 'dislike') {
 			dislike(match.params.slug);
+			this.props.fetchArticle(this.props.match.params.slug);
 		} else {
 			return 'Please log in to like or dislike this article';
 		}
@@ -55,6 +54,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
 	dislike: dislikeArticle,
 	like: likeArticle,
 }, dispatch);
+
 export default connect(
 	mapStatetoProps,
 	mapDispatchToProps,
