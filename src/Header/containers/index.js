@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import {
+	Row,
+} from 'react-materialize';
 import HeaderComponent from '../components';
 import getActiveUser from '../../actions/getActiveUser';
 
@@ -16,7 +19,7 @@ class Header extends Component {
 
 	render() {
 		const { user } = this.props;
-		return <HeaderComponent user={user} />;
+		return <Row><HeaderComponent user={user} /></Row>;
 	}
 }
 
