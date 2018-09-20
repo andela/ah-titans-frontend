@@ -13,6 +13,7 @@ class ArticleView extends Component {
 		super(props);
 		this.state = {
 			rating: 0,
+			rateData: 0,
 		};
 		this.onRate = this.onRate.bind(this);
 	}
@@ -20,24 +21,25 @@ class ArticleView extends Component {
 
 	componentDidMount() {
 		this.props.fetchArticle(this.props.match.params.slug);
-		console.log(this.props);
 
 		// this.props.sucessfullRating(this.props.match.params.slug, 5);
 	}
 
-	onRate(e, value) {
-		this.setState({ rateData: value, rating: this.props.article.average_rating });
+	onRate({ rating }) {
+		console.log(this.props);
+		this.setState({ rateData: rating, rating: this.props.article.average_rating });
 		const rateData = {
 			rate: {
-				rate: value,
+				rating: this.state.rateData,
 			},
 		};
+		console.log(rateData);
 		this.props.sucessfullRating(this.props.match.params.slug, rateData);
-		console.log('here');
 	}
 
 
 	render() {
+		console.log(this.state);
 		const { article, isFetching } = this.props;
 		console.log(this.props);
 		return (
@@ -56,12 +58,7 @@ const mapStatetoProps = ({ getArticle }) => ({
 	rating: ratingArticles,
 });
 
-// const mapDispatchToProps = dispatch => bindActionCreators({
-// 	fetchArticle,
-// 	sucessfullRating,
-// }, dispatch);
 export default connect(
 	mapStatetoProps,
-	// mapDispatchToProps,,
 	{ sucessfullRating, fetchArticle },
 )(ArticleView);

@@ -11,17 +11,23 @@ export const ratingErrorActionCreator = error => ({
 });
 
 export const sucessfullRating = (slug, rateData) => (dispatch) => {
-	console.log('Rating');
-
 	call(
 		{
 			endpoint: `/articles/${slug}/rate/`,
 			method:
                 'POST',
-			data: rateData,
+			data: rateData
 		},
 	)
-		.then(data => console.log(data))
+		.then(
+			(data) => {
+				dispatch(
+					rateAction(
+						data,
+					),
+				);
+			},
+		)
 		.catch(
 			error => dispatch(
 				ratingErrorActionCreator(

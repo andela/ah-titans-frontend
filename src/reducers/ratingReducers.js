@@ -7,19 +7,21 @@ const prevState = {
 
 const ratingArticles = (state = prevState, action) => {
 	switch (
-		action.type
+	action.type
 	) {
 		case USER_RATE_ARTICLE:
 			return {
 				...state,
+				rate: action.payload.article.average_rating,
+				
 			};
 		case RATING_ERROR:
 			return {
 				...state,
 				error:
-                    action
-                    	.payload
-                    	.errors,
+					action
+						.payload
+						.errors,
 			};
 		default:
 			return state;
