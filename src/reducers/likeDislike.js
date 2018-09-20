@@ -18,7 +18,7 @@ const likeDislikeArticles = (state = prevState, action) => {
 			return {
 				...state,
 				error:
-          action.payload.article.detail,
+          action.payload.errors,
 			};
 		default:
 			return state;
