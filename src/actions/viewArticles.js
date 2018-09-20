@@ -16,9 +16,9 @@ export const getArticlesErrorActionCreator = error => ({
 	payload: error,
 });
 
-const getArticles = () => (dispatch) => {
+const getArticles = page => (dispatch) => {
 	dispatch(gettingArticlesActionCreator());
-	http.get(`${config.BASE_URL}/articles/`)
+	http.get(`${config.BASE_URL}/articles/?page=${page}`)
 		.then((payload) => {
 			const { ...data } = payload.data;
 			dispatch(getArticlesActionCreator(data));

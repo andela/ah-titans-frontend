@@ -75,6 +75,7 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-hot-loader": "^4.3.5",
+    "react-js-pagination": "^3.0.2",
     "react-material-snackbar": "^3.0.1",
     "react-materialize": "^2.4.5",
     "react-redux": "^5.0.7",
