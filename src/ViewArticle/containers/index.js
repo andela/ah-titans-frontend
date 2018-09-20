@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import swal from 'sweetalert';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ViewArticle from '../components/index';
@@ -39,7 +40,7 @@ class ArticleView extends Component {
 				dislike(match.params.slug);
 			}
 	  }else {
-			console.log('Please log in to like or dislike this article');
+			swal('Please log in to like or dislike this article');
 		}
 	}
 
