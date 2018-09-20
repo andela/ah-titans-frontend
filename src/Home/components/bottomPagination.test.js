@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Pagination from './bottomPagination';
+import BottomPagination from './bottomPagination';
 
-describe('<ResetPass />', () => {
+describe('<Pagination /> component', () => {
 	it('should render without crushing', () => {
 		const snap = shallow(
-			<Pagination
+			<BottomPagination
 				activePage=""
 				itemsCountPerPage=""
 				totalItemsCount=""
