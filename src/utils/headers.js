@@ -11,7 +11,7 @@ const getToken = () => {
 		return {};
 	}
 	if (data && token) {
-		return { Authorization: `Token ${token}` };
+		return `Token ${token}`;
 	}
 	return {};
 };

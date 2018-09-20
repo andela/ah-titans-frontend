@@ -7,7 +7,7 @@ import Icons from '../../Icons/components/index';
 
 class ViewArticle extends React.Component {
 	render() {
-		const { article, onClick, error } = this.props;
+		const { article, onClick, likes, dislikes } = this.props;
 
 		return (
 			<Row s={12}>
@@ -50,7 +50,7 @@ class ViewArticle extends React.Component {
 						<Col className="icona">
 							<div className="floating" style={{ display: 'inline-flex' }}>
 								<div className="clear">
-									<Icons icon="thumb_up" onClick={onClick} id="like" count={article.likes_count} />
+									<Icons icon="thumb_up" onClick={onClick} id="like" count={likes} />
 								</div>
 								<div className="clear">
 									<Icons icon="thumb_down" onClick={onClick} id="dislike" count={article.dislikes_count} />
@@ -63,7 +63,6 @@ class ViewArticle extends React.Component {
 								</div>
 							</div>
 						</Col>
-						{error}
 					</div>
 				</Col>
 			</Row>
