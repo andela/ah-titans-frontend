@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { GOOGLE_LOGIN_SUCCESS, GOOGLE_LOGIN_ERROR, GOOGLE_LOGIN_REQUEST } from './types';
 import call from '../utils/service';
 
