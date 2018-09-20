@@ -29,7 +29,7 @@ const Main = () => (
 			}
 			<Route exact path="/article/:slug" component={ArticleView} />
 			<Route exact path="/profile/:username" component={Profile} />
-      <Route exact path="/resetpass" component={ResetPass} />
+      			<Route exact path="/resetpass" component={ResetPass} />
 			<Route path="/api/reset/:uidb64/:token/" component={NewPass} />
 			<Route component={NotFound} />
 		</Switch>
