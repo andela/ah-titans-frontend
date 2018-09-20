@@ -70,6 +70,7 @@ class Profile extends React.Component {
 		const { username: oldName } = profile.user;
 		updateDetails(user);
 		const path = (newName !== '') ? newName : oldName;
+		localStorage.setItem('username', path);
 		history.push(`/profile/${path}`);
 	}
 
