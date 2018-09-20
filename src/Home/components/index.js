@@ -46,9 +46,9 @@ const ArticlesForm = ({ article, }) => (
         </p>
 
         <p />
+      <Link to={`/article/${article.slug}`}>
         <p className="about">{article.description}</p>
         <br />
-       <Link to={`/article/${article.slug}`}>
         <p style={{color: "black"}}>
           {article.body && article.body.substring(0, 150)}
           {article.body && article.body.length > 150 ? '...' : ''}
