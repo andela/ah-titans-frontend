@@ -12,7 +12,6 @@ const NewPassForm = ({
 		<form onSubmit={onSubmit} noValidate>
 			<Col m={4} s={12} offset="m4">
 				<Card textClassName="blacktext" title="New Password">
-
 					<Row>
 						<Input
 							type="password"
