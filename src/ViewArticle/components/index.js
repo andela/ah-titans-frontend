@@ -1,5 +1,6 @@
 import React from 'react';
-import { Col , Row } from 'react-materialize';
+import { Col, Row } from 'react-materialize';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import './index.css';
 
@@ -31,12 +32,13 @@ class ViewArticle extends React.Component {
 					</Col>
           <Col s={12}>
 				   	 <div>
-                <h6><i><b>By: {article.author && article.author.username}</b></i></h6>
+                <h6><i><b><Link to={`/profile/${article.author && article.author.username}`}>
+									By: {article.author && article.author.username}</Link></b></i></h6>
             	</div>
 				    </Col>
             <Col s={12}>
 						<div>
-              <h6><i><b>{moment(article.updated_at).format('MMM Do YYYY, h:mm:ss a')}</b></i></h6>
+              <h6 style={{ color: '#2196F3' }}><i><b>{moment(article.updated_at).format('MMM Do YYYY, h:mm:ss a')}</b></i></h6>
             </div>
 						</Col>
 						<Col s={12}>
