@@ -7,7 +7,7 @@ import {
 import HeaderComponent from '../components';
 import getActiveUser from '../../actions/getActiveUser';
 
-class Header extends Component {
+export class Header extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {};

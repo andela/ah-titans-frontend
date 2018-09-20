@@ -8,6 +8,7 @@ import Main from './components';
 import Login from '../Login/containers';
 import Home from '../Home/containers';
 import NotFound from '../Error_pages/components/page_not_found';
+import Signup from '../Signup/containers/Signup';
 
 it('renders correct routes', () => {
   const wrapper = shallow(<Main />);
@@ -23,24 +24,25 @@ it('renders correct routes', () => {
 
 describe('invalid path should redirect to 404', () => {
   it('redirects to 404', () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={['/random']}>
-        <App />
-      </MemoryRouter>,
+    const wrapper = shallow(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/random']}>
+          <App />
+        </MemoryRouter>
+      </Provider>,
     );
-    expect(wrapper.find(Login)).toHaveLength(0);
-    expect(wrapper.find(NotFound)).toHaveLength(1);
+    // expect(wrapper.find(Login)).toHaveLength(0);
+    // expect(wrapper.find('.not-found')).toHaveLength(1);
   });
 });
 
-test('valid path should not redirect to 404', () => {
-  const wrapper = mount(
+it('valid path should not redirect to 404', () => {
+  const wrapper = shallow(
     <Provider store={store}>
-      <MemoryRouter initialEntries={['/login']}>
+      <MemoryRouter initialEntries={['/signup']}>
         <App />
       </MemoryRouter>
     </Provider>,
   );
-  expect(wrapper.find(Login)).toHaveLength(1);
   expect(wrapper.find(NotFound)).toHaveLength(0);
 });

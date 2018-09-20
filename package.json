@@ -94,6 +94,10 @@
     "testPathIgnorePatterns": [
       "<rootDir>/src/setupEnzyme.js"
     ],
+    "moduleNameMapper": {
+      "\\.(css|less|sass|scss)$": "<rootDir>/src/__mocks__/styleMock.js",
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/src/__mocks__/fileMock.js"
+    },
     "transform": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)$": "<rootDir>/fileTransformer.js",
       "\\.(css|scss)$": "<rootDir>/fileTransformer.js",
