@@ -6,7 +6,7 @@ import Icons from '../../Icons/components/index';
 
 class ViewArticle extends React.Component {
 	render() {
-		const { article, onClick } = this.props;
+		const { article, onClick, error } = this.props;
 
 		return (
 			<Row s={12}>
@@ -70,6 +70,7 @@ class ViewArticle extends React.Component {
 								</div>
 							</div>
 						</Col>
+						{error}
 					</div>
 				</Col>
 			</Row>

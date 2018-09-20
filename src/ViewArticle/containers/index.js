@@ -13,6 +13,7 @@ class ArticleView extends Component {
 		this.state = {
 			article: {},
 			isFetching: '',
+			error: '',
 		};
 		this.handleLikeDislike = this.handleLikeDislike.bind(this);
 	}
@@ -22,8 +23,9 @@ class ArticleView extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const { article, isFetching } = nextProps;
-		this.setState({ isFetching, article });
+		const { article, isFetching, } = nextProps;
+		const { detail } = article
+		this.setState({ isFetching, article, error: detail });
 	}
 
 	handleLikeDislike(e) {
@@ -40,10 +42,10 @@ class ArticleView extends Component {
 	}
 
 	render() {
-		const { article, isFetching } = this.state;
+		const { article, isFetching, error } = this.state;
 		return (
 			<div>
-				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} onClick={this.handleLikeDislike} />}</React.Fragment>
+				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} onClick={this.handleLikeDislike} error={error} />}</React.Fragment>
 				<EditButton />
 			</div>
 		);
