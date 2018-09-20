@@ -22,55 +22,23 @@ export const likeDislikeArticleSuccess = article => ({
 });
 
 export const likeArticle = slug => (dispatch) => {
-	call(
-		{
+	call({
 			endpoint: `/articles/${slug}/like/`,
-			method:
-        'PUT',
-		},
-	)
-		.then(
-			(data) => {
-				dispatch(
-					likeArticleActionCreator(
-						data,
-					),
-        );
+			method: 'PUT',
+		})
+		.then((data) => {dispatch(likeArticleActionCreator(data));
         dispatch(likeDislikeArticleSuccess(data));
-			}
-		)
-		.catch(
-			error => dispatch(
-				likeDislikeErrorActionCreator(
-					error,
-				),
-			),
-		);
+			})
+		.catch(error => dispatch(likeDislikeErrorActionCreator(error)));
 };
 
 export const dislikeArticle = slug => (dispatch) => {
-	call(
-		{
-			endpoint: `/articles/${slug}/dislike/`,
-			method:
-        'PUT',
-		},
-	)
-		.then(
-			(data) => {
-				dispatch(
-					dislikeArticleActionCreator(
-						data,
-					),
-        );
+	call({
+		endpoint: `/articles/${slug}/dislike/`,
+		method: 'PUT',
+		})
+		.then((data) => {dispatch(dislikeArticleActionCreator(data));
         dispatch(likeDislikeArticleSuccess(data));
-			},
-		)
-		.catch(
-			error => dispatch(
-				likeDislikeErrorActionCreator(
-					error,
-				),
-			),
-		);
+			})
+		.catch(error => dispatch(likeDislikeErrorActionCreator(error)));
 };

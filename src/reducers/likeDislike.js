@@ -9,25 +9,13 @@ const prevState = {
 };
 
 const likeDislikeArticles = (state = prevState, action) => {
-	switch (
-		action.type
-	) {
+	switch (action.type) {
 		case LIKE_ARTICLE:
-			return {
-				...state,
-				isLiking: true,
-			};
+			return { ...state, isLiking: true };
 		case DISLIKE_ARTICLE:
-			return {
-				...state,
-				isDisliking: true,
-			};
+			return { ...state, isDisliking: true };
 		case LIKE_DISLIKE_ERROR:
-			return {
-				...state,
-				error:
-          action.payload.errors,
-			};
+			return { ...state, error: action.payload.errors };
 		default:
 			return state;
 	}
