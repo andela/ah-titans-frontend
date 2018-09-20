@@ -93,6 +93,18 @@ describe('profile reducer', () => {
 
 	it('should return an error on get profile failure', () => {
 		const startAction = {
+			type: types.CLEAR_STORE,
+		};
+		expect(reducer(initialState, startAction)).toEqual({
+			...initialState,
+			errors: {},
+			isFetching: false,
+			success: false,
+		});
+	});
+
+	it('should return an error on get profile failure', () => {
+		const startAction = {
 			type: types.UPDATE_PROFILE_ERROR,
 			payload: {
 				errors: {

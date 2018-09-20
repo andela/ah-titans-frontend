@@ -91,3 +91,20 @@ describe('get profile request', () => {
 	})
 		.then(res => expect(res.body).toEqual(JSON.parse({})));
 });
+
+describe('update profile request', () => {
+	fetch.mockResponseOnce(JSON.stringify({}));
+	const user = {
+		user: {
+			username: '', bio: '', interests: '', image: '',
+		},
+	};
+	fetch('http://ah-titans-api.herokuapp.com/api/user/', {
+		method: 'PUT',
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify(user),
+	})
+		.then(res => expect(res.body).toEqual(JSON.parse({})));
+});
