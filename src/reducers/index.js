@@ -8,6 +8,7 @@ import newPass from './newPass';
 import viewArticles from './viewArticles';
 import getArticle from './article';
 import getActiveUser from './getActiveUser';
+import profileReducer from './profileReducer';
 
 export default combineReducers({
 	exampleReducer,
@@ -19,4 +20,5 @@ export default combineReducers({
 	viewArticles,
 	getArticle,
 	user: getActiveUser,
+	profile: profileReducer,
 });
