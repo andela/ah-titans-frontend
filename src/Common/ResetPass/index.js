@@ -12,7 +12,7 @@ class ResetPass extends React.Component {
 	}
 
 	render() {
-    const { loading } = this.props.resetPass;
+    		const { loading } = this.props.resetPass;
 		return <ResetPassword loading={loading} handleSubmit={this.handleSubmit} />;
 	}
 }
