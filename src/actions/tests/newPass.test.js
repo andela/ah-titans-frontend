@@ -1,12 +1,8 @@
-import configureMockStore from 'redux-mock-store';
 import fetchMock from 'fetch-mock';
-import thunk from 'redux-thunk';
 
-import { USER_NEW_PASS } from '../types';
-import { userNewPass } from '../newPass';
+import { USER_NEW_PASS, PASS_RESET_TOKEN } from '../types';
+import { userNewPass, passResetToken } from '../newPass';
 
-const middlewares = [thunk];
-const mockStore = configureMockStore(middlewares);
 
 describe('article actions', () => {
 	beforeEach(() => {
@@ -22,5 +18,11 @@ describe('article actions', () => {
 			type: USER_NEW_PASS,
 		};
 		expect(userNewPass()).toEqual(expectedAction);
+	});
+	it('should create an action to verify reset token', () => {
+		const expectedAction = {
+			type: PASS_RESET_TOKEN,
+		};
+		expect(passResetToken()).toEqual(expectedAction);
 	});
 });
