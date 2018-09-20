@@ -46,7 +46,6 @@ export class Home extends Component {
 		const { new_user } = this.props.home;
 		const { isFetching, success } = this.props.articles;
 		const articles = this.props.articles.items;
-		console.log(articles);
 		const article = [];
 		const token = localStorage.getItem('token');
 
