@@ -1,0 +1,50 @@
+#hideMe {
+    -moz-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Firefox */
+    -webkit-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Safari and Chrome */
+    -o-animation: cssAnimation 0s ease-in 5s forwards;
+    /* Opera */
+    animation: cssAnimation 0s ease-in 5s forwards;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+@keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        overflow:hidden;
+    }
+}
+@-webkit-keyframes cssAnimation {
+    to {
+        width:0;
+        height:0;
+        visibility:hidden;
+    }
+}
+
+.toaster{
+    z-index: 1000;
+    width: 30%;
+    margin-right: 1%;
+    float: right;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+}
+
+.toaster-error{
+    background-color: #dc3545;
+}
+
+.toaster-success{
+    background-color: green;
+}
+
+.toaster div{
+    padding: 15px;
+}
+.toaster p{
+    padding: 0 5px 2px 5px;
+}

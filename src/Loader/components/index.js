@@ -3,9 +3,9 @@ import loader from '../../assets/Loader.gif';
 import './index.scss';
 
 const Loader = () => (
-  <div className="loader">
-    <img src={loader} alt="Loading ..." />
-  </div>
+	<div className="loader">
+		<img src={loader} alt="Loading ..." />
+	</div>
 );
 
 export default Loader;

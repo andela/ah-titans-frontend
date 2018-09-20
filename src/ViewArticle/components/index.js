@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'react-materialize';
+import { Link } from 'react-router-dom';
 import moment from 'moment';
 import './index.css';
 import Icons from '../../Icons/components/index';
@@ -48,6 +49,23 @@ class ViewArticle extends React.Component {
 							<div>
 								<h6><i><b>{moment(article.updated_at).format('MMM Do YYYY, h:mm:ss a')}</b></i></h6>
 							</div>
+					</Col>
+					</Row>
+					<Col>
+						<i className="material-icons icon-blue right">
+							{article.favorited ? 'favorite_border' : 'favorite'}
+						</i>
+					</Col>
+          <Col s={12}>
+				   	 <div>
+                <h6><i><b><Link to={`/profile/${article.author && article.author.username}`}>
+									By: {article.author && article.author.username}</Link></b></i></h6>
+            	</div>
+				    </Col>
+            <Col s={12}>
+						<div>
+              <h6 style={{ color: '#2196F3' }}><i><b>{moment(article.updated_at).format('MMM Do YYYY, h:mm:ss a')}</b></i></h6>
+            </div>
 						</Col>
 						<Col s={12}>
 							<div>

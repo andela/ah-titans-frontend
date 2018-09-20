@@ -7,6 +7,7 @@ import viewArticles from './viewArticles';
 import getArticle from './article';
 import getActiveUser from './getActiveUser';
 import likeDislikeArticles from './likeDislike';
+import profileReducer from './profileReducer';
 
 export default combineReducers({
 	exampleReducer,
@@ -17,4 +18,5 @@ export default combineReducers({
 	getArticle,
 	user: getActiveUser,
 	likeDislikeArticles,
+	profile: profileReducer,
 });
