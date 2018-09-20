@@ -6,7 +6,6 @@ import {
 } from 'react-materialize';
 import InlineError from './InlineError';
 
-
 const ResetPasswordForm = ({
 	onSubmit, errors, data, onChange, onValidate, loading,
 }) => (
@@ -46,7 +45,6 @@ const ResetPasswordForm = ({
 	</Row>
 );
 
-
 ResetPasswordForm.propTypes = {
 	loading: PropTypes.func.isRequired,
 	onSubmit: PropTypes.func.isRequired,
@@ -57,6 +55,5 @@ ResetPasswordForm.propTypes = {
 		email: PropTypes.string,
 	}).isRequired,
 };
-
 
 export default ResetPasswordForm;

@@ -6,7 +6,6 @@ const InlineError = ({ text }) => (
 	<span className="error">{text}</span>
 );
 
-
 InlineError.propTypes = {
 	text: PropTypes.oneOfType([
 		PropTypes.string,
