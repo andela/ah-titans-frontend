@@ -1,7 +1,11 @@
 import configureStore from 'redux-mock-store';
-import { likeArticleActionCreator, dislikeArticleActionCreator, likeDislikeErrorActionCreator } from './likeDislike';
+import {
+	likeArticleActionCreator, dislikeArticleActionCreator, likeDislikeErrorActionCreator, likeDislikeArticleSuccess,
+} from './likeDislike';
 
-import { LIKE_ARTICLE, DISLIKE_ARTICLE, LIKE_DISLIKE_ERROR } from './types';
+import {
+	LIKE_ARTICLE, DISLIKE_ARTICLE, LIKE_DISLIKE_ERROR, VIEW_ARTICLE,
+} from './types';
 
 const mockStore = configureStore();
 const store = mockStore();
@@ -13,30 +17,40 @@ const expectedAction = type => ({
 describe('create actions', () => {
 	it('should create an action like an article', () => {
 		expect(
-      likeArticleActionCreator(),
+			likeArticleActionCreator(),
 		).toEqual(
 			expectedAction(
-      LIKE_ARTICLE,
+				LIKE_ARTICLE,
 			),
 		);
-  });
+	});
 
-  it('should create an action dislike an article', () => {
-    expect(
-      dislikeArticleActionCreator(),
-    ).toEqual(
-      expectedAction(
-      DISLIKE_ARTICLE,
-      ),
-    );
-  });
+	it('should create an action dislike an article', () => {
+		expect(
+			dislikeArticleActionCreator(),
+		).toEqual(
+			expectedAction(
+				DISLIKE_ARTICLE,
+			),
+		);
+	});
 
 	it('should create an action get error on like/dislike', () => {
 		expect(
-      likeDislikeErrorActionCreator(),
+			likeDislikeErrorActionCreator(),
 		).toEqual(
 			expectedAction(
-      LIKE_DISLIKE_ERROR,
+				LIKE_DISLIKE_ERROR,
+			),
+		);
+	});
+
+	it('should create an action like an article', () => {
+		expect(
+			likeDislikeArticleSuccess(),
+		).toEqual(
+			expectedAction(
+				VIEW_ARTICLE,
 			),
 		);
 	});
@@ -54,7 +68,7 @@ describe('select like/dislike an article action', () => {
 		];
 
 		store.dispatch(
-      likeArticleActionCreator(
+			likeArticleActionCreator(
 				data,
 			),
 		);
@@ -81,7 +95,7 @@ describe('select like/dislike errors action', () => {
 		];
 
 		store.dispatch(
-      likeDislikeErrorActionCreator(
+			likeDislikeErrorActionCreator(
 				errors,
 			),
 		);
@@ -105,7 +119,7 @@ describe('select disliking an article action', () => {
 			},
 		];
 		store.dispatch(
-      dislikeArticleActionCreator(),
+			dislikeArticleActionCreator(),
 		);
 		expect(
 			store.getActions(),

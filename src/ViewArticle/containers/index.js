@@ -10,11 +10,20 @@ import EditButton from '../components/EditButton';
 class ArticleView extends Component {
 	constructor(props) {
 		super(props);
+		this.state = {
+			article: {},
+			isFetching: '',
+		};
 		this.handleLikeDislike = this.handleLikeDislike.bind(this);
 	}
 
 	componentDidMount() {
 		this.props.fetchArticle(this.props.match.params.slug);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const { article, isFetching } = nextProps;
+		this.setState({ isFetching, article });
 	}
 
 	handleLikeDislike(e) {
@@ -31,7 +40,7 @@ class ArticleView extends Component {
 	}
 
 	render() {
-		const { article, isFetching } = this.props;
+		const { article, isFetching } = this.state;
 		return (
 			<div>
 				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} onClick={this.handleLikeDislike} />}</React.Fragment>
