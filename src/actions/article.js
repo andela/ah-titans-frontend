@@ -1,5 +1,6 @@
 import { VIEW_ARTICLE, GET_ARTICLE_ERROR, GETTING_ARTICLE } from './types';
-import call from '../utils/service';
+import http from '../utils/http.service';
+import config from '../config';
 
 export const getArticleActionCreator = () => ({
 	type: GETTING_ARTICLE,
@@ -17,7 +18,7 @@ export const getArticleErrorActionCreator = error => ({
 
 const fetchArticle = slug => (dispatch) => {
 	dispatch(getArticleActionCreator());
-	call({ endpoint: `/articles/${slug}`, method: 'GET' },)
+	http.get(`${config.BASE_URL}/articles/${slug}`)
 		.then((article) => {
 			dispatch(viewArticleActionCreator(article));
 		})
