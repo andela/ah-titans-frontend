@@ -1,5 +1,6 @@
 import { USER_RATE_ARTICLE, RATING_ERROR } from './types';
-import call from '../utils/service';
+import http from '../utils/http.service';
+import config from '../config';
 
 export const rateAction = () => ({
 	type: USER_RATE_ARTICLE,
@@ -11,14 +12,7 @@ export const ratingErrorActionCreator = error => ({
 });
 
 export const sucessfullRating = (slug, rateData) => (dispatch) => {
-	call(
-		{
-			endpoint: `/articles/${slug}/rate/`,
-			method:
-                'POST',
-			data: rateData
-		},
-	)
+	http.post(`${config.BASE_URL}/articles/${slug}/rate/`, { rateData })
 		.then(
 			(data) => {
 				dispatch(
