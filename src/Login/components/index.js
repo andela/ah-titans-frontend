@@ -9,7 +9,7 @@ import './index.scss';
 const LoginForm = ({
 	onClick, onChange, errors, isFetching,
 }) => (
-	<Row style={{ marginTop: '5%' }}>
+	<Row >
 		<Col m={6} s={12} offset="m3">
 			<Card textClassName="blacktext" title="Login">
 				<Row>
