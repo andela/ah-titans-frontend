@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import ProfilePage from '../components/ProfileComponent';
 import { getProfile, updateProfile } from '../../actions/profileActions';
 import Loader from '../../Loader/components';
@@ -132,4 +133,4 @@ Profile.propTypes = {
 };
 
 
-export default connect(mapStateToProps, { getProfile, updateProfile })(Profile);
+export default withRouter(connect(mapStateToProps, { getProfile, updateProfile })(Profile));
