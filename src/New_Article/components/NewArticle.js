@@ -12,7 +12,7 @@ import './NewArticle.scss';
 const NewArticle = ({
   onClick, onChange, errors, isFetching,
 }) => (
-  <div>
+  <div style={{ marginTop: '5%', }}>
     <Row>
       <Col s={8} offset="s2">
         <Card className="black-text" title="Create Article">

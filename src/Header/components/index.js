@@ -1,70 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
-	Col, Icon, SideNav, Button, SideNavItem,
+	Navbar, Col,
 } from 'react-materialize';
-import ProfileIcon from '../../assets/profile.png';
-import Img from '../../assets/signup.png';
-import './index.scss';
+import Logo from '../../assets/logo.png';
+// The Header creates links that can be used to navigate
+// between routes.
+const username = localStorage.getItem('username');
 
-const HeaderComponent = user => (
-	<Col s={12} className="Navbar blue" style={{ height: '60px' }}>
-		<Col m={1}>
-			<SideNav
-				trigger={(
-					<Button className="sideMenuButton z-depth-0 blue" m={1}>
-						<Icon>reorder</Icon>
-					</Button>
-				)}
-				options={{ closeOnClick: true }}
-			>
-				{user.user.username ? (
-					<SideNavItem
-						userView
-						user={{
-							background: Img,
-							image: ProfileIcon,
-							name: `${user.user.username}`,
-							email: `${user.user.email}`,
-						}}
-					/>
-				) : (
-					''
-				)}
-				<SideNavItem href="/" icon="home">
-          Home
-				</SideNavItem>
-				{user.user.username && (
-					<React.Fragment>
-						<SideNavItem href="/article" icon="edit">
-              Create Article
-						</SideNavItem>
-						<SideNavItem href={`/profile/${user.user.username}`}
-							icon="perm_identity">
-              View My Profile
-            </SideNavItem>
-					</React.Fragment>
-				)}
-				<SideNavItem divider />
-				{!user.user.username ? (
-					<React.Fragment>
-						<SideNavItem waves href="/signup" icon="assignment">
-              Signup
-						</SideNavItem>
-						<SideNavItem waves href="/login" icon="arrow_left_alt">
-              Sign In
-            </SideNavItem>
-					</React.Fragment>
-				) : (
-					<SideNavItem waves href="/logout" icon="arrow_right">
-            Logout
-					</SideNavItem>
-				)}
-			</SideNav>
+const Header = () => (
+	<Navbar style={{ backgroundColor: '#3498db' }}>
+		<Col s={10} offset="s2">
+			<Col s={7}><img height="70" width="80" src={Logo} alt="Loading ..." /></Col>
+			<Col s={5}>
+				<ul>
+					<li><Link to="/">Home</Link></li>
+					<li><Link to={`/profile/${username}`}>Profile</Link></li>
+					<li><Link to="/login">Login</Link></li>
+					<li><Link to="/signup">Signup</Link></li>
+				</ul>
+			</Col>
 		</Col>
-		<Col className="logo">Authors' Haven</Col>
-	</Col>
+	</Navbar>
 );
 
-HeaderComponent.propTypes = {};
 
-export default HeaderComponent;
+export default Header;
