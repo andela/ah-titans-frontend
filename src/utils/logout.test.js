@@ -19,7 +19,7 @@ it('should logout user if token has expired', () => {
 it('should test header', () => {
 	setAuth();
 	getToken();
-	expect(getToken()).toEqual({ Authorization: 'Token sdhfihodhfiohdiofh' });
+	expect(getToken()).toEqual('Token sdhfihodhfiohdiofh');
 });
 
 it('should test header', () => {

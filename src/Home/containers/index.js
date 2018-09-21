@@ -41,7 +41,7 @@ export class Home extends Component {
 		const token = localStorage.getItem('token');
 
 		if (success === true) {
-			articles.map(article_ => article.push(<ArticlesForm article={article_} key={article.slug} />) );
+			articles.map(article_ => article.push(<ArticlesForm article={article_} key={article.slug} />));
 		}
 
 		return (
@@ -50,16 +50,20 @@ export class Home extends Component {
 					<SnackBar show timer={6000} className="home">
             You have successfully signed up to Authors Haven!! Please check your
             email to verify your account
-					</SnackBar>
+
+										     </SnackBar>
 				) : (
 					''
 				)}
 				{isFetching && <Loader />}
 				<SearchComponent />
-				<Row class="home"> 
-{' '}
-{article}
-</Row>
+				<Row class="home">
+					{' '}
+					{article}
+				</Row>
+				{
+					token ? (<CreateArticleButton />) : ('')
+				}
 			</div>
 		);
 	}
@@ -75,6 +79,6 @@ const mapStatetoProps = state => ({
 });
 
 export default connect(
-  mapStatetoProps,
-  mapDispatchToProps,
+	mapStatetoProps,
+	mapDispatchToProps,
 )(Home);
