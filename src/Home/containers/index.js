@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import SnackBar from 'react-material-snackbar';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Row, Col } from 'react-materialize';
 import '../components/index.scss';
 import ArticlesForm from '../components';
@@ -88,7 +89,7 @@ const mapStatetoProps = state => ({
 	articles: state.viewArticles,
 });
 
-export default connect(
+export default withRouter(connect(
 	mapStatetoProps,
 	mapDispatchToProps,
-)(Home);
+)(Home));
