@@ -28,7 +28,6 @@ const facebookLogin = (requestBody, history) => (dispatch) => {
 	dispatch(facebookLoginRequest());
 	http.post(`${config.BASE_URL}/users/auth/facebook`, { access_token: data2 })
 		.then((data) => {
-			console.log(data.data.user.token);
 			localStorage.setItem('token', data.data.user.token);
 			dispatch(
 				facebookLoginUserSuccessful(data.data.user.token),

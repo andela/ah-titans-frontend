@@ -26,6 +26,17 @@ class Login extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
+	componentWillReceiveProps(nextProps) {
+		console.log('login', nextProps);
+		const {
+			email, password,
+		} = nextProps.login.user;
+		this.setState({
+			email, password,
+		});
+	}
+
+
 	/**
  * Represents functionality for handling social login errors.
  * @access - Public for both registered and unregistered users.
@@ -98,15 +109,18 @@ class Login extends React.Component {
 	}
 
 	render() {
+		console.log(this.props);
 		const { login } = this.props;
 		const {
-			errors, isFetching, isFetchingFacebook, isFetchingGoogle,
+			password, email, errors, isFetching, isFetchingFacebook, isFetchingGoogle,
 		} = login;
 		return (
 			<LoginForm
 				onChange={this.handleChange}
 				onClick={this.handleSubmit}
 				errors={errors}
+				email={email}
+				password={password}
 				isFetching={isFetching}
 				isFetchingFacebook={isFetchingFacebook}
 				isFetchingGoogle={isFetchingGoogle}
@@ -131,8 +145,8 @@ Login.propTypes = {
 	}).isRequired,
 };
 
-const mapStateToProps = ({ login }) => ({
-	login,
+const mapStateToProps = state => ({
+	login: state.login,
 });
 
 const mapDispatchToProps = (dispatch) => {
