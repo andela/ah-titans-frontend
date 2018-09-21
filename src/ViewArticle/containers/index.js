@@ -30,7 +30,6 @@ class ArticleView extends Component {
 				rating: this.state.rateData,
 			},
 		};
-		console.log(rateData);
 		this.props.sucessfullRating(this.props.match.params.slug, rateData);
 	}
 
