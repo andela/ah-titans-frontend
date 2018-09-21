@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import ViewArticle from '../components';
 import fetchArticle from '../../actions/article';
@@ -22,11 +21,9 @@ class ArticleView extends Component {
 	componentDidMount() {
 		this.props.fetchArticle(this.props.match.params.slug);
 
-		// this.props.sucessfullRating(this.props.match.params.slug, 5);
 	}
 
 	onRate({ rating }) {
-		console.log(this.props);
 		this.setState({ rateData: rating, rating: this.props.article.average_rating });
 		const rateData = {
 			rate: {
@@ -39,7 +36,6 @@ class ArticleView extends Component {
 
 
 	render() {
-		console.log(this.state);
 		const { article, isFetching } = this.props;
 		console.log(this.props);
 		return (
