@@ -100,6 +100,9 @@
       "\\.(css|scss)$": "<rootDir>/fileTransformer.js",
       "^.+\\.js$": "babel-jest"
     },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
     "setupFiles": [
       "./src/setupEnzyme.js"
     ],
