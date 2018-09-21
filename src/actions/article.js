@@ -15,15 +15,13 @@ export const getArticleErrorActionCreator = error => ({
 	payload: error,
 });
 
-const fetchArticle = (slug) => (dispatch) => {
+const fetchArticle = slug => (dispatch) => {
 	dispatch(getArticleActionCreator());
-	call({endpoint: `/articles/${slug}`, method: 'GET'},
-	)
-	.then((article) => {
-				dispatch(viewArticleActionCreator(article),);
-			})
-	.catch(error => dispatch(getArticleErrorActionCreator(error)),
-		);
+	call({ endpoint: `/articles/${slug}`, method: 'GET' },)
+		.then((article) => {
+			dispatch(viewArticleActionCreator(article));
+		})
+		.catch(error => dispatch(getArticleErrorActionCreator(error)),);
 };
 
 export default fetchArticle;

@@ -9,6 +9,7 @@ import viewArticles from './viewArticles';
 import getArticle from './article';
 import getActiveUser from './getActiveUser';
 import profileReducer from './profileReducer';
+import ratingArticles from './ratingReducers';
 
 export default combineReducers({
 	exampleReducer,
@@ -21,4 +22,5 @@ export default combineReducers({
 	getArticle,
 	user: getActiveUser,
 	profile: profileReducer,
+	rating: ratingArticles,
 });
