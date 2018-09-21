@@ -5,15 +5,22 @@ import {
 	Col, Card, Row, Input, Button,
 } from 'react-materialize';
 import './index.scss';
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
+import Alert from 'react-s-alert';
+import 'react-s-alert/dist/s-alert-default.css';
+import 'react-s-alert/dist/s-alert-css-effects/slide.css';
+import config from '../../config';
+
 
 const LoginForm = ({
-	onClick, onChange, errors, isFetching,
+	onClick, onChange, errors, isFetching, facebookResponse, onFailure, onSuccess, isFetchingGoogle, isFetchingFacebook,
 }) => (
 	<Row >
 		<Col m={6} s={12} offset="m3">
 			<Card textClassName="blacktext" title="Login">
 				<Row>
-					<div className="error">{errors && errors.error}</div>
+					<div className="error">{errors.error}</div>
 					<Input
 						type="email"
 						label="Email"
@@ -21,7 +28,7 @@ const LoginForm = ({
 						onChange={onChange}
 						s={12}
 					/>
-					<div className="error">{errors && errors.email}</div>
+					<div className="error">{errors.email}</div>
 					<Input
 						type="password"
 						label="password"
@@ -29,7 +36,7 @@ const LoginForm = ({
 						onChange={onChange}
 						s={12}
 					/>
-					<div className="error">{errors && errors.password}</div>
+					<div className="error">{errors.password}</div>
 				</Row>
 				<Row>
 					<Col m={6} s={12}>
@@ -52,32 +59,53 @@ const LoginForm = ({
 						</p>
 					</Col>
 				</Row>
+				Or sign in with:
 				<Row>
-					<Col m={6} s={12}>
-						<Button waves="light" style={{ backgroundColor: 'red' }}>
-              Login with google account
-						</Button>
-					</Col>
-					<Col m={6} s={12}>
-						<Button waves="light" style={{ backgroundColor: '#1aa3ff' }}>
-              Login with facebook account
-						</Button>
-					</Col>
-				</Row>
+          		<Col>
+				<FacebookLogin
+					appId={config.fbAppId}
+					fields="name,email,picture"
+					callback={facebookResponse}
+					onSuccess={facebookResponse}
+					onFailure={onFailure}
+					cssClass="btn btn-primary col"
+					style={{ width: '10em' }}
+					icon="fa fa-facebook fa-2x"
+					textButton={isFetchingFacebook ? 'Processing ...' : 'Login with facebook'}
+				/>
+					<GoogleLogin
+						clientId={config.googleClientId}
+						onSuccess={onSuccess}
+						onFailure={onFailure}
+						type=""
+						tag="div"
+						className="col"
+						>
+						<a class="waves-effect waves-light btn social google">
+            <i class="fa fa-google"></i> {isFetchingGoogle ? 'Processing ...' : 'Login with google'}</a>
+						</GoogleLogin>
+            </Col>
+					</Row>
 			</Card>
 		</Col>
+    <Alert stack={{limit: 3}} />
 	</Row>
 );
 
 LoginForm.propTypes = {
 	onClick: PropTypes.func.isRequired,
 	onChange: PropTypes.func.isRequired,
+	facebookResponse: PropTypes.func.isRequired,
+	onSuccess: PropTypes.func.isRequired,
+	onFailure: PropTypes.func.isRequired,
 	errors: PropTypes.shape({
 		error: PropTypes.array,
 		email: PropTypes.array,
 		password: PropTypes.array,
 	}).isRequired,
 	isFetching: PropTypes.bool.isRequired,
+	isFetchingGoogle: PropTypes.bool.isRequired,
+	isFetchingFacebook: PropTypes.bool.isRequired,
 };
 
 export default LoginForm;
