@@ -10,15 +10,21 @@ import getActiveUser from '../../actions/getActiveUser';
 export class Header extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = { user: {} };
 	}
 
 	componentDidMount() {
 		this.props.getActiveUser();
 	}
 
+	componentWillReceiveProps(nextProps) {
+		console.log(nextProps);
+		const { user } = nextProps;
+		this.setState({ user });
+	}
+
 	render() {
-		const { user } = this.props;
+		const { user } = this.state;
 		return <Row><HeaderComponent user={user} /></Row>;
 	}
 }
