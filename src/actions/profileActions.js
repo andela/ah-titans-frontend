@@ -53,7 +53,10 @@ export const getProfile = userName => (dispatch) => {
 				getProfileSuccessfully(data.data),
 			);
 		})
-		.catch(error => dispatch(getProfileError(error)));
+		.catch((error) => {
+			const { response: { data } } = error;
+			dispatch(getProfileError(data));
+		});
 };
 
 /**

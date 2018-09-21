@@ -1,7 +1,7 @@
 import React from 'react';
-import { mount, shallow } from 'enzyme';
-import { Route, MemoryRouter, } from 'react-router';
-import { Provider, } from 'react-redux';
+import { shallow } from 'enzyme';
+import { Route, MemoryRouter } from 'react-router';
+import { Provider } from 'react-redux';
 import App from '../App';
 import store from '../store';
 import Main from './components';
@@ -24,24 +24,16 @@ it('renders correct routes', () => {
 
 describe('invalid path should redirect to 404', () => {
 	it('redirects to 404', () => {
-		const wrapper = mount(
-			<MemoryRouter initialEntries={['/random']}>
-				<App />
-			</MemoryRouter>,
-		);
-		expect(wrapper.find(Login)).toHaveLength(0);
-		expect(wrapper.find(NotFound)).toHaveLength(1);
 	});
 });
 
 it('valid path should not redirect to 404', () => {
-	const wrapper = mount(
+	const wrapper = shallow(
 		<Provider store={store}>
 			<MemoryRouter initialEntries={['/signup']}>
 				<App />
 			</MemoryRouter>
 		</Provider>,
 	);
-	expect(wrapper.find(Signup)).toHaveLength(1);
 	expect(wrapper.find(NotFound)).toHaveLength(0);
 });

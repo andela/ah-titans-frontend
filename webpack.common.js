@@ -21,7 +21,6 @@ module.exports = {
 				test: /\.(js|jsx)$/,
 				exclude: /(node_modules|bower_components)/,
 				loader: 'babel-loader',
-				options: { presets: ['env'] },
 			},
 			{
 				test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
@@ -41,5 +40,6 @@ module.exports = {
 	output: {
 		filename: '[name].bundle.js',
 		path: path.resolve(__dirname, 'dist'),
+		publicPath: '/',
 	},
 };

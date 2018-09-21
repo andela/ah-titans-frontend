@@ -16,7 +16,7 @@ import config from '../../config';
 const LoginForm = ({
 	onClick, onChange, errors, isFetching, facebookResponse, onFailure, onSuccess, isFetchingGoogle, isFetchingFacebook,
 }) => (
-	<Row style={{ marginTop: '5%' }}>
+	<Row >
 		<Col m={6} s={12} offset="m3">
 			<Card textClassName="blacktext" title="Login">
 				<Row>
@@ -51,8 +51,11 @@ const LoginForm = ({
 					</Col>
 					<Col m={6} s={12}>
 						<p style={{ color: 'black' }}>
-							Not a member?
-							<Link to="/signup"> Signup </Link>
+              Not a member?
+							<Link to="/signup"> Signup</Link>
+						</p>
+						<p style={{ color: 'black' }}>
+							<Link to="/resetpass"> Forgot your password?</Link>
 						</p>
 					</Col>
 				</Row>
