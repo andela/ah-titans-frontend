@@ -9,8 +9,6 @@ import NotFound from '../../Error_pages/components/page_not_found';
 import Toast from '../../Toast';
 import './index.scss';
 
-const currentUser = localStorage.getItem('username');
-
 const ProfilePage = ({
 	username, bio, interests, handleChange, handleClick, publicId,
 	initialUsername, initialBio, initialInterests, handleUpload, errors,
@@ -28,9 +26,7 @@ const ProfilePage = ({
 									? <Image cloudName="authors-haven" publicId={`${publicId}`} width="150" height="150" style={{ borderRadius: '100px' }} />
 									: <img src={ProfPic} alt="profpic" width="150" height="150" style={{ borderRadius: '50%' }} />
 								}
-								{ (initialUsername === currentUser)
-									&& <Button className="grey lighten-5 blue-text z-depth-0 edit-profile" waves="light" onClick={handleUpload}><i className="material-icons">add_a_photo</i></Button>
-								}
+								<Button className="grey lighten-5 blue-text z-depth-0 edit-profile" waves="light" onClick={handleUpload}><i className="material-icons">add_a_photo</i></Button>
 							</Row>
 							<Row style={{ textAlign: 'center' }}>
 								<Col m={8} offset="m2">
@@ -50,61 +46,56 @@ const ProfilePage = ({
 									{initialInterests}
 								</p>
 							</Row>
-							<Row>
-								{ initialUsername === currentUser
-									? (
-										<Col m={12}>
-											<Modal
-												header="Edit profile"
-												trigger={(
-													<Button
-														className="waves-effect black-text grey lighten-5 btn-edit-profile"
-													>Edit Profile</Button>
-												)}
-												actions={(
-													<div>
-														<Button
-															modal="close"
-															waves="light"
-															className="blue darken-2"
-															id="update"
-															style={{ marginRight: '20px' }}
-															onClick={handleClick}
-														>
-															<Icon left>update</Icon>Update
-														</Button>
-													</div>
-												)}
-											>
-												<Input
-													type="text"
-													name="username"
-													label="username"
-													value={username}
-													s={12}
-													onChange={handleChange}
-												/>
-												<Input
-													type="text"
-													name="bio"
-													label="bio"
-													s={12}
-													value={bio}
-													onChange={handleChange}
-												/>
-												<Input
-													type="text"
-													name="interests"
-													label="interests"
-													value={interests}
-													s={12}
-													onChange={handleChange}
-												/>
-											</Modal>
-										</Col>
-									)
-									: ''
-								}
+							<Row>						
+								<Col m={12}>
+									<Modal
+										header="Edit profile"
+										trigger={(
+											<Button
+												className="waves-effect black-text grey lighten-5 btn-edit-profile"
+											>Edit Profile</Button>
+										)}
+										actions={(
+											<div>
+												<Button
+													modal="close"
+													waves="light"
+													className="blue darken-2"
+													id="update"
+													style={{ marginRight: '20px' }}
+													onClick={handleClick}
+												>
+													<Icon left>update</Icon>Update
+												</Button>
+											</div>
+										)}
+									>
+										<Input
+											type="text"
+											name="username"
+											label="username"
+											value={username}
+											s={12}
+											onChange={handleChange}
+										/>
+										<Input
+											type="text"
+											name="bio"
+											label="bio"
+											s={12}
+											value={bio}
+											onChange={handleChange}
+										/>
+										<Input
+											type="text"
+											name="interests"
+											label="interests"
+											value={interests}
+											s={12}
+											onChange={handleChange}
+										/>
+									</Modal>
+								</Col>
 							</Row>
 
 						</Card>
