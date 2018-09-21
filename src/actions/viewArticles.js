@@ -16,6 +16,13 @@ export const getArticlesErrorActionCreator = error => ({
 	payload: error,
 });
 
+/**
+ * Represents functionality for getting articles.
+ * @constructor
+ * * @param {object} page - Contains the specific page to fetch.
+ * @access - Public for both registered and unregistered users.
+ */
+
 const getArticles = page => (dispatch) => {
 	dispatch(gettingArticlesActionCreator());
 	http.get(`${config.BASE_URL}/articles/?page=${page}`)
