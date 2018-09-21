@@ -22,7 +22,4 @@ export const checkURL = (uidb64, token, history) => (dispatch) => {
 	});
 };
 
-export const newpass = credentials => dispatch => {
-	api.pass.newpass(credentials)
-		.then(reset => dispatch(userNewPass(reset)))
-};
+export const newpass = credentials => dispatch => api.pass.newpass(credentials).then(reset => dispatch(userNewPass(reset)));

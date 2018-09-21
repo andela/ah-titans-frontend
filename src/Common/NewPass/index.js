@@ -4,6 +4,7 @@ import NewPassword from './containers';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { checkURL, newpass } from '../../actions/newPass';
+import { withRouter } from 'react-router-dom';
 
 class NewPass extends React.Component {
   constructor(props){
@@ -44,4 +45,4 @@ const mapStatetoProps = newPass => ({
   newPass
 });
 
-export default connect(mapStatetoProps, mapDispatchToProps)(NewPass);
+export default withRouter(connect(mapStatetoProps, mapDispatchToProps)(NewPass));
