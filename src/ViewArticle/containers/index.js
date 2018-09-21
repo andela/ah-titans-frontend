@@ -13,6 +13,8 @@ class ArticleView extends Component {
 		this.state = {
 			rating: 0,
 			rateData: 0,
+			article: {},
+			isFetching: '',
 		};
 		this.onRate = this.onRate.bind(this);
 	}
@@ -20,7 +22,11 @@ class ArticleView extends Component {
 
 	componentDidMount() {
 		this.props.fetchArticle(this.props.match.params.slug);
+	}
 
+	componentsWillReceiveProps(nextProps) {
+		const { article, isFetching } = nextProps;
+		this.setState({ article, isFetching });
 	}
 
 	onRate({ rating }) {
@@ -35,7 +41,7 @@ class ArticleView extends Component {
 
 
 	render() {
-		const { article, isFetching } = this.props;
+		const { article, isFetching } = this.state;
 		return (
 			<div>
 				<React.Fragment>{isFetching ? <Loader /> : <ViewArticle article={article} rating={this.state.rating} onRate={this.onRate} />}</React.Fragment>
