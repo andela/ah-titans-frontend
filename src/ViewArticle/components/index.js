@@ -3,28 +3,29 @@ import { Col, Row } from 'react-materialize';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
 import './index.css';
+import Icons from '../../Icons/components/index';
 
 class ViewArticle extends React.Component {
 	render() {
-		const {article} = this.props;
+		const { article, onClick, likes, dislikes } = this.props;
 
 		return (
 			<Row s={12}>
 				<Col s={12}>
-				<div className="container">
-					<Row s={12}>
-						<Col s={6}>
-						<div className="Head">
-							<h3 style={{ color: '#2196F3', marginRight: '20px'}}>{article.title}</h3>
+					<div className="container">
+						<Row s={12}>
+							<Col>
+								<div className="Head">
+									<h3 style={{ color: '#2196F3', marginRight: '20px' }}>{article.title}</h3>
 									<i className="material-icons icon-orange small">star</i>
 									<i className="material-icons icon-orange small star">star</i>
 									<i className="material-icons icon-orange small">star</i>
 									<i className="material-icons icon-orange small">star</i>
 									<i className="material-icons icon-orange small">star_half</i>
 									<i style={{ alignContent: 'center', position: 'inline' }}>4.6</i>
-							</div>
-					</Col>
-					</Row>
+								</div>
+							</Col>
+						</Row>
 					<Col>
 						<i className="material-icons icon-blue right">
 							{article.favorited ? 'favorite_border' : 'favorite'}
@@ -46,14 +47,24 @@ class ViewArticle extends React.Component {
 								<p>{article.body}</p>
 							</div>
 						</Col>
-						<div className="floating" style={{marginLeft:'10px'}} >
-					<i class="small material-icons floating left">thumb_up</i><br></br>
-					<i class="small material-icons floating left">thumb_down</i><br></br>
-					<i class="small material-icons floating left">bookmark</i><br></br>
-					<i class="small material-icons floating left">share</i><br></br>
-				</div>
-				</div>
-			</Col>
+						<Col className="icona">
+							<div className="floating" style={{ display: 'inline-flex' }}>
+								<div className="clear">
+									<Icons icon="thumb_up" onClick={onClick} id="like" count={likes} />
+								</div>
+								<div className="clear">
+									<Icons icon="thumb_down" onClick={onClick} id="dislike" count={article.dislikes_count} />
+								</div>
+								<div className="clear">
+									<Icons icon="bookmark" onclick={{}} />
+								</div>
+								<div className="clear">
+									<Icons icon="share" onclick={{}} />
+								</div>
+							</div>
+						</Col>
+					</div>
+				</Col>
 			</Row>
 		);
 	}

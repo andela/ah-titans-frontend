@@ -3,9 +3,12 @@ import exampleReducer from './exampleReducer';
 import signupReducer from './signup';
 import loginReducer from './loginReducer';
 import createArticleReducer from './createArticleReducer';
+import resetPass from './resetPass';
+import newPass from './newPass';
 import viewArticles from './viewArticles';
 import getArticle from './article';
 import getActiveUser from './getActiveUser';
+import likeDislikeArticles from './likeDislike';
 import profileReducer from './profileReducer';
 
 export default combineReducers({
@@ -13,8 +16,11 @@ export default combineReducers({
 	signup: signupReducer,
 	login: loginReducer,
 	article: createArticleReducer,
+	resetPass,
+	newPass,
 	viewArticles,
 	getArticle,
 	user: getActiveUser,
+	likeDislikeArticles,
 	profile: profileReducer,
 });

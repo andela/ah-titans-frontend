@@ -7,6 +7,8 @@ import Article from '../../New_Article/containers/index';
 import ArticleView from '../../ViewArticle/containers';
 import Profile from '../../Profile/containers/ProfileContainer';
 import NotFound from '../../Error_pages/components/page_not_found';
+import ResetPass from '../../Common/ResetPass';
+import NewPass from '../../Common/NewPass';
 
 const Main = () => (
 	<main>
@@ -28,9 +30,12 @@ const Main = () => (
 				}
 				<Route exact path="/article/:slug" component={ArticleView} />
 				<Route exact path="/profile/:username" component={Profile} />
+        <Route exact path="/resetpass" component={ResetPass} />
+			  <Route path="/api/reset/:uidb64/:token/" component={NewPass} />
 				<Route component={NotFound} />
 			</Switch>
 		</BrowserRouter>
+
 	</main>
 );
 

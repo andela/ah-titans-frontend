@@ -1,5 +1,11 @@
 .Head{
   display: flex;
-  justify-content: left;
   align-items: center;
+}
+.clear{
+  margin-right: 10px;
+  display: flex;
+}
+.clear :hover{
+  color: orange;
 }
