@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, } from 'react-router-dom';
 import {
 	Col, Icon, SideNav, Button, SideNavItem,
 } from 'react-materialize';
@@ -30,34 +31,51 @@ const HeaderComponent = user => (
 				) : (
 					''
 				)}
-				<SideNavItem href="/" icon="home">
-          Home
-				</SideNavItem>
+				
+				  <Link to="/">
+					  <SideNavItem icon="home">
+					    Home
+						</SideNavItem>
+					</Link>
+				
+				
 				{user.user.username && (
 					<React.Fragment>
-						<SideNavItem href="/article" icon="edit">
-              Create Article
-						</SideNavItem>
-						<SideNavItem href={`/profile/${user.user.username}`}
-							icon="perm_identity">
-              View My Profile
-            </SideNavItem>
+						<Link to="/article">
+							<SideNavItem icon="edit">
+								Create Article
+							</SideNavItem>
+						</Link>
+						<Link to={`/profile/${user.user.username}`}>
+							<SideNavItem
+								icon="perm_identity">
+								View My Profile
+							</SideNavItem>
+						</Link>
 					</React.Fragment>
 				)}
+				
 				<SideNavItem divider />
 				{!user.user.username ? (
 					<React.Fragment>
-						<SideNavItem waves href="/signup" icon="assignment">
-              Signup
-						</SideNavItem>
-						<SideNavItem waves href="/login" icon="arrow_left_alt">
-              Sign In
-            </SideNavItem>
+						<Link to='/signup'>
+							<SideNavItem waves icon="assignment">
+								Signup
+							</SideNavItem>
+						</Link>
+						<Link to="/login">
+							<SideNavItem waves icon="arrow_left_alt">
+								Sign In
+							</SideNavItem>
+						</Link>
 					</React.Fragment>
 				) : (
-					<SideNavItem waves href="/logout" icon="arrow_right">
-            Logout
-					</SideNavItem>
+					<Link to="/logout">
+						<SideNavItem waves icon="arrow_right">
+							Logout
+						</SideNavItem>
+					</Link>
+					
 				)}
 			</SideNav>
 		</Col>

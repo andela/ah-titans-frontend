@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import {
 	Row,
@@ -18,7 +19,6 @@ export class Header extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log(nextProps);
 		const { user } = nextProps;
 		this.setState({ user });
 	}
@@ -40,7 +40,7 @@ const mapStatetoProps = state => ({
 	user: state.user,
 });
 
-export default connect(
+export default withRouter(connect(
 	mapStatetoProps,
 	mapDispatchToProps,
-)(Header);
+)(Header));

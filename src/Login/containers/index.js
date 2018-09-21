@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import loginUser from '../../actions/loginActions';
 import LoginForm from '../components';
@@ -77,4 +78,4 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
